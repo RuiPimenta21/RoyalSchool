@@ -1,0 +1,25 @@
+@charset "UTF-8";
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+
+}
+body > header {
+    height: 10vh;
+}
+body > main {
+    height: 80vh;
+    
+}
+body > footer {
+    background-color: #17395f;
+    height: 10vh;
+}
+body > footer > img{
+    display: block;
+    margin: auto;
+    height: 80px;
+    width: 160px;
+}
