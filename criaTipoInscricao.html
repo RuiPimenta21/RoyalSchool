@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal School</title>
+    <link rel="shortcut icon" href="imagens/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <h1>Tipo de Inscrição</h1>
+        <nav>
+            <a href="#">Ano Letivo</a>
+            <a href="#">Turma</a>
+            <a href="#">Nivel</a>
+            <a href="#">Aluno</a>
+            <a href="#">Enc. Educação</a>
+            <a href="#">Inscrição</a>
+            <a href="#">Tipo Inscrição</a>
+            <a href="#">Desconto</a>
+            <a href="#">Mensalidade</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Criar novo Tipo de Inscrição</h2>
+            <form name="formTipoInscricao"  id= "formTipoInscricao" method="post">
+                <article>
+                    <label for="descritivo">Descrição</label>
+                    <input type="text" id="descritivo" name="txtDescritivo">
+                </article>
+                <article>
+                    <label for="valorInscricao">Valor Inscrição Sem Iva</label>
+                    <input type="number" id="valorInscricao" name="txtValorInscricao" value= "0.00" min="0.00" step="0.01">
+                </article>
+                <article>
+                    <label for="valorLivro">Valor Livro Sem Iva</label>
+                    <input type="number" id="valorLivro" name="txtValorLivro" value= "0.00" min="0.00" step="0.01">
+                </article>
+                <article>
+                    <label for="valorMensalidade">Valor Mensalidade Sem Iva</label>
+                    <input type="number" id="valorMensalidade" name="txtValorMensalidade" value= "0.00" min="0.00" step="0.01">
+                </article>
+                <input type="button" value="Gravar" onclick="validaFormularioTipoIncricao()">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <img src="imagens/logoFooter.png" alt="Royal School Rodapé">
+    </footer>
+</body>
+</html>
+
