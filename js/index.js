@@ -22,8 +22,7 @@ function validaFormularioTipoIncricao() {
         document.forms["formTipoInscricao"]["txtValorMensalidade"].focus();
     }
     else{
-        guardaCampo(descritivo, valorInscricao, valorLivro, valorMensalidade);
-        mostraTipoInscricaoGravar(descritivo, valorInscricao, valorLivro, valorMensalidade);
+        confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade);
     }  
 }
 function faltaCampo(campo){
@@ -33,7 +32,10 @@ function faltaCampo(campo){
         text: 'Por favor introduza uma valor válido.',
     })
 }
-function guardaCampo(descritivo, valorInscricao, valorLivro, valorMensalidade){
+function confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade){
+    
+    mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade);
+    
     Swal.fire({
         title: 'Pretende gravar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
@@ -44,6 +46,7 @@ function guardaCampo(descritivo, valorInscricao, valorLivro, valorMensalidade){
         confirmButtonText: 'Sim, gravar!'
     }).then((result) => {
         if (result.isConfirmed) {
+            guardaBaseDados(descritivo, valorInscricao, valorLivro, valorMensalidade)
             Swal.fire(
             'Gravar!',
             'O seu registo foi gravado com sucesso!',
@@ -53,16 +56,24 @@ function guardaCampo(descritivo, valorInscricao, valorLivro, valorMensalidade){
         limpaDados();
     })
 }
-function mostraTipoInscricaoGravar(descritivo, valorInscricao, valorLivro, valorMensalidade) {
+function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
-    xhttp.open("GET", "php/getDadosFormularioTipoInscricao.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "php/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
-
-    console.log (xhttp);
+}
+function guardaBaseDados(descritivo, valorInscricao, valorLivro, valorMensalidade){ 
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "php/guardaBaseDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.send();
 }
 function limpaDados(){
     document.getElementById("formTipoInscricao").reset();
