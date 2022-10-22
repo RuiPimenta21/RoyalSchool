@@ -8,5 +8,5 @@ Curso online HTML CSS JS
 
 Projecto
 <br>
-<a href="https://ruipimenta21.github.io/RoyalScholl/html/tipoInscricao/criaTipoInscricao.html">Executar CriaTipoInscricao</a>
+<a href="https://ruipimenta21.github.io/RoyalSchool/html/tipoInscricao/criaTipoInscricao.html">Executar CriaTipoInscricao</a>
 <br>
