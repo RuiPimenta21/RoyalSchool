@@ -1,0 +1,84 @@
+@charset "UTF-8";
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: aquamarine;
+}
+body > header {
+    height: 10vh;
+}
+body > main {
+    height: 85vh;
+}
+body > footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    background: #111;
+    height: 5vh;
+    width: 100vw;
+    color: #fff;
+}
+body > footer > div {
+    position: absolute;
+    display: inline;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+body > footer > div > div {
+   display: inline;
+   width: calc(98% / 3);
+   height: auto;
+}
+.col {
+    position: relative;
+    display: block;
+    width: calc(100% / 3);
+    float: left;
+    height: 4vh;
+}
+#colLeftDentro {
+    float: left;
+    height: 100%;
+    margin-left: 2vw;
+}
+#colRightDentro {
+    float: right;
+    height: 100%;
+    margin-right: 2vw;
+}
+p.campoObrigatorio{
+    content:url('../imagens/obrigatorio.png');
+    position:relative;
+    display: inline-block;
+    height: 1vh;
+    margin-right: 1vh;
+}
+p.campoOpcional {
+    content:url('../imagens/opcional.png');
+    position:relative;
+    display: inline-block;
+    height: 1vh;
+    margin-right: 1vw;
+}
+i.fa{
+    padding-top: auto;
+    padding-bottom: auto;
+    color: white;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-right: 1vh;
+    margin-left: 1vh;
+    font-size: 2vh
+}
