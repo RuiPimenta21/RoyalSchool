@@ -23,3 +23,8 @@ body > footer > img{
     height: 80px;
     width: 160px;
 }
+
+#txtErroGuardaDados {
+    display:none;
+    visibility: none;
+}

@@ -46,14 +46,8 @@ function confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensa
         confirmButtonText: 'Sim, gravar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            guardaBaseDados(descritivo, valorInscricao, valorLivro, valorMensalidade)
-            Swal.fire(
-            'Gravar!',
-            'O seu registo foi gravado com sucesso!',
-            'success'
-            )
+            guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade);
         }
-        limpaDados();
     })
 }
 function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade) {
@@ -61,19 +55,52 @@ function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensali
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
-    xhttp.open("GET", "php/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "../../php/tipoInscricao/criaTipoInscricao/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
-function guardaBaseDados(descritivo, valorInscricao, valorLivro, valorMensalidade){ 
+
+function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){ 
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
+
+        document.getElementById("txtErroGuardaDados").style.display = "none";
+        document.getElementById("txtErroGuardaDados").style.visibility = "none";
+        document.getElementById("txtErroGuardaDados").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+       
+        //operacao está CONCLUIDA e resposta está OK
+        if (this.readyState == 4 && this.status == 200 && this.responseText == "Gravou com sucesso!") {
+            mostraTipoAlerta(true);
+        }
+        else{
+            mostraTipoAlerta(false);
+            document.getElementById("txtErroGuardaDados").style.display = "block";
+            document.getElementById("txtErroGuardaDados").style.visibility = "visible";
+            document.getElementById("txtErroGuardaDados").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     };
-    xhttp.open("GET", "php/guardaBaseDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "../../php/tipoInscricao/criaTipoInscricao/guardaDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.send();
+}
+
+function mostraTipoAlerta(tipoAlerta){
+    if (tipoAlerta == true){
+        //gravado
+        Swal.fire(
+            'A Gravar!',
+            'O seu registo foi gravado com sucesso!',
+            'success'
+        )
+        limpaDados();    
+    }
+    else{
+        //nao gravado
+        Swal.fire(
+            'Erro!',
+            'Erro ao gravar registo!',
+            'error'
+        )
+    }
 }
 function limpaDados(){
     document.getElementById("formTipoInscricao").reset();
