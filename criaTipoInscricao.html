@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal School</title>
+   
+   <!--Geral-->
+    <link rel="shortcut icon" href="../RoyalSchool/imagens/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../RoyalSchool/css/geral.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="../RoyalSchool/js/geral.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    <!--Por página-->
+    <script src="../RoyalSchool/js/criaTipoInscricao.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+            <button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+                <span class="material-icons">menu</span>
+            </button>
+            <h1 class="navbar-title">Tipo Inscrição</h1>
+            <nav class="navbar-menu">
+                <button type="button" class="ex1">Nível</button>
+                <button type="button" class="ex1">Turma</button>
+                <button type="button" class="ex1">Professor</button>
+                <button type="button" class="ex1">Enc.Educação</button>
+                <button type="button" class="ex1">Aluno</button>
+                <button type="button" class="ex1">Ano Lectivo</button>
+                <button type="button" class="ex1">Desconto</button>
+                <button type="button" class="active">Tipo Inscrição</button>
+                <button type="button" class="ex1">Incrição</button>
+                <button type="button" class="ex1">Mensalidade</button>
+            </nav>
+          </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Criar novo Tipo de Inscrição</h2>
+            <form name="formTipoInscricao"  id= "formTipoInscricao" method="post">
+                <article>
+                    <p class="campoObrigatorio"></p>
+                    <label for="descritivo">Descrição</label>
+                    <input type="text" id="descritivo" name="txtDescritivo">
+                </article>
+                <article>
+                    <p class="campoObrigatorio"></p>
+                    <label for="valorInscricao">Valor Inscrição Sem Iva</label>
+                    <input type="number" id="valorInscricao" name="txtValorInscricao" value= "0.00" min="0.00" step="0.01">
+                </article>
+                <article>
+                    <p class="campoObrigatorio"></p>
+                    <label for="valorLivro">Valor Livro Sem Iva</label>
+                    <input type="number" id="valorLivro" name="txtValorLivro" value= "0.00" min="0.00" step="0.01">
+                </article>
+                <article>
+                    <p class="campoObrigatorio"></p>
+                    <label for="valorMensalidade">Valor Mensalidade Sem Iva</label>
+                    <input type="number" id="valorMensalidade" name="txtValorMensalidade" value= "0.00" min="0.00" step="0.01">
+                </article>
+                <input type="button" value="Gravar" onclick="validaFormularioTipoIncricao()">
+            </form>
+        </section>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid eveniet natus at. Similique eligendi et, non amet consequuntur necessitatibus pariatur quaerat tempore? Quas earum perspiciatis ut quae quasi, ea vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magnam facilis repellendus omnis at modi eius tempora iusto quae. Iure repudiandae eveniet, dolore quis quam ducimus. Voluptate sequi cupiditate debitis? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus culpa veritatis enim molestiae rerum eos assumenda at corrupti repudiandae sint, quasi sequi perspiciatis tenetur ea totam eaque ipsum, maiores fuga. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam quod atque, vitae quas sit beatae, neque voluptate officiis, alias assumenda porro animi architecto tempora consequuntur sapiente modi. Unde, sint dolor? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, laboriosam eum error, ex, alias ad quaerat repudiandae quam in quae cupiditate! Sapiente reiciendis sint, minus nihil magni ea deleniti obcaecati?</p>
+    </main>
+    <footer>
+        <div>
+            <p>RoyalSchool|2022</p>
+        </div>
+        <div>
+            <a href="https://www.facebook.com/RoyalCollegeVizela" target="_blank" rel="extern"><i class="fa fa-facebook-square"></a></i>
+            <a href="https://www.instagram.com/royalcollegevizela/" target="_blank" rel="extern"><i class="fa fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=351915809197" target="_blank" rel="extern"><i class="fa fa-whatsapp"></i></a>
+        </div>
+        <div>
+            <a href="https://royalcollege.pt/"><img src="imagens/logoFooter.png" alt="Royal School Rodapé"></a>
+        </div>
+        <!--<div>
+            <div class="col">
+            </div>
+            <div class="col">
+                    <a href="https://www.facebook.com/RoyalCollegeVizela" target="_blank" rel="extern"><i class="fa fa-facebook-square"></a></i>
+                    <a href="https://www.instagram.com/royalcollegevizela/" target="_blank" rel="extern"><i class="fa fa-instagram"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=351915809197" target="_blank" rel="extern"><i class="fa fa-whatsapp"></i></a>
+            </div>
+            <div class="col">
+                <a href="https://royalcollege.pt/"><img id="colRightDentro" src="imagens/logoFooter.png" alt="Royal School Rodapé"></a>
+            </div>
+        </div>-->
+    </footer>
+    <div id="txtErroGuardaDados">O erro vai aparecer aqui...</div>
+</body>
+</html>
+

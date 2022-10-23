@@ -55,7 +55,7 @@ function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensali
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
-    xhttp.open("GET", "../../php/tipoInscricao/criaTipoInscricao/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "../php/tipoInscricao/criaTipoInscricao/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
@@ -79,7 +79,7 @@ function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){
             document.getElementById("txtErroGuardaDados").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     };
-    xhttp.open("GET", "../../php/tipoInscricao/criaTipoInscricao/guardaDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "../php/tipoInscricao/criaTipoInscricao/guardaDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.send();
 }
 
