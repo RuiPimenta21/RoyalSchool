@@ -8,125 +8,142 @@ html {
   height: 100%;
 }
 body {
+  height: auto;
+  width: auto;
+  padding-top: 64px;
+  padding-bottom: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
   background: #3b3d43;
 }
-/*Barra de navegacao ------------------------------------------------------------------------------------------------------------------------------------------*/
-  button {
-    border: 0;
-    padding: 0;
-    font-family: inherit;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-  }
-  button.ex1:hover{
-    color: #D02225;
-  }
+
+
+/*Barra de navegacao*****************************************************************/
+.navbar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 64px;
+  background: #19191c;
+  color: #f9f9f9;
+  font-family: "Poppins";
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 1050px) {
   .navbar {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 64px;
-    background: #19191c;
-    color: #f9f9f9;
-    font-family: "Poppins";
-    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 0 0 0 16px;
   }
-  @media only screen and (min-width: 1050px) {
-    .navbar {
-      justify-content: space-between;
-      padding: 0 0 0 16px;
-  }
-  }
+}
+.buttonNavBar {
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.buttonNavBar.buttonHover:hover{
+  color: #D02225;
+}
+.navbar-overlay {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+body.open .navbar-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+@media only screen and (min-width: 1050px) {
   .navbar-overlay {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
+    display: none;
   }
-  body.open .navbar-overlay {
-    visibility: visible;
-    opacity: 1;
-  }
-  @media only screen and (min-width: 1050px) {
-    .navbar-overlay {
-      display: none;
-    }
-  }
+}
+.navbar-burger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+}
+@media only screen and (min-width: 1050px) {
   .navbar-burger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: grid;
-    place-items: center;
-    width: 64px;
-    height: 64px;
-    padding: 0;
+    display: none;
   }
-  @media only screen and (min-width: 1050px) {
-    .navbar-burger {
-      display: none;
-    }
-  }
-  .navbar-title {
-    margin: 0;
-    font-size: 16px;
-  }
+}
+.navbar-title {
+  margin: 0;
+  font-size: 16px;
+}
+.navbar-menu {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  translate: -100% 0;
+  width: 270px;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #000000;
+  visibility: hidden;
+  transition: translate 0.3s;
+}
+body.open .navbar-menu {
+  translate: 0 0;
+  visibility: visible;
+}
+@media only screen and (min-width: 1050px) {
   .navbar-menu {
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    translate: -100% 0;
-    width: 270px;
-    height: 100%;
-    padding: 20px;
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
-    align-items: flex-start;
-    background: #000000;
-    visibility: hidden;
-    transition: translate 0.3s;
-  }
-  body.open .navbar-menu {
+    position: static;
     translate: 0 0;
+    width: auto;
+    background: transparent;
+    flex-direction: row;
     visibility: visible;
   }
-  @media only screen and (min-width: 1050px) {
-    .navbar-menu {
-      position: static;
-      translate: 0 0;
-      width: auto;
-      background: transparent;
-      flex-direction: row;
-      visibility: visible;
-    }
-  }
-  .navbar-menu > button {
-    color: rgba(255, 255, 255, 0.5);
-    background: transparent;
-    padding: 0 8px;
-  }
-  .navbar-menu > button.active {
-    color: inherit; 
-  }
-  /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-  main {
-    height: 90vh;
-    padding-top: 64px;
-  }
+}
+.navbar-menu > .buttonNavBar {
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  padding: 0 8px;
+}
+.navbar-menu > .buttonNavBar.active {
+  color: inherit; 
+}
+.navbar-menu > .buttonNavBar.active:hover{
+  color: inherit;
+  color: #D02225;
+}
+/***********************************************************************************/
+/*main-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+main {
+  background-color: white;
+  padding: 20px;
+  
+  min-width: 245px; /*tamanho minimo de alguns telemoveis 320, mas eu ja dou padding , logo 300*/
+  max-width: 1680px;
+  margin: auto;  /*centra o main*/
+}
 
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
@@ -179,22 +196,17 @@ footer > div > a > img{
 }
 .fa-facebook-square:hover {
 	transform: translate(-50%, -10%);
-  /*color: blue;*/
-  /*background-color: white;*/
 }
 .fa-instagram:hover {
 	transform: translate(-50%, -10%);
-  /*background: rgb(121,56,171);
-  background: linear-gradient(223deg, rgba(121,56,171,1) 0%, rgba(196,38,100,1) 48%, rgba(242,171,5,1) 100%);
-  border-radius: 10px;*/
 }
 .fa-whatsapp:hover {
 	transform: translate(-50%, -10%);
-  /*color: white;
-  background-color: #5AB347;
-  border-radius: 10px;*/
 }
 #txtErroGuardaDados {
     display:none;
     visibility: none;
+}
+p{
+  text-align: justify;
 }
