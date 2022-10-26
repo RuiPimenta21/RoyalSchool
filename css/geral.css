@@ -16,8 +16,6 @@ body {
   margin-right: 10px;
   background: #3b3d43;
 }
-
-
 /*Barra de navegacao*****************************************************************/
 .navbar {
   position: fixed;
@@ -138,12 +136,12 @@ body.open .navbar-menu {
 /*main-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 main {
   background-color: white;
-  padding: 20px;
-  
+  padding: 20px;  
   min-width: 245px; /*tamanho minimo de alguns telemoveis 320, mas eu ja dou padding , logo 300*/
   max-width: 1680px;
   margin: auto;  /*centra o main*/
 }
+/*barra lateral *********************************************************************/
 
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
