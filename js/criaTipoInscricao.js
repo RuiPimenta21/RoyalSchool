@@ -55,7 +55,7 @@ function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensali
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
-    xhttp.open("GET", "../php/tipoInscricao/criaTipoInscricao/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "php/criaTipoInscricao/mostraDadosAGravar.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
@@ -64,9 +64,9 @@ function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 
-        document.getElementById("txtErroGuardaDados").style.display = "none";
-        document.getElementById("txtErroGuardaDados").style.visibility = "none";
-        document.getElementById("txtErroGuardaDados").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+        document.getElementById("txtErro").style.display = "none";
+        document.getElementById("txtErro").style.visibility = "none";
+        document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
        
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && this.responseText == "Gravou com sucesso!") {
@@ -74,12 +74,12 @@ function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){
         }
         else{
             mostraTipoAlerta(false);
-            document.getElementById("txtErroGuardaDados").style.display = "block";
-            document.getElementById("txtErroGuardaDados").style.visibility = "visible";
-            document.getElementById("txtErroGuardaDados").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+            document.getElementById("txtErro").style.display = "block";
+            document.getElementById("txtErro").style.visibility = "visible";
+            document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     };
-    xhttp.open("GET", "../php/tipoInscricao/criaTipoInscricao/guardaDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
+    xhttp.open("GET", "php/criaTipoInscricao/guardaDados.php?descritivo="+descritivo+"&valorInscricao="+valorInscricao+"&valorLivro="+valorLivro+"&valorMensalidade="+valorMensalidade, true);
     xhttp.send();
 }
 

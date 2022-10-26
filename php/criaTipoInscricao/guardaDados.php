@@ -10,7 +10,7 @@ $txtValorInscricao = $_REQUEST["valorInscricao"];
 $txtValorLivro = $_REQUEST["valorLivro"];
 $txtValorMensalidade = $_REQUEST["valorMensalidade"];
 
-require_once "../../Conexao.php";
+require_once "../Conexao.php";
 try{
    $Conexao = Conexao::getConnection();
 
