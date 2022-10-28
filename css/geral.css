@@ -184,7 +184,7 @@ footer > div > a > img{
 }
 @media only screen and (max-width: 450px) {
   body > footer > div > p {
-    transform: translate(0%, 150%);
+    transform: translate(0%, 100%);
     font-size: 10px;
   }
 }
@@ -192,6 +192,20 @@ footer > div > a > img{
   body > footer > div > a .fa {
     transform: translate(-50%, 50%);
     font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  body > footer > div > p {
+    transform: translate(0%, 150%);
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  body > footer > div > a .fa {
+    transform: translate(-50%, 50%);
+    font-size: 15px;
     margin-left: 5px;
     margin-right: 5px;
   }
