@@ -166,6 +166,8 @@ footer > div{
 footer > div > p{
   float: left;
   transform: translate(0%, 60%);
+  font-family: "Poppins";
+  font-size: 12px;
 }
 footer > div > a .fa{
   transform: translate(-50%, 35%);
@@ -203,10 +205,8 @@ footer > div > a > img{
 .fa-whatsapp:hover {
 	transform: translate(-50%, -10%);
 }
-#txtErroGuardaDados {
+#txtErro{
     display:none;
     visibility: none;
-}
-p{
-  text-align: justify;
+    color: red;
 }
