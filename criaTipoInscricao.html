@@ -48,32 +48,147 @@
             col-md-6            0 a 12 largura
             mb-3                espaçamento para o campo de baixo
         -->
-        <section>
+        <section >
+            <h4>Criar registo</h4>
             <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="descritivo">Descrição</label>
                         <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  required>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="valorInscricao">Valor Inscrição Sem Iva</label>
                         <input type="number" id="valorInscricao" name="txtValorInscricao" min="0.00" step="0.01" class="form-control" placeholder="0" required>
                     </div>
-                    <div class="col-md-4 mb-3">
+                </div>
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
                         <label for="valorLivro">Valor Livro Sem Iva</label>
                         <input type="number" id="valorLivro" name="txtValorLivro" min="0.00" step="0.01" class="form-control" placeholder="0" required>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="valorMensalidade">Valor Mensalidade Sem Iva</label>
                         <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="form-control" placeholder="0" required>
                     </div>
                 </div>
-                <input type="button" value="Gravar" onclick="validaFormularioTipoIncricao()" class="btn btn-primary">
+                <input type="button" value="Gravar" onclick="validaFormularioTipoIncricao()" class="btn btn-primary" id="botaoGravar">
               </form>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis maxime ducimus veritatis voluptatibus. Facilis fuga dolorum harum, odio placeat repellendus tempore. Consequuntur optio quibusdam delectus illo dignissimos, nemo nobis maxime? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus recusandae magnam debitis excepturi, dicta sapiente quis asperiores illo inventore ullam optio explicabo deleniti. Incidunt expedita voluptate cupiditate tempore sapiente porro. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, eos! Maiores maxime iure repellat amet sequi voluptatibus, quis corporis impedit dignissimos harum inventore ut dolore dicta consequatur commodi rem exercitationem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas sequi perferendis eos animi dolores iste magni pariatur modi qui magnam tempora, ullam porro ipsa soluta quaerat possimus maiores laboriosam officia.</p>
         </section>
+        <section style="margin-top:100px">
+            <h4>Consultar registo</h4>
+            <div class="table-responsive-sm">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                          
+                      </tbody>
+                </table>
+              </div>
+        </section>
+    
     </main>
     <!--Geral-->
     <footer>

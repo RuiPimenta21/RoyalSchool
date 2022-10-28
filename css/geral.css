@@ -32,7 +32,7 @@ body {
   font-family: "Poppins";
   box-sizing: border-box;
 }
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1170px) {
   .navbar {
     justify-content: space-between;
     padding: 0 0 0 16px;
@@ -65,7 +65,7 @@ body.open .navbar-overlay {
   visibility: visible;
   opacity: 1;
 }
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1170px) {
   .navbar-overlay {
     display: none;
   }
@@ -80,7 +80,7 @@ body.open .navbar-overlay {
   height: 64px;
   padding: 0;
 }
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1170px) {
   .navbar-burger {
     display: none;
   }
@@ -110,7 +110,7 @@ body.open .navbar-menu {
   translate: 0 0;
   visibility: visible;
 }
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1170px) {
   .navbar-menu {
     position: static;
     translate: 0 0;
@@ -135,6 +135,7 @@ body.open .navbar-menu {
 /***********************************************************************************/
 /*main-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 main {
+  /*background-color: red;*/
   background-color: white;
   padding: 20px;  
   min-width: 245px; /*tamanho minimo de alguns telemoveis 320, mas eu ja dou padding , logo 300*/
@@ -142,9 +143,11 @@ main {
   margin: auto;  /*centra o main*/
 }
 section {
-  width: 100%;
+  background-color: white;
 }
-
+#botaoGravar{
+  float:right;
+}
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
   position: fixed;
