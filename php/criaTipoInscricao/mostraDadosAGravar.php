@@ -9,11 +9,11 @@
     padding-right: 10px
   }
   .td_descritivo {
-    text-align:left;
+    text-align:right;
 
   }
   .td_data {
-    text-align:left;
+    text-align:right;
   }
   .td_quantidade {
     text-align:right;
