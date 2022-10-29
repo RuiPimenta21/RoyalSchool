@@ -42,43 +42,6 @@ function carregaTabela(numeroRegistos, ordenacaoRegistos){
     xhttp.open("GET", "php/mostraTipoInscricao/mostraDados.php?numeroRegistos="+numeroRegistos+"&ordenacaoRegistos="+ordenacaoRegistos, true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*const xhttp = new XMLHttpRequest();
-   
-    xhttp.onreadystatechange = function() {
-
-        document.getElementById("tabelaTipoInscricao").style.display = "none";
-        document.getElementById("tabelaTipoInscricao").style.visibility = "none";
-        document.getElementById("tabelaTipoInscricao").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
-              
-        //operacao está CONCLUIDA e resposta está OK
-        if (this.readyState == 4 && this.status == 200) {
-            console.log("Carregou Tabela com dados")
-            xhttp.onload = function() {
-                document.getElementById("tabelaTipoInscricao").innerHTML = this.responseText;
-            }
-        }
-        else{
-            document.getElementById("tabelaTipoInscricao").style.display = "block";
-            document.getElementById("tabelaTipoInscricao").style.visibility = "visible";
-            document.getElementById("tabelaTipoInscricao").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
-        }
-    };
-    xhttp.open("GET", "php/mostraTipoInscricao/mostraDados.php?numeroRegistos="+numeroRegistos+"&ordenacaoRegistos="+ordenacaoRegistos, true);
-    xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    xhttp.send();
-
-    */
 }
 
 
