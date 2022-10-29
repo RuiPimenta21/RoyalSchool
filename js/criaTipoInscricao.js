@@ -68,11 +68,12 @@ function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){
         document.getElementById("txtErro").style.visibility = "none";
         document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
        
-        console.log(this.readyState)
-        console.log(this.responseText)
-        console.log(this.responseText)
+        this.readyState
+        this.status
+        this.responseText
+
         //operacao está CONCLUIDA e resposta está OK
-        if (this.readyState == 4 && this.status == 200 && this.responseText == "Gravou com sucesso!") {
+        if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
             mostraTipoAlerta(true);
         }
         else{

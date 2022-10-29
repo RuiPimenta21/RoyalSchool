@@ -27,7 +27,7 @@ $txtValorLivro = $_REQUEST["valorLivro"];
 $txtValorMensalidade = $_REQUEST["valorMensalidade"];
 
 
-echo "<table class=\"table\">";
+echo "<table class=\"tableInfoGuardar\">";
 echo "<tr>";
 echo "<td class=\"td_titulo\">Descritivo:</td>";
 echo "<td class=\"td_descritivo\">" . $txtDescritivo . "</td>";

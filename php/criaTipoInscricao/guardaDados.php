@@ -16,7 +16,7 @@ try{
 
    $stringQuery = "exec criaTipoInscricao @descritivo = $txtDescritivo , @valorInscricao = $txtValorInscricao, @valorLivro = $txtValorLivro , @valorMensalidade = $txtValorMensalidade";
    $query = $Conexao->query($stringQuery);
-   echo "Gravou com sucesso!";
+   echo "Carregou query!";
 }catch(Exception $e){
    echo $e->getMessage();
 }

@@ -1,76 +1,84 @@
-let DefaultNumeroRegistos = "opc1_NumeroRegistos";
-let DefaultOrdenacaoRegistos = "opc1_OrdenacaoRegistos";
+let DefaultNumeroRegistos = "top 10";
+let DefaultOrdenacaoRegistos = "order by 1 asc";
 
 //carrega a tabela com os 10 primeiros dados e ordenado asc ao abrir a pagina
 carregaTabela(DefaultNumeroRegistos, DefaultOrdenacaoRegistos);
 
 
 
-function mostraNumeroRegistos(str) {
-    numeroRegistos = str
-    //console.log(numeroRegistos, ordenacaoRegistos)
-    carregaTabela(numeroRegistos, ordenacaoRegistos)
+function recebeFiltrosTabela(){
+    var numeroRegistos = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
+    var ordenacaoRegistos = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
+
+    carregaTabela(numeroRegistos,ordenacaoRegistos)
 }
 
-function mostraOrdenacaoRegistos(str) {
-    ordenacaoRegistos = str
-    //console.log(numeroRegistos, ordenacaoRegistos)
-    carregaTabela(numeroRegistos, ordenacaoRegistos)
-}
 
 
 //funcao que carrega query para ir buscar os dados
-function carregaTabela(numero, ordenacao){
-    if (numero == "opc1_NumeroRegistos") {
-        numeroRegistos = "top 10"
-    } else if (numero == "opc2_NumeroRegistos") {
-        numeroRegistos = "top 20"
-    } else if (numero == "opc3_NumeroRegistos"){
-       numeroRegistos = ""
-    }
-    else{
-        numeroRegistos = "asassas"
-    }
-
-
-
-    if (ordenacao == "opc1_OrdenacaoRegistos") {
-        ordenacaoRegistos = "order by 1 asc"
-    } else if(ordenacao == "opc2_OrdenacaoRegistos"){
-        ordenacaoRegistos = "order by 1 desc"
-    } else {
-        ordenacaoRegistos = "asasasasa"
-    }
-
-    console.log(numeroRegistos, ordenacaoRegistos)
-
-    /*
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+function carregaTabela(numeroRegistos, ordenacaoRegistos){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
 
         document.getElementById("txtErro").style.display = "none";
         document.getElementById("txtErro").style.visibility = "none";
         document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
        
-        console.log(this.readyState)
-        console.log(this.responseText)
-        console.log(this.responseText)
+        this.readyState
+        this.status
+        this.responseText
+      
         //operacao está CONCLUIDA e resposta está OK
-        if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou com sucesso!") {
-            console.log("Carregou Tabela com dados")
-        }
-        else{
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("tabelaTipoInscricao").style.display = "inline";
+            document.getElementById("tabelaTipoInscricao").style.visibility = "visible";
+            document.getElementById("tabelaTipoInscricao").innerHTML = this.responseText;
+        }else{          
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
+    }
+    xhttp.open("GET", "php/mostraTipoInscricao/mostraDados.php?numeroRegistos="+numeroRegistos+"&ordenacaoRegistos="+ordenacaoRegistos, true);
+    xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+    xhttp.send();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*const xhttp = new XMLHttpRequest();
+   
+    xhttp.onreadystatechange = function() {
+
+        document.getElementById("tabelaTipoInscricao").style.display = "none";
+        document.getElementById("tabelaTipoInscricao").style.visibility = "none";
+        document.getElementById("tabelaTipoInscricao").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+              
+        //operacao está CONCLUIDA e resposta está OK
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("Carregou Tabela com dados")
+            xhttp.onload = function() {
+                document.getElementById("tabelaTipoInscricao").innerHTML = this.responseText;
+            }
+        }
+        else{
+            document.getElementById("tabelaTipoInscricao").style.display = "block";
+            document.getElementById("tabelaTipoInscricao").style.visibility = "visible";
+            document.getElementById("tabelaTipoInscricao").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+        }
     };
     xhttp.open("GET", "php/mostraTipoInscricao/mostraDados.php?numeroRegistos="+numeroRegistos+"&ordenacaoRegistos="+ordenacaoRegistos, true);
+    xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
-    */
-   
-    //limpa dados
 
+    */
 }
 
 

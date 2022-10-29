@@ -165,16 +165,38 @@ section {
 .btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus {
   z-index: auto; 
 }
+.table {
+  width: auto;
+  display: block;
+  max-width: auto;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+.tableInfoGuardar {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*Para scrollVertical da tabela*/
 .my-custom-scrollbar {
   display: inline-block;
   width: 100%;
-  height: 542px;
+  height: auto;
   overflow: auto;
 }
 /*Para scrollVertical da tabela*/
 .table-wrapper-scroll-y {
   display: block;
+}
+.outer {
+  overflow-y: auto;
+  width: fit-content;
+  height: 544px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*Para cabeçalho da tabela seguir*/
 .tableFixHead thead th {
@@ -191,8 +213,6 @@ section {
     top: 0;
     z-index: auto; 
 }
-
-
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
   position: fixed;
@@ -266,6 +286,11 @@ footer > div > a > img{
 .fa-whatsapp:hover {
 	transform: translate(-50%, -10%);
 }
+#tabelaTipoInscricao{
+  display:none;
+  visibility: none;
+}
+
 #txtErro{
     display:none;
     visibility: none;
