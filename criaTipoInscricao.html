@@ -76,26 +76,30 @@
         </section>
         <section style="margin-top:50px">
             <h4>Consultar registo</h4>
-            <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela()">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked> Top10
-                        </label>
-                            <label class="btn btn-secondary">
-                        <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20"> Top20
-                        </label>
+            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela()">
+                <div>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked> Top10
+                    </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
-                        </label>
-                    </div> 
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
-                        <label class="btn btn-secondary active" >
-                            <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 1 asc" checked> Asc
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 1 desc"> Desc
-                        </label>
-                    </div>
+                    <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20"> Top20
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
+                    </label>
+                </div> 
+                <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
+                    <label class="btn btn-secondary active" >
+                        <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 1 asc" checked> Asc
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 1 desc"> Desc
+                    </label>
+                </div>
             </form>
     
             <div class="table-wrapper-scroll-y my-custom-scrollbar tableFixHead">
@@ -113,9 +117,12 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-
         </section>
-    
+        
+       
+
+
+
     </main>
     <!--Geral-->
     <footer>
