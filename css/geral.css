@@ -145,15 +145,25 @@ main {
 section {
   background-color: white;
 }
+.sectionSeguintes {
+  background-color: white;
+  margin-top: 50px;
+}
 #botaoGravar{
   float:right;
 }
-#botoesNumeroRegistosAlinhamento{
-  float:right;
+.filtrosNav {
+  overflow: hidden;
+  background-color: #acacac;
 }
-#botoesOrdenacaoAlinhamento{
-  float:right;
-  margin-right: 15px;
+.filtrosNav .divRadioGroup {
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 5px;
 }
 /*Para os botões não sobreport a barra de navegacao*/
 .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
@@ -165,54 +175,64 @@ section {
 .btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus {
   z-index: auto; 
 }
-.table {
-  width: auto;
-  display: block;
-  max-width: auto;
-  margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  border-collapse: collapse;
+.filtrosNav input[type=text] {
+  float: left;
+  padding: 6px;
+  border: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 17px;
 }
-.tableInfoGuardar {
-  width: 100%;
-  margin-left: auto;
+@media screen and (max-width: 600px) {
+  .filtrosNav .divRadioGroup, .filtrosNav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 8px;
+  }
+  .filtrosNav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+.tabelaFiltrosDiv{
+  width: 100%; 
+  background-color: white;
+  border: 2px solid #19191C;
+}
+.tabelaEncolheX{
+  overflow-x:auto;
+  margin-left: auto; 
   margin-right: auto;
+  background-color: #acacac;
+}
+.tabelaEncolheY{
+  height: 542px; 
+  width: fit-content;
+  margin-left: auto; 
+  margin-right: auto;
+  overflow-y: auto;
+  border-collapse: collapse;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.tabelaCabecalho{
+  position: sticky;
+  top: 0;
+  background-color: #2D82B7;
+  color: rgb(235, 235, 235); text-shadow: black 1px 0.1px 0.1px;
+}
+.tabelaDadosTexto{
+  text-align: left;
+}
+.tabelaDadosDatas{
+  text-align: left;
+}
+.tabelaDadosNumeros{
+  text-align: right;
 }
 
-/*Para scrollVertical da tabela*/
-.my-custom-scrollbar {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  overflow: auto;
-}
-/*Para scrollVertical da tabela*/
-.table-wrapper-scroll-y {
-  display: block;
-}
-.outer {
-  overflow-y: auto;
-  width: fit-content;
-  height: 544px;
-  margin-left: auto;
-  margin-right: auto;
-}
-/*Para cabeçalho da tabela seguir*/
-.tableFixHead thead th {
-  position: sticky; top: 0; z-index: 1; }
-/*Cora do cabeçalho da tabela*/
-.table .thead-dark th {
-    color: #fff;
-    background-color: #212529;
-    border-color: #ffffff;
-}
-/*Cabeçalho não sobreport a barra de navegacao*/
-.tableFixHead thead th {
-    position: sticky;
-    top: 0;
-    z-index: auto; 
-}
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
   position: fixed;
@@ -296,3 +316,12 @@ footer > div > a > img{
     visibility: none;
     color: red;
 }
+
+
+
+
+
+
+
+
+

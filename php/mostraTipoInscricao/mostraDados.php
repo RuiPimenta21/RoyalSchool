@@ -5,16 +5,22 @@
    define('DB_NAME'        , "RoyalSchoolDB");
    define('DB_DRIVER'      , "sqlsrv");
 
-
    $txtNumeroRegistos = $_REQUEST["numeroRegistos"];
    $txtOrdenacaoRegistos = $_REQUEST["ordenacaoRegistos"];
+   $txtPesquisaDescritivo = $_REQUEST["pesquisaDescritivo"];
 
    require_once "../Conexao.php";
    try{
       $Conexao = Conexao::getConnection();
 
       $stringQuery="";
-      $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao ".$txtOrdenacaoRegistos;
+
+      if ($txtPesquisaDescritivo == "") {
+         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao ".$txtOrdenacaoRegistos;
+      } else {
+         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
+      }
+
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
    }catch(Exception $e){
@@ -26,17 +32,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-   <table class="table table-striped table table-bordered table-striped mb-0">
-      <thead class="thead-dark">
+   <table class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
+      <thead class="tabelaCabecalho ">
          <tr>
-         <th scope="col">Nº</th>
-         <th scope="col">Descrição</th>
-         <th scope="col">Valor Inscrição Sem Iva</th>
-         <th scope="col">Valor Livro Sem Iva</th>
-         <th scope="col">Valor Mensalidade Sem Iva</th>
-
-         <th scope="col">Descrição</th>
-         <th scope="col">Valor Inscrição Sem Iva</th>
+            <th scope="col">Nº</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Valor Inscrição Sem Iva</th>
+            <th scope="col">Valor Livro Sem Iva</th>
+            <th scope="col">Valor Mensalidade Sem Iva</th>
          </tr>
       </thead>
       <tbody>
@@ -45,21 +48,15 @@
             $linha++;
          ?>
          <tr>
-               <th scope="row"><?php echo $linha;?></th>
-               <td><?php echo $dado['tipoInscricao_descricao'];?></td>
-               <td><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?></td>
-               <td><?php echo $dado['tipoInscricao_valorLivroSemIva'];?></td>
-               <td><?php echo $dado['tipoInscricao_valorMensalidadeSemIva'];?></td>
-
-               <td><?php echo $dado['tipoInscricao_descricao'];?></td>
-               <td><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?></td>
+            <th scope="row"><?php echo $linha;?></th>
+            <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?>€</td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroSemIva'];?>€</td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorMensalidadeSemIva'];?>€</td>
          </tr>
          <?php
          }
          ?>
       </tbody>
    </table>
-</body>
-</html>
-
 
