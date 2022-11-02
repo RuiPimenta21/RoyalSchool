@@ -232,7 +232,11 @@ section {
 .tabelaDadosNumeros{
   text-align: right;
 }
-
+.tableInfoGuardar {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
   position: fixed;
