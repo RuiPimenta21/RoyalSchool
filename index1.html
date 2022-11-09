@@ -81,12 +81,28 @@
   text-align: right;
 }
 
-
-
-
-
-
 </style>
+<script>
+   function reportViwer(numeroRegistos, pesquisaDescritivo, ordenacaoRegistos) {
+  
+    let reportUrl = "http://fixo/ReportServer?%2frpt_mostraTipoInscricao"
+    // Para o numero de registos
+    reportUrl = reportUrl + "&numeroRegistos=" + numeroRegistos
+    // Para o descrtivo
+    if(pesquisaDescritivo != "" ){
+      reportUrl = reportUrl + "&pesquisaDescritivo=" + pesquisaDescritivo
+    }
+    else{
+      reportUrl = reportUrl + "&pesquisaDescritivo="
+    }
+    // Para a ordenacao
+    reportUrl = reportUrl + "&ordenacaoRegistos=" + ordenacaoRegistos
+
+    reportUrl= reportUrl+ "&rc:Toolbar=true&rc:Parameters=false&rs:Command=Render"
+    window.open (reportUrl,"ReportService","menubar=1,resizable=1,left=auto, top=auto,width=auto,height=auto");
+  }
+
+</script>
 <body>
   <section>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur tempora fuga est provident! Aliquid nesciunt tenetur fugiat. Quas porro eum, laboriosam adipisci quibusdam dicta ut qui beatae. Rerum, alias voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem doloribus laudantium expedita, at incidunt magni recusandae aut eaque natus distinctio tempore praesentium illum nemo nihil aliquam! Iste voluptates officia dignissimos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis optio corporis reiciendis ea officiis nesciunt reprehenderit autem harum, eveniet consequatur eaque nam voluptatum explicabo recusandae magnam vitae est veniam! Iusto?</p>
@@ -215,6 +231,9 @@
     </div>
     <div>
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur tempora fuga est provident! Aliquid nesciunt tenetur fugiat. Quas porro eum, laboriosam adipisci quibusdam dicta ut qui beatae. Rerum, alias voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem doloribus laudantium expedita, at incidunt magni recusandae aut eaque natus distinctio tempore praesentium illum nemo nihil aliquam! Iste voluptates officia dignissimos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis optio corporis reiciendis ea officiis nesciunt reprehenderit autem harum, eveniet consequatur eaque nam voluptatum explicabo recusandae magnam vitae est veniam! Iusto?</p>    </div>
+  </section>
+  <section>
+    <button onclick="reportViwer('top 10', '', 'order by 1 desc')">Click me</button>
   </section>
 
 </body>

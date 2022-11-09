@@ -9,21 +9,15 @@
     <!--BootStrap para o corpo-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <!--Geral-->
-    <link rel="shortcut icon" href="../RoyalSchool/imagens/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../RoyalSchool/css/geral.css">
+    <link rel="shortcut icon" href="imagens/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/geral.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <script src="../RoyalSchool/js/geral.js"></script>
+    <script src="js/geral.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    
-
-
-
-
 </head>
 <body>
     <header>
@@ -52,7 +46,7 @@
             <h4>Criar registo</h4>
             <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
                 <div class="form-row">
-                    <div class="col-md-6 mb-3">
+                    <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
                         <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  required>
                     </div>
@@ -70,6 +64,7 @@
                         <label for="valorMensalidade">Valor Mensalidade Sem Iva</label>
                         <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="form-control" placeholder="0" required>
                     </div>
+                    
                 </div>
                 <button type="button" value="Gravar" onclick="validaFormularioTipoIncricao()" class="btn btn-primary" id="botaoGravar">Registar</button>
             </form>
@@ -78,7 +73,10 @@
             <h4>Consultar registo</h4>
             <div class="tabelaFiltrosDiv">
                 <div class="filtrosNav">
-                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela()">
+                    <div class="divRadioGroup">
+                        <button type="button" class="btn btn-primary" onclick="recebeFiltrosTabela(2)">ReportViwer</button>
+                    </div>
+                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela(1)">
                         <div class="divRadioGroup">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
                                 <label class="btn btn-secondary active" >
@@ -114,16 +112,6 @@
                 </div>
             </div>
         </section>
-        <section>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores fugit voluptas quam maxime nulla corporis vero ullam? Qui dolorem error at repudiandae vitae. Totam repudiandae quia sequi recusandae?</p>
-        </section>
     </main>
     <!--Geral-->
     <footer>
@@ -131,7 +119,7 @@
             <p>RoyalSchool | 2022</p>
         </div>
         <div>
-            <a href="https://www.facebook.com/RoyalCollegeVizela" target="_blank" rel="extern"><i class="fa fa-facebook-square"></a></i>
+            <a href="https://www.facebook.com/RoyalCollegeVizela" target="_blank" rel="extern"><i class="fa fa-facebook-square"></i></a>
             <a href="https://www.instagram.com/royalcollegevizela/" target="_blank" rel="extern"><i class="fa fa-instagram"></i></a>
             <a href="https://api.whatsapp.com/send?phone=351915809197" target="_blank" rel="extern"><i class="fa fa-whatsapp"></i></a>
         </div>
@@ -147,8 +135,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
-    <script src="../RoyalSchool/js/criaTipoInscricao.js"></script>
-    <script src="../RoyalSchool/js/mostraTipoInscricao.js"></script>
+    <script src="js/criaTipoInscricao/criaTipoInscricao.js"></script>
+    <script src="js/mostraTipoInscricao/mostraTipoInscricao.js"></script>
 </body>
 </html>
 

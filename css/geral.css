@@ -151,6 +151,7 @@ section {
 }
 #botaoGravar{
   float:right;
+  position: relative;
 }
 .filtrosNav {
   overflow: hidden;

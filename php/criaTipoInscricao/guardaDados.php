@@ -5,10 +5,11 @@ define('DB_PASSWORD'    , "admin");
 define('DB_NAME'        , "RoyalSchoolDB");
 define('DB_DRIVER'      , "sqlsrv");
 
-$txtDescritivo = $_REQUEST["descritivo"];
-$txtValorInscricao = $_REQUEST["valorInscricao"];
-$txtValorLivro = $_REQUEST["valorLivro"];
-$txtValorMensalidade = $_REQUEST["valorMensalidade"];
+//decoding 
+$txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
+$txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
+$txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
+$txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
 
 require_once "../Conexao.php";
 try{

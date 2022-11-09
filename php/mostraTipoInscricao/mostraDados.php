@@ -5,9 +5,10 @@
    define('DB_NAME'        , "RoyalSchoolDB");
    define('DB_DRIVER'      , "sqlsrv");
 
-   $txtNumeroRegistos = $_REQUEST["numeroRegistos"];
-   $txtOrdenacaoRegistos = $_REQUEST["ordenacaoRegistos"];
-   $txtPesquisaDescritivo = $_REQUEST["pesquisaDescritivo"];
+   //decoding 
+   $txtNumeroRegistos = rawurldecode($_REQUEST["numeroRegistos"]);
+   $txtOrdenacaoRegistos = rawurldecode($_REQUEST["ordenacaoRegistos"]);
+   $txtPesquisaDescritivo = rawurldecode($_REQUEST["pesquisaDescritivo"]);
 
    require_once "../Conexao.php";
    try{
@@ -20,6 +21,8 @@
       } else {
          $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
       }
+
+      //$stringQuery = "exec [dbo].[rpt_mostraTipoInscricao] @numeroRegistos = '".$txtNumeroRegistos1."' ,  @pesquisaDescritivo = '".$txtPesquisaDescritivo1."' ,  @ordenacaoRegistos = '".$txtOrdenacaoRegistos1."'";
 
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();

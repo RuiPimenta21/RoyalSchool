@@ -6,17 +6,19 @@ let DefaultOrdenacaoRegistos = "order by 1 asc";
 carregaTabela(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
 
-function recebeFiltrosTabela(){
+function recebeFiltrosTabela(opcao){
     let pesquisaDescritivo = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     let numeroRegistos = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     let ordenacaoRegistos = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
 
-    carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
-
+    if(opcao == 1){
+        carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+    }
+    else if(opcao == 2){
+        imprimeReportViwer(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+    }  
     console.log (numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
 }
-
-
 
 //funcao que carrega query para ir buscar os dados
 function carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
@@ -42,9 +44,38 @@ function carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     }
-    xhttp.open("GET", "php/mostraTipoInscricao/mostraDados.php?numeroRegistos="+numeroRegistos+"&ordenacaoRegistos="+ordenacaoRegistos+"&pesquisaDescritivo="+pesquisaDescritivo, true);
+    //Encoding
+    xhttp.open("GET", "php/mostraTipoInscricao/mostraDados.php?numeroRegistos="+encodeURIComponent(numeroRegistos)+"&ordenacaoRegistos="+encodeURIComponent(ordenacaoRegistos)+"&pesquisaDescritivo="+encodeURIComponent(pesquisaDescritivo), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
+}
+
+
+function imprimeReportViwer(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
+    let reportUrl = "http://fixo/ReportServer?%2frpt_mostraTipoInscricao"
+    // Para o numero de registos
+    if(numeroRegistos != ""){
+        reportUrl = reportUrl + "&numeroRegistos=" + numeroRegistos
+    }
+    else{
+        reportUrl = reportUrl + "&numeroRegistos="
+    }
+    // Para o descrtivo
+    if(pesquisaDescritivo != "" ){
+        reportUrl = reportUrl + "&pesquisaDescritivo=" + pesquisaDescritivo
+    }
+    else{
+        reportUrl = reportUrl + "&pesquisaDescritivo="
+    }
+    // Para a ordenacao
+    if(ordenacaoRegistos != "" ){
+        reportUrl = reportUrl + "&ordenacaoRegistos=" + ordenacaoRegistos
+    }
+    else{
+        reportUrl = reportUrl + "&ordenacaoRegistos="
+    }
+    reportUrl= reportUrl+ "&rc:Toolbar=true&rc:Parameters=false&rs:Command=Render"
+    window.open (reportUrl,"ReportService","menubar=1,resizable=1,left=auto,top=auto,width=auto,height=auto");
 }
 
 

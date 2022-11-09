@@ -21,11 +21,11 @@
 </style>
 
 <?php
-$txtDescritivo = $_REQUEST["descritivo"];
-$txtValorInscricao = $_REQUEST["valorInscricao"];
-$txtValorLivro = $_REQUEST["valorLivro"];
-$txtValorMensalidade = $_REQUEST["valorMensalidade"];
-
+//decoding 
+$txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
+$txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
+$txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
+$txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
 
 echo "<table class=\"tableInfoGuardar\">";
 echo "<tr>";
