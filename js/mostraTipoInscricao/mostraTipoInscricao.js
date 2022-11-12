@@ -4,7 +4,7 @@ let DefaultOrdenacaoRegistos = "order by 1 asc";
 
 //carrega a tabela com os 10 primeiros dados e ordenado asc ao abrir a pagina
 carregaTabela(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
-console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
+//console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
 
 function recebeFiltrosTabela(opcao){
     let pesquisaDescritivo = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;

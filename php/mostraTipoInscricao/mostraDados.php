@@ -21,8 +21,7 @@
       } else {
          $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
       }
-
-      //$stringQuery = "exec [dbo].[rpt_mostraTipoInscricao] @numeroRegistos = '".$txtNumeroRegistos1."' ,  @pesquisaDescritivo = '".$txtPesquisaDescritivo1."' ,  @ordenacaoRegistos = '".$txtOrdenacaoRegistos1."'";
+      //$stringQuery = "exec criaTipoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
 
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
@@ -56,6 +55,8 @@
             <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?>€</td>
             <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroSemIva'];?>€</td>
             <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorMensalidadeSemIva'];?>€</td>
+            <td><button class="btn"><i class="fa fa-edit"></i>Editar</button></td>
+            <td><button class="btn"><i class="fa fa-trash-o"></i>Eliminar</button></td>
          </tr>
          <?php
          }

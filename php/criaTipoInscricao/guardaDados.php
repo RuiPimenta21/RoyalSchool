@@ -15,7 +15,7 @@ require_once "../Conexao.php";
 try{
    $Conexao = Conexao::getConnection();
 
-   $stringQuery = "exec criaTipoInscricao @descritivo = $txtDescritivo , @valorInscricao = $txtValorInscricao, @valorLivro = $txtValorLivro , @valorMensalidade = $txtValorMensalidade";
+   $stringQuery = "exec criaTipoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
    $query = $Conexao->query($stringQuery);
    echo "Carregou query!";
 }catch(Exception $e){

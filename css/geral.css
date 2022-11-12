@@ -233,11 +233,17 @@ section {
 .tabelaDadosNumeros{
   text-align: right;
 }
+.tabelaDadosBotao{
+  text-align: center;
+}
 .tableInfoGuardar {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+td { cursor: pointer;}
+
+
 /*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {
   position: fixed;
