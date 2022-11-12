@@ -34,7 +34,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-   <table class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
+   <table id="tblTipoInscricao" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
       <thead class="tabelaCabecalho ">
          <tr>
             <th scope="col">Nº</th>
@@ -49,18 +49,15 @@
          foreach($dados as $dado) {
             $linha++;
          ?>
-         <tr>
+         <tr onclick="selecionaLinha(<?php echo(json_encode($linha));?>)">
             <th scope="row"><?php echo $linha;?></th>
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>
-            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?>€</td>
-            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroSemIva'];?>€</td>
-            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorMensalidadeSemIva'];?>€</td>
-            <td><button class="btn"><i class="fa fa-edit"></i>Editar</button></td>
-            <td><button class="btn"><i class="fa fa-trash-o"></i>Eliminar</button></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroSemIva'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorMensalidadeSemIva'];?></td>
          </tr>
          <?php
          }
          ?>
       </tbody>
    </table>
-

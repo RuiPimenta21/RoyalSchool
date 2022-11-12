@@ -33,9 +33,7 @@ function faltaCampo(campo){
     })
 }
 function confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade){
-    
     mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade);
-    
     Swal.fire({
         title: 'Pretende gravar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
@@ -56,7 +54,7 @@ function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensali
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("GET", "php/criaTipoInscricao/mostraDadosAGravar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("GET", "php/tipoInscricao/mostraDadosAGravar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
@@ -85,7 +83,7 @@ function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){
         }
     };
     //Encoding
-    xhttp.open("GET", "php/criaTipoInscricao/guardaDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("GET", "php/tipoInscricao/guardaDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

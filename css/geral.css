@@ -153,6 +153,16 @@ section {
   float:right;
   position: relative;
 }
+#botaoEditar{
+  margin-left: 10px;
+  float:right;
+  position: relative;
+}
+#botaoEliminar{
+  margin-left: 10px;
+  float:right;
+  position: relative;
+}
 .filtrosNav {
   overflow: hidden;
   background-color: #acacac;
