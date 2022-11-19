@@ -47,6 +47,10 @@
             <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="txtId" class="form-control" placeholder="Abc"  required>
+                    </div>
+                    <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
                         <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  required>
                     </div>
@@ -82,10 +86,10 @@
                         <div class="divRadioGroup">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
                                 <label class="btn btn-secondary active" >
-                                    <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 1 asc" checked> Asc
+                                    <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc" checked> Asc
                                 </label>
                                 <label class="btn btn-secondary">
-                                    <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 1 desc"> Desc
+                                    <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
                                 </label>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 let DefaultPesquisaDescritivo = "";
 let DefaultNumeroRegistos = "top 10";
-let DefaultOrdenacaoRegistos = "order by 1 asc";
+let DefaultOrdenacaoRegistos = "order by 2 asc";
 
 //carrega a tabela com os 10 primeiros dados e ordenado asc ao abrir a pagina
 carregaTabela(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);

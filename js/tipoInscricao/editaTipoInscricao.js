@@ -1,37 +1,55 @@
 let ultimodescritivoSelecionado = "";
 let ultimoNumeroRegistosSelecionado = "top 10";
-let ultimoOrdenacaoRegistosSelecionado = "order by 1 asc";
+let ultimoOrdenacaoRegistosSelecionado = "order by 2 asc";
+let descritivoSelecionado = ""; 
+let numeroRegistosSelecionado = ""; 
+let ordenacaoRegistosSelecionado = "";
 let ultimaLinha = 0;
-
+let linhaPintada = false;
 
 
 function selecionaLinha(linhaSelecionada){
-  
-    let descritivoSelecionado = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
-    let numeroRegistosSelecionado = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
-    let ordenacaoRegistosSelecionado = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
+    descritivoSelecionado = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
+    numeroRegistosSelecionado = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
+    ordenacaoRegistosSelecionado = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
 
+   
+    //se filtros mantiveram
     if(descritivoSelecionado == ultimodescritivoSelecionado & numeroRegistosSelecionado == ultimoNumeroRegistosSelecionado & ordenacaoRegistosSelecionado == ultimoOrdenacaoRegistosSelecionado){
-        if (ultimaLinha != linhaSelecionada){
-            document.getElementById("tblTipoInscricao").rows[ultimaLinha].style.background = ""
-            document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
-        }
-        else if (ultimaLinha == linhaSelecionada){
+        if (ultimaLinha == linhaSelecionada & linhaPintada == true){
             limpaDados();
             document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "";
+            linhaPintada = false;
+        }else if(ultimaLinha == linhaSelecionada & linhaPintada == false){
+            document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
+            linhaPintada = true;
         }
-    }else{
-        limpaDados();
-        document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
+        else if(ultimaLinha != linhaSelecionada & linhaPintada == false){
+            document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
+            linhaPintada = true;
+            ultimaLinha = linhaSelecionada;
+            getDadosEditar();
+        }else if(ultimaLinha != linhaSelecionada & linhaPintada == true){
+            document.getElementById("tblTipoInscricao").rows[ultimaLinha].style.background = ""
+            document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
+            linhaPintada = true;
+            ultimaLinha = linhaSelecionada;
+            getDadosEditar();
+        }
     }
-   
-    ultimodescritivoSelecionado = descritivoSelecionado 
-    ultimoNumeroRegistosSelecionado = numeroRegistosSelecionado
-    ultimoOrdenacaoRegistosSelecionado = ordenacaoRegistosSelecionado
-    ultimaLinha = linhaSelecionada
-    getDadosEditar();
+    //se filtros mudaram
+    else{
+        ultimodescritivoSelecionado = descritivoSelecionado;
+        ultimoNumeroRegistosSelecionado = numeroRegistosSelecionado;
+        ultimoOrdenacaoRegistosSelecionado = ordenacaoRegistosSelecionado;
 
-    
+        document.getElementById("tblTipoInscricao").rows[ultimaLinha].style.background = ""
+        document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
+        linhaPintada = true;
+        ultimaLinha = linhaSelecionada;
+        getDadosEditar();
+    }  
+
 }
 
 function getDadosEditar(){
@@ -50,20 +68,17 @@ function getDadosEditar(){
                 arrayLinhaTabela.push(cells[i].innerHTML);
             }
         }
-
-        //console.log(arrayLinhaTabela);
-        limpaDados();
-        
+       
         //introduz nas txtbox
-        $(document.forms["formTipoInscricao"]["txtDescritivo"]).val(arrayLinhaTabela[0]);
-        $(document.forms["formTipoInscricao"]["txtValorInscricao"]).val(parseFloat(arrayLinhaTabela[1]));
-        $(document.forms["formTipoInscricao"]["txtValorLivro"]).val(parseFloat(arrayLinhaTabela[2]));
-        $(document.forms["formTipoInscricao"]["txtValorMensalidade"]).val(parseFloat(arrayLinhaTabela[3]));
+        $(document.forms["formTipoInscricao"]["txtId"]).val(arrayLinhaTabela[0]);
+        $(document.forms["formTipoInscricao"]["txtDescritivo"]).val(arrayLinhaTabela[2]);
+        $(document.forms["formTipoInscricao"]["txtValorInscricao"]).val(parseFloat(arrayLinhaTabela[3]));
+        $(document.forms["formTipoInscricao"]["txtValorLivro"]).val(parseFloat(arrayLinhaTabela[4]));
+        $(document.forms["formTipoInscricao"]["txtValorMensalidade"]).val(parseFloat(arrayLinhaTabela[5]));
     };
 }
 
 function limpaDados(){
     document.getElementById("formTipoInscricao").reset();
-    console.log("entrou")
 }
     

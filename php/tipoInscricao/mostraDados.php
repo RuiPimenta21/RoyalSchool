@@ -17,9 +17,9 @@
       $stringQuery="";
 
       if ($txtPesquisaDescritivo == "") {
-         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao ".$txtOrdenacaoRegistos;
+         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao ".$txtOrdenacaoRegistos;
       } else {
-         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
+         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
       }
       //$stringQuery = "exec criaTipoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
 
@@ -37,6 +37,7 @@
    <table id="tblTipoInscricao" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
       <thead class="tabelaCabecalho ">
          <tr>
+            <th scope="col">Id</th>
             <th scope="col">Nº</th>
             <th scope="col">Descrição</th>
             <th scope="col">Valor Inscrição Sem Iva</th>
@@ -50,7 +51,8 @@
             $linha++;
          ?>
          <tr onclick="selecionaLinha(<?php echo(json_encode($linha));?>)">
-            <th scope="row"><?php echo $linha;?></th>
+            <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_id'];?></td>
+            <td scope="row"><?php echo $linha;?></td>
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>
             <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?></td>
             <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroSemIva'];?></td>
