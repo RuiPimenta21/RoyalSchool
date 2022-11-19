@@ -1,8 +1,8 @@
-function validaFormularioTipoIncricao() {
-    var descritivo = document.forms["formTipoInscricao"]["txtDescritivo"].value;
-    var valorInscricao = document.forms["formTipoInscricao"]["txtValorInscricao"].value;
-    var valorLivro = document.forms["formTipoInscricao"]["txtValorLivro"].value;
-    var valorMensalidade = document.forms["formTipoInscricao"]["txtValorMensalidade"].value;
+function validaFormularioTipoIncricaoRegistar() {
+    let descritivo = document.forms["formTipoInscricao"]["txtDescritivo"].value;
+    let valorInscricao = document.forms["formTipoInscricao"]["txtValorInscricao"].value;
+    let valorLivro = document.forms["formTipoInscricao"]["txtValorLivro"].value;
+    let valorMensalidade = document.forms["formTipoInscricao"]["txtValorMensalidade"].value;
     
     
     if (descritivo == "") {

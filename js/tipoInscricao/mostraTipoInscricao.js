@@ -17,7 +17,7 @@ function recebeFiltrosTabela(opcao){
     else if(opcao == 2){
         imprimeReportViwer(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
     }  
-    console.log (numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+    //console.log (numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
 }
 
 //funcao que carrega query para ir buscar os dados
