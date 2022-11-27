@@ -1,4 +1,4 @@
-function validaFormularioTipoIncricaoRegistar() {
+function validaFormulario_registarTipoInscricao() {
     let descritivo = document.forms["formTipoInscricao"]["txtDescritivo"].value;
     let valorInscricao = document.forms["formTipoInscricao"]["txtValorInscricao"].value;
     let valorLivro = document.forms["formTipoInscricao"]["txtValorLivro"].value;
@@ -6,34 +6,36 @@ function validaFormularioTipoIncricaoRegistar() {
     
     
     if (descritivo == "") {
-        faltaCampo("Descritivo");
+        faltaCampo_registarTipoInscricao("Descritivo");
         document.forms["formTipoInscricao"]["txtDescritivo"].focus();
     }
     else if (valorInscricao == "") {
-        faltaCampo("Valor Inscrição");
+        faltaCampo_registarTipoInscricao("Valor Inscrição");
         document.forms["formTipoInscricao"]["txtValorInscricao"].focus();
     }
     else if(valorLivro == "") {
-        faltaCampo("Valor Livro");
+        faltaCampo_registarTipoInscricao("Valor Livro");
         document.forms["formTipoInscricao"]["txtValorLivro"].focus();
     }
     else if(valorMensalidade == "") {
-        faltaCampo("Valor Mensalidade");
+        faltaCampo_registarTipoInscricao("Valor Mensalidade");
         document.forms["formTipoInscricao"]["txtValorMensalidade"].focus();
     }
     else{
-        confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade);
+        confirmaDados_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade);
     }  
 }
-function faltaCampo(campo){
+
+function faltaCampo_registarTipoInscricao(campo){
     Swal.fire({
         icon: 'error',
         title: campo,
         text: 'Por favor introduza uma valor válido.',
     })
 }
-function confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade){
-    mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade);
+
+function confirmaDados_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade){
+    mostraDados_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade);
     Swal.fire({
         title: 'Pretende gravar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
@@ -44,22 +46,23 @@ function confirmaDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensa
         confirmButtonText: 'Sim, gravar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade);
+            registar_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade);
         }
     })
 }
-function mostraDadosAGravar(descritivo, valorInscricao, valorLivro, valorMensalidade) {
+
+function mostraDados_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/mostraDadosAGravar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("GET", "php/tipoInscricao/mostraDadosRegistar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){ 
+function registar_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade){ 
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 
@@ -73,22 +76,27 @@ function guardaDados(descritivo, valorInscricao, valorLivro, valorMensalidade){
 
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
-            mostraTipoAlerta(true);
+            mostraTipoAlerta_registarTipoInscricao(true);
         }
         else{
-            mostraTipoAlerta(false);
+            mostraTipoAlerta_registarTipoInscricao(false);
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     };
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/guardaDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("GET", "php/tipoInscricao/registarDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
+
+
+    //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
+    //funcao em outro ficheiro
+    carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 }
 
-function mostraTipoAlerta(tipoAlerta){
+function mostraTipoAlerta_registarTipoInscricao(tipoAlerta){
     if (tipoAlerta == true){
         //gravado
         Swal.fire(
@@ -96,7 +104,7 @@ function mostraTipoAlerta(tipoAlerta){
             'O seu registo foi gravado com sucesso!',
             'success'
         )
-        limpaDados();    
+        limpaDados_registarTipoIncricao();    
     }
     else{
         //nao gravado
@@ -107,6 +115,7 @@ function mostraTipoAlerta(tipoAlerta){
         )
     }
 }
-function limpaDados(){
+
+function limpaDados_registarTipoIncricao(){
     document.getElementById("formTipoInscricao").reset();
 }

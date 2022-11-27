@@ -70,9 +70,9 @@
                     </div>
                     
                 </div>
-                <button type="button" value="Eliminar" onclick="validaFormularioTipoIncricaoEliminar()" class="btn btn-danger" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button>
-                <button type="button" value="Editar" onclick="validaFormularioTipoIncricaoEditar()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
-                <button type="button" value="Gravar" onclick="validaFormularioTipoIncricaoRegistar()" class="btn btn-primary" id="botaoGravar">Registar <i class="fa fa-save"></i></button>
+                <button type="button" value="Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button>
+                <button type="button" value="Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
+                <button type="button" value="Gravar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary" id="botaoGravar">Registar <i class="fa fa-save"></i></button>
             </form>
         </section>
         <section class="sectionSeguintes">
@@ -80,9 +80,9 @@
             <div class="tabelaFiltrosDiv">
                 <div class="filtrosNav">
                     <div class="divRadioGroup">
-                        <button type="button" class="btn btn-success" onclick="recebeFiltrosTabela(2)">ReportViwer <i class="fa fa-print"></i></button>
+                        <button type="button" class="btn btn-success" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
                     </div>
-                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela(1)">
+                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onkeydown="recebeFiltrosTabela_mostrarTipoInscricao(1)">
                         <div class="divRadioGroup">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
                                 <label class="btn btn-secondary active" >
@@ -141,9 +141,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
-    <script src="js/tipoInscricao/criaTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/mostraTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/editaTipoInscricao.js"></script>
+    <script src="js/tipoInscricao/registarTipoInscricao.js"></script>
+    <script src="js/tipoInscricao/mostrarTipoInscricao.js"></script>
+    <script src="js/tipoInscricao/editarTipoInscricao.js"></script>
     
 </body>
 </html>

@@ -3,25 +3,25 @@ let DefaultNumeroRegistos = "top 10";
 let DefaultOrdenacaoRegistos = "order by 2 asc";
 
 //carrega a tabela com os 10 primeiros dados e ordenado asc ao abrir a pagina
-carregaTabela(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
+carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 //console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
 
-function recebeFiltrosTabela(opcao){
+function recebeFiltrosTabela_mostrarTipoInscricao(opcao){
     let pesquisaDescritivo = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     let numeroRegistos = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     let ordenacaoRegistos = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
 
     if(opcao == 1){
-        carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+        carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
     }
     else if(opcao == 2){
-        imprimeReportViwer(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+        imprimeReportViwer_mostarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
     }  
     //console.log (numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
 }
 
 //funcao que carrega query para ir buscar os dados
-function carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
+function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 
@@ -50,8 +50,7 @@ function carregaTabela(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
     xhttp.send();
 }
 
-
-function imprimeReportViwer(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
+function imprimeReportViwer_mostarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
     let reportUrl = "http://fixo/ReportServer?%2frpt_mostraTipoInscricao"
     // Para o numero de registos
     if(numeroRegistos != ""){

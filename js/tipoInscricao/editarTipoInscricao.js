@@ -1,64 +1,61 @@
-let ultimodescritivoSelecionado = "";
-let ultimoNumeroRegistosSelecionado = "top 10";
-let ultimoOrdenacaoRegistosSelecionado = "order by 2 asc";
 let descritivoSelecionado = ""; 
 let numeroRegistosSelecionado = ""; 
 let ordenacaoRegistosSelecionado = "";
+
 let ultimaLinha = 0;
 let linhaPintada = false;
 
 
-function selecionaLinha(linhaSelecionada){
+function selecionaLinha_editarTipoInscricao(linhaSelecionada){
     descritivoSelecionado = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     numeroRegistosSelecionado = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     ordenacaoRegistosSelecionado = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
-
    
     //se filtros mantiveram
-    if(descritivoSelecionado == ultimodescritivoSelecionado & numeroRegistosSelecionado == ultimoNumeroRegistosSelecionado & ordenacaoRegistosSelecionado == ultimoOrdenacaoRegistosSelecionado){
+    if(descritivoSelecionado == DefaultPesquisaDescritivo & numeroRegistosSelecionado == DefaultNumeroRegistos & ordenacaoRegistosSelecionado == DefaultOrdenacaoRegistos){
         if (ultimaLinha == linhaSelecionada & linhaPintada == true){
             document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "";
             linhaPintada = false;
-            getDadosEditar(linhaPintada);
+            getDados_editarTipoInscricao(linhaPintada);
             
         }else if(ultimaLinha == linhaSelecionada & linhaPintada == false){
             document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
             linhaPintada = true;
-            getDadosEditar(linhaPintada);
+            getDados_editarTipoInscricao(linhaPintada);
         }
         else if(ultimaLinha != linhaSelecionada & linhaPintada == false){
             document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
             linhaPintada = true;
-            getDadosEditar(linhaPintada);
+            getDados_editarTipoInscricao(linhaPintada);
             ultimaLinha = linhaSelecionada;
            
         }else if(ultimaLinha != linhaSelecionada & linhaPintada == true){
             document.getElementById("tblTipoInscricao").rows[ultimaLinha].style.background = ""
             document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
             linhaPintada = true;
-            getDadosEditar(linhaPintada);
+            getDados_editarTipoInscricao(linhaPintada);
             ultimaLinha = linhaSelecionada; 
         }
     }
     else{   //se filtros mudaram
-        ultimodescritivoSelecionado = descritivoSelecionado;
-        ultimoNumeroRegistosSelecionado = numeroRegistosSelecionado;
-        ultimoOrdenacaoRegistosSelecionado = ordenacaoRegistosSelecionado;
+        DefaultPesquisaDescritivo = descritivoSelecionado;
+        DefaultNumeroRegistos = numeroRegistosSelecionado;
+        DefaultOrdenacaoRegistos = ordenacaoRegistosSelecionado;
 
         document.getElementById("tblTipoInscricao").rows[ultimaLinha].style.background = ""
         document.getElementById("tblTipoInscricao").rows[linhaSelecionada].style.background = "#FFC107";
         linhaPintada = true;
-        getDadosEditar(linhaPintada);
+        getDados_editarTipoInscricao(linhaPintada);
         ultimaLinha = linhaSelecionada;  
     }  
 }
 
-function getDadosEditar(linhaPintada){
+function getDados_editarTipoInscricao(linhaPintada){
     var table = document.getElementsByTagName("table")[0];
     var tbody = table.getElementsByTagName("tbody")[0];
     tbody.onclick = function (e) {
         if(linhaPintada == true){
-            limpaDados()
+            limpaDados_editarTipoIncricao()
             e = e || window.event;
             var arrayLinhaTabela = [];
             var target = e.srcElement || e.target;
@@ -79,12 +76,13 @@ function getDadosEditar(linhaPintada){
             $(document.forms["formTipoInscricao"]["txtValorLivro"]).val(parseFloat(arrayLinhaTabela[4]));
             $(document.forms["formTipoInscricao"]["txtValorMensalidade"]).val(parseFloat(arrayLinhaTabela[5]));
         }else{
-            limpaDados()
+            limpaDados_editarTipoIncricao()
         }
     };
    
 }
-function validaFormularioTipoIncricaoEditar() {
+
+function validaFormulario_editarTipoIncricao() {
     if(linhaPintada == true){
 
         let id = document.forms["formTipoInscricao"]["txtId"].value;
@@ -94,32 +92,32 @@ function validaFormularioTipoIncricaoEditar() {
         let valorMensalidade = document.forms["formTipoInscricao"]["txtValorMensalidade"].value;
 
         if (descritivo == "") {
-            faltaCampo("Descritivo");
+            faltaCampo_editarTipoInscricao("Descritivo");
             document.forms["formTipoInscricao"]["txtDescritivo"].focus();
         }
         else if (valorInscricao == "") {
-            faltaCampo("Valor Inscrição");
+            faltaCampo_editarTipoInscricao("Valor Inscrição");
             document.forms["formTipoInscricao"]["txtValorInscricao"].focus();
         }
         else if(valorLivro == "") {
-            faltaCampo("Valor Livro");
+            faltaCampo_editarTipoInscricao("Valor Livro");
             document.forms["formTipoInscricao"]["txtValorLivro"].focus();
         }
         else if(valorMensalidade == "") {
-            faltaCampo("Valor Mensalidade");
+            faltaCampo_editarTipoInscricao("Valor Mensalidade");
             document.forms["formTipoInscricao"]["txtValorMensalidade"].focus();
         }
         else{
-            confirmaDadosAEditar(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
+            confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
         }  
     }
     else{
-        faltaLinha()
+        faltaLinha_editarTipoInscricao()
     }
 }
 
-function confirmaDadosAEditar(id, descritivo, valorInscricao, valorLivro, valorMensalidade){
-    mostraDadosAEditar(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
+function confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade){
+    mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
     Swal.fire({
         title: 'Pretende editar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
@@ -130,23 +128,23 @@ function confirmaDadosAEditar(id, descritivo, valorInscricao, valorLivro, valorM
         confirmButtonText: 'Sim, editar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            editaDados(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
+            editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
         }
     })
 }
 
-function mostraDadosAEditar(id, descritivo, valorInscricao, valorLivro, valorMensalidade) {
+function mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/mostraDadosAEditar.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("GET", "php/tipoInscricao/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-function editaDados(id, descritivo, valorInscricao, valorLivro, valorMensalidade){ 
+function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade){ 
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 
@@ -160,27 +158,27 @@ function editaDados(id, descritivo, valorInscricao, valorLivro, valorMensalidade
 
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
-            mostraTipoAlerta(true);
+            mostraTipoAlerta_editarTipoInscricao(true);
         }
         else{
-            mostraTipoAlerta(false);
+            mostraTipoAlerta_editarTipoInscricao(false);
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     };
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/editaDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("GET", "php/tipoInscricao/editarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 
     
     //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
     //funcao em outro ficheiro
-    carregaTabela(ultimoNumeroRegistosSelecionado, ultimoOrdenacaoRegistosSelecionado, ultimodescritivoSelecionado);
+    carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 }
 
-function faltaLinha(){
+function faltaLinha_editarTipoInscricao(){
     Swal.fire({
         icon: 'error',
         title: 'Linha em falta',
@@ -188,7 +186,7 @@ function faltaLinha(){
     })
 }
 
-function faltaCampo(campo){
+function faltaCampo_editarTipoInscricao(campo){
     Swal.fire({
         icon: 'error',
         title: campo,
@@ -196,7 +194,7 @@ function faltaCampo(campo){
     })
 }
 
-function mostraTipoAlerta(tipoAlerta){
+function mostraTipoAlerta_editarTipoInscricao(tipoAlerta){
     if (tipoAlerta == true){
         //editado
         Swal.fire(
@@ -204,7 +202,7 @@ function mostraTipoAlerta(tipoAlerta){
             'O seu registo foi editado com sucesso!',
             'success'
         )
-        limpaDados();    
+        limpaDados_editarTipoIncricao();    
     }
     else{
         //nao gravado
@@ -216,7 +214,8 @@ function mostraTipoAlerta(tipoAlerta){
     }
 }
 
-function limpaDados(){
+function limpaDados_editarTipoIncricao(){
     document.getElementById("formTipoInscricao").reset();
 }
     
+

@@ -50,7 +50,7 @@
          foreach($dados as $dado) {
             $linha++;
          ?>
-         <tr onclick="selecionaLinha(<?php echo(json_encode($linha));?>)">
+         <tr onclick="selecionaLinha_editarTipoInscricao(<?php echo(json_encode($linha));?>)">
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_id'];?></td>
             <td scope="row"><?php echo $linha;?></td>
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>
