@@ -27,7 +27,7 @@ $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
 $txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
 $txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
 
-echo "<table class=\"tableInfoGuardar\">";
+echo "<table class=\"tableInfo\">";
 echo "<tr>";
 echo "<td class=\"td_titulo\">Descritivo:</td>";
 echo "<td class=\"td_descritivo\">" . $txtDescritivo . "</td>";

@@ -20,6 +20,7 @@ try{
    echo "Carregou query!";
 }catch(Exception $e){
    echo $e->getMessage();
+   exit;
 }
 
 ?>

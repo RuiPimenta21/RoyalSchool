@@ -21,7 +21,6 @@
       } else {
          $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
       }
-      //$stringQuery = "exec criaTipoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
 
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
@@ -50,7 +49,7 @@
          foreach($dados as $dado) {
             $linha++;
          ?>
-         <tr onclick="selecionaLinha_editarTipoInscricao(<?php echo(json_encode($linha));?>)">
+         <tr onclick="selecionaLinha_TipoInscricao(<?php echo(json_encode($linha));?>)">
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_id'];?></td>
             <td scope="row"><?php echo $linha;?></td>
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>

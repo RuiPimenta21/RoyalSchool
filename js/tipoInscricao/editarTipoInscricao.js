@@ -6,7 +6,7 @@ let ultimaLinha = 0;
 let linhaPintada = false;
 
 
-function selecionaLinha_editarTipoInscricao(linhaSelecionada){
+function selecionaLinha_TipoInscricao(linhaSelecionada){
     descritivoSelecionado = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     numeroRegistosSelecionado = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     ordenacaoRegistosSelecionado = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
@@ -82,7 +82,7 @@ function getDados_editarTipoInscricao(linhaPintada){
    
 }
 
-function validaFormulario_editarTipoIncricao() {
+function validaFormulario_editarTipoInscricao() {
     if(linhaPintada == true){
 
         let id = document.forms["formTipoInscricao"]["txtId"].value;
