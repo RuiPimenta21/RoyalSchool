@@ -77,7 +77,7 @@ function eliminar_eliminarTipoInscricao(id, descritivo, valorInscricao, valorLiv
             //console.log(this.response)
             if(this.response == 1){
                 mostraTipoAlerta_editarTipoInscricao(true, 1);
-            }else if(){
+            }else if(this.response == 0){
                 mostraTipoAlerta_editarTipoInscricao(true, 0);
             }
         }else{   
