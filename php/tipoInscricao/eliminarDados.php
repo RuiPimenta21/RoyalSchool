@@ -20,14 +20,17 @@
       $stringQuery = "exec eliminaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
       
       $query = $Conexao->query($stringQuery);
+      $dados = $query->fetchAll();
+      //$dados=array("1");
 
-      $dados=array("1");
-
-
-      echo $dados[0];
    }catch(Exception $e){
       echo $e->getMessage();
       exit;
    }
-   
+
+   foreach($dados as $dado) {
+      echo $dado['mensagemFinal'];
+   }
+
+
 ?>
