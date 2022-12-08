@@ -21,7 +21,6 @@ function recebeFiltrosTabela_mostrarTipoInscricao(opcao){
 
 //funcao que carrega query para ir buscar os dados
 function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
-    console.log("entroa")
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 
