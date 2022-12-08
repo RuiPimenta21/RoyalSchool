@@ -6,9 +6,11 @@
    define('DB_DRIVER'      , "sqlsrv");
 
    //decoding 
-   $txtNumeroRegistos = rawurldecode($_REQUEST["numeroRegistos"]);
-   $txtOrdenacaoRegistos = rawurldecode($_REQUEST["ordenacaoRegistos"]);
-   $txtPesquisaDescritivo = rawurldecode($_REQUEST["pesquisaDescritivo"]);
+   $txtId = rawurldecode($_REQUEST["id"]);
+   $txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
+   $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
+   $txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
+   $txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
 
    require_once "../Conexao.php";
    try{
@@ -16,14 +18,16 @@
 
       $stringQuery="";
       $stringQuery = "exec eliminaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
-                  
+      
       $query = $Conexao->query($stringQuery);
 
-      echo "Carregou query!";
+      $dados=array("1");
 
+
+      echo $dados[0];
    }catch(Exception $e){
       echo $e->getMessage();
       exit;
    }
+   
 ?>
-

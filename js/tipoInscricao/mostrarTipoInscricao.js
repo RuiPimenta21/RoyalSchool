@@ -7,7 +7,6 @@ carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegist
 //console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
 
 function recebeFiltrosTabela_mostrarTipoInscricao(opcao){
-    console.log("entrou")
     let pesquisaDescritivo = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     let numeroRegistos = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     let ordenacaoRegistos = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
@@ -18,11 +17,11 @@ function recebeFiltrosTabela_mostrarTipoInscricao(opcao){
     else if(opcao == 2){
         imprimeReportViwer_mostarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
     }  
-    console.log (numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
 }
 
 //funcao que carrega query para ir buscar os dados
 function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
+    console.log("entroa")
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 

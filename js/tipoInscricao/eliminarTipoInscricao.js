@@ -61,8 +61,8 @@ function mostraDados_eliminarTipoInscricao(id, descritivo, valorInscricao, valor
 }
 
 function eliminar_eliminarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade){ 
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
 
         document.getElementById("txtErro").style.display = "none";
         document.getElementById("txtErro").style.visibility = "none";
@@ -71,22 +71,27 @@ function eliminar_eliminarTipoInscricao(id, descritivo, valorInscricao, valorLiv
         this.readyState
         this.status
         this.responseText
-      
+
         //operacao está CONCLUIDA e resposta está OK
-        if (this.readyState == 4 && this.status == 200) {
-            //console.log(this.response)
-            if(this.response == 1){
-                mostraTipoAlerta_editarTipoInscricao(true, 1);
-            }else if(this.response == 0){
-                mostraTipoAlerta_editarTipoInscricao(true, 0);
-            }
-        }else{   
-            mostraTipoAlerta_eliminarTipoInscricao(false, 0);       
+        if (this.readyState == 4 && this.status == 200 && this.responseText == "1") {
+            mostraTipoAlerta_eliminarTipoInscricao(true, 1);
+        }
+        else if(this.readyState == 4 && this.status == 200 && this.responseText == "2"){
+            mostraTipoAlerta_eliminarTipoInscricao(true, 2);
+        }
+        else if(this.readyState == 4 && this.status == 200 && this.responseText == "3"){
+            mostraTipoAlerta_eliminarTipoInscricao(true, 3);
+        }
+        else if(this.readyState == 4 && this.status == 200 && this.responseText == "4"){
+            mostraTipoAlerta_eliminarTipoInscricao(true, 4);
+        }
+        else{   
+            mostraTipoAlerta_eliminarTipoInscricao(false, "5");       
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
-    }
+    };
     //Encoding
     xhttp.open("GET", "php/tipoInscricao/eliminarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
@@ -95,7 +100,7 @@ function eliminar_eliminarTipoInscricao(id, descritivo, valorInscricao, valorLiv
 
     //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
     //funcao em outro ficheiro
-    carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo); 
+    carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 }
 
 function faltaLinha_eliminarTipoInscricao(){
@@ -124,11 +129,29 @@ function mostraTipoAlerta_eliminarTipoInscricao(tipoAlerta, mensagemFinal){
         )
         limpaDados_eliminarTipoIncricao();    
     }
-    else if (tipoAlerta == true && mensagemFinal == 0){
+    else if (tipoAlerta == true && mensagemFinal == 2){
         //existe registo que não pode ser eliminado
         Swal.fire(
             'Impossível Eliminar!',
             'O seu registo não pode ser eliminado pois existem "Inscrições" com este "Tipo de Inscrição!"',
+            'error'
+        )
+        limpaDados_eliminarTipoIncricao();    
+    }
+    else if (tipoAlerta == true && mensagemFinal == 3){
+        //existe registo que não pode ser eliminado
+        Swal.fire(
+            'Impossível Eliminar!',
+            'O seu registo não pode ser eliminado pois já se encontra eliminado',
+            'error'
+        )
+        limpaDados_eliminarTipoIncricao();    
+    }
+    else if (tipoAlerta == true && mensagemFinal == 4){
+        //existe registo que não pode ser eliminado
+        Swal.fire(
+            'Impossível Eliminar!',
+            'O seu registo não pode ser eliminado por um motivo desconhecido',
             'error'
         )
         limpaDados_eliminarTipoIncricao();    
