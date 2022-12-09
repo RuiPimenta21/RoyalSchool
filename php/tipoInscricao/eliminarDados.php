@@ -21,16 +21,18 @@
       
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
-      //$dados=array("1");
-
+   
    }catch(Exception $e){
       echo $e->getMessage();
       exit;
    }
+?>
 
+
+<?php
    foreach($dados as $dado) {
-      echo $dado['mensagemFinal'];
+      $dado['mensagemFinal'];
    }
 
-
+   echo $dado['mensagemFinal'];
 ?>
