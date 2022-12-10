@@ -1,4 +1,7 @@
 <?php
+
+
+
    define('DB_HOST'        , "FIXO\SQLEXPRESS");
    define('DB_USER'        , "admin");
    define('DB_PASSWORD'    , "admin");
@@ -21,7 +24,16 @@
       
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
-   
+
+      $linha=0;
+      foreach($dados as $dado) {
+         $dado[$linha];
+         $linha++;
+      }
+      $myArr = $dado;
+      $myJSON = json_encode($myArr);
+      echo $myJSON;
+
    }catch(Exception $e){
       echo $e->getMessage();
       exit;
@@ -29,10 +41,4 @@
 ?>
 
 
-<?php
-   foreach($dados as $dado) {
-      $dado['mensagemFinal'];
-   }
 
-   echo $dado['mensagemFinal'];
-?>

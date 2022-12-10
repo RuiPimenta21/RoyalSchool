@@ -10,7 +10,7 @@ function selecionaLinha_TipoInscricao(linhaSelecionada){
     descritivoSelecionado = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     numeroRegistosSelecionado = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     ordenacaoRegistosSelecionado = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
-   
+
     //se filtros mantiveram
     if(descritivoSelecionado == DefaultPesquisaDescritivo & numeroRegistosSelecionado == DefaultNumeroRegistos & ordenacaoRegistosSelecionado == DefaultOrdenacaoRegistos){
         if (ultimaLinha == linhaSelecionada & linhaPintada == true){
@@ -159,6 +159,11 @@ function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, 
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
             mostraTipoAlerta_editarTipoInscricao(true);
+
+            //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
+            //funcao em outro ficheiro
+            carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
+            //location.reload();
         }
         else{
             mostraTipoAlerta_editarTipoInscricao(false);
@@ -171,11 +176,6 @@ function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, 
     xhttp.open("GET", "php/tipoInscricao/editarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
-
-    
-    //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
-    //funcao em outro ficheiro
-    carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 }
 
 function faltaLinha_editarTipoInscricao(){

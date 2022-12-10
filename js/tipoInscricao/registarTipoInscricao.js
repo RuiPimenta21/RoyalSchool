@@ -77,6 +77,10 @@ function registar_registarTipoInscricao(descritivo, valorInscricao, valorLivro, 
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
             mostraTipoAlerta_registarTipoInscricao(true);
+
+            //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
+            //funcao em outro ficheiro
+            carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
         }
         else{
             mostraTipoAlerta_registarTipoInscricao(false);
@@ -88,12 +92,7 @@ function registar_registarTipoInscricao(descritivo, valorInscricao, valorLivro, 
     //Encoding
     xhttp.open("GET", "php/tipoInscricao/registarDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    xhttp.send();
-
-
-    //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
-    //funcao em outro ficheiro
-    carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
+    xhttp.send();   
 }
 
 function mostraTipoAlerta_registarTipoInscricao(tipoAlerta){
