@@ -83,3 +83,4 @@ function imprimeReportViwer_mostarTipoInscricao(numeroRegistos, ordenacaoRegisto
 
 
 
+

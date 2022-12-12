@@ -82,6 +82,7 @@ function eliminar_eliminarTipoInscricao(id, descritivo, valorInscricao, valorLiv
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
             carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
+            linhaPintada = false;
         }
         else if(this.readyState == 4 && this.status == 200 && mensagem[0] == 2){
             mostraTipoAlerta_eliminarTipoInscricao(true, 2);

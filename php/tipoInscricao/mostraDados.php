@@ -16,12 +16,13 @@
 
       $stringQuery="";
 
-      if ($txtPesquisaDescritivo == "") {
+      /*if ($txtPesquisaDescritivo == "") {
          $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao ".$txtOrdenacaoRegistos;
       } else {
          $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
-      }
-
+      }*/
+      $stringQuery = "exec rpt_mostraTipoInscricao @numeroRegistos = '".$txtNumeroRegistos."',  @pesquisaDescritivo = '".$txtPesquisaDescritivo."', @ordenacaoRegistos = '".$txtOrdenacaoRegistos."'";
+     
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
    }catch(Exception $e){
@@ -36,7 +37,7 @@
    <table id="tblTipoInscricao" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
       <thead class="tabelaCabecalho ">
          <tr>
-            <th scope="col">Id</th>
+            <th style="display:none;" scope="col">Id</th>
             <th scope="col">Nº</th>
             <th scope="col">Descrição</th>
             <th scope="col">Valor Inscrição Sem Iva</th>
@@ -50,7 +51,7 @@
             $linha++;
          ?>
          <tr onclick="selecionaLinha_TipoInscricao(<?php echo(json_encode($linha));?>)">
-            <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_id'];?></td>
+            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_id'];?></td>
             <td scope="row"><?php echo $linha;?></td>
             <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>
             <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?></td>

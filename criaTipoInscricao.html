@@ -46,10 +46,12 @@
             <h4>Criar registo</h4>
             <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    
+                    <div class="form-group col-md-6" style="display:none;">
                         <label for="id">Id</label>
                         <input type="text" id="id" name="txtId" class="form-control" placeholder="Id"  required>
                     </div>
+                    
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
                         <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  required>
@@ -70,9 +72,9 @@
                     </div>
                     
                 </div>
-                <button type="button" value="Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button>
-                <button type="button" value="Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
-                <button type="button" value="Gravar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary" id="botaoGravar">Registar <i class="fa fa-save"></i></button>
+                <button type="button" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button>
+                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
+                <button type="button" value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary" id="botaoGravar">Registar <i class="fa fa-save"></i></button>
             </form>
         </section>
         <section class="sectionSeguintes">
@@ -80,7 +82,7 @@
             <div class="tabelaFiltrosDiv">
                 <div class="filtrosNav">
                     <div class="divRadioGroup">                              
-                        <button type="button" class="btn btn-success" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
+                        <button type="button" class="btn btn-success"  title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
                     </div>
                     <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
                         <div class="divRadioGroup">
@@ -99,7 +101,7 @@
                                     <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked> Top10
                                 </label>
                                     <label class="btn btn-secondary">
-                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20"> Top20
+                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
                                 </label>
                                 <label class="btn btn-secondary">
                                     <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
@@ -107,7 +109,7 @@
                             </div> 
                         </div>
                         <div class="divRadioGroup form-group col-md-4">
-                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar..">
+                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
                         </div>
                     </form>
                 </div>

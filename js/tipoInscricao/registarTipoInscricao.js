@@ -81,6 +81,7 @@ function registar_registarTipoInscricao(descritivo, valorInscricao, valorLivro, 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
             carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
+            linhaPintada = false;
         }
         else{
             mostraTipoAlerta_registarTipoInscricao(false);

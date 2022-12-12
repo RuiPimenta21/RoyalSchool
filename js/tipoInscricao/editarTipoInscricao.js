@@ -163,7 +163,7 @@ function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
             carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
-            //location.reload();
+            linhaPintada = false;
         }
         else{
             mostraTipoAlerta_editarTipoInscricao(false);
