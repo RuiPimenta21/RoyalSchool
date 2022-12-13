@@ -15,12 +15,6 @@
       $Conexao = Conexao::getConnection();
 
       $stringQuery="";
-
-      /*if ($txtPesquisaDescritivo == "") {
-         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao ".$txtOrdenacaoRegistos;
-      } else {
-         $stringQuery = "select ".$txtNumeroRegistos." tipoInscricao_id, tipoInscricao_descricao, tipoInscricao_valorIscricaoSemIva, tipoInscricao_valorLivroSemIva, tipoInscricao_valorMensalidadeSemIva from tipoInscricao where tipoInscricao_descricao like '%".$txtPesquisaDescritivo."%' ".$txtOrdenacaoRegistos;
-      }*/
       $stringQuery = "exec rpt_mostraTipoInscricao @numeroRegistos = '".$txtNumeroRegistos."',  @pesquisaDescritivo = '".$txtPesquisaDescritivo."', @ordenacaoRegistos = '".$txtOrdenacaoRegistos."'";
      
       $query = $Conexao->query($stringQuery);

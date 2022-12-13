@@ -72,9 +72,9 @@ function getDados_editarTipoInscricao(linhaPintada){
             //introduz nas txtbox
             $(document.forms["formTipoInscricao"]["txtId"]).val(arrayLinhaTabela[0]);
             $(document.forms["formTipoInscricao"]["txtDescritivo"]).val(arrayLinhaTabela[2]);
-            $(document.forms["formTipoInscricao"]["txtValorInscricao"]).val(parseFloat(arrayLinhaTabela[3]));
-            $(document.forms["formTipoInscricao"]["txtValorLivro"]).val(parseFloat(arrayLinhaTabela[4]));
-            $(document.forms["formTipoInscricao"]["txtValorMensalidade"]).val(parseFloat(arrayLinhaTabela[5]));
+            $(document.forms["formTipoInscricao"]["txtValorInscricao"]).val(parseFloat(arrayLinhaTabela[3]).toFixed(2));
+            $(document.forms["formTipoInscricao"]["txtValorLivro"]).val(parseFloat(arrayLinhaTabela[4]).toFixed(2));
+            $(document.forms["formTipoInscricao"]["txtValorMensalidade"]).val(parseFloat(arrayLinhaTabela[5]).toFixed(2));
         }else{
             limpaDados_editarTipoIncricao()
         }
@@ -84,7 +84,6 @@ function getDados_editarTipoInscricao(linhaPintada){
 
 function validaFormulario_editarTipoInscricao() {
     if(linhaPintada == true){
-
         let id = document.forms["formTipoInscricao"]["txtId"].value;
         let descritivo = document.forms["formTipoInscricao"]["txtDescritivo"].value;
         let valorInscricao = document.forms["formTipoInscricao"]["txtValorInscricao"].value;
