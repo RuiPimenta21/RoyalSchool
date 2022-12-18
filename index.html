@@ -5,75 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <link rel="stylesheet" href="css/geral1.css">
+
+
+
+    <!--Cabeçalho-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
 </head>
 <body>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
-<div class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                        <a href="#" class="navbar-brand">GROUP.COM</a>
-                    </div>
-
-                    <div class="navbar-collapse collapse" id="mobile_menu">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Incrição</a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilizadores<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Professor</a></li>
-                                    <li><a href="#">Aluno</a></li>
-                                    <li><a href="#">Enc. Educação</a></li>
-                                    <li><a href="#">Funcionário</a></li>
+    <header>
+        <div class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            <a href="#" class="navbar-brand">GROUP.COM</a>
+                        </div>
+                        <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">Incrição</a></li>
+                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilizadores<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Professor</a></li>
+                                        <li><a href="#">Aluno</a></li>
+                                        <li><a href="#">Enc. Educação</a></li>
+                                        <li><a href="#">Funcionário</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Ano Escolar<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Ano Letivo</a></li>
+                                        <li><a href="#">Nível</a></li>
+                                        <li><a href="#">Turma</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tesouraria<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Tipo Incrição</a></li>
+                                        <li><a href="#">Mensalidade</a></li>
+                                        <li><a href="#">Desconto</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Acessos</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#"  class="dropdown-toggle" data-toggle="dropdown"><img src="imagens/Pessoas.png" width="20px" height="20px" alt="fotoPerfil">Rui Pimenta<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><span style="margin-right: 5px;" class="glyphicon glyphicon-user"></span> Perfil</a></li>
+                                            <li><a href="#"><span style="margin-right: 5px;" class="glyphicon glyphicon-globe"></span>Idioma</a></li>
+                                            <li><a href="#"><span style="margin-right: 5px;" class="glyphicon glyphicon-adjust"></span>Ecrã</a></li>
+                                            <li role="presentation" class="divider"></li>
+                                            <li><a href="#"><span style="margin-right: 5px;" class="glyphicon glyphicon-log-in"></span>Terminar sessão</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Ano Escolar<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Ano Letivo</a></li>
-                                    <li><a href="#">Nível</a></li>
-                                    <li><a href="#">Turma</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tesouraria<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Tipo Incrição</a></li>
-                                    <li><a href="#">Mensalidade</a></li>
-                                    <li><a href="#">Desconto</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Acessos</a></li>
-                        </ul>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            
-                            <li><a href="#"><img src="imagens/Pessoas.png" width="20px" height="20px" alt="fotoPerfil">Rui Pimenta</a></li>
-                            
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span>Rui Pimenta<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Perfil</a></li>
-                                    <li><a href="#">Terminar sessão</a></li>
-                                    <li><a href="#">Sign Up</a></li>
-                                </ul>
-                            </li>
-                           
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Login</a></li>
-                                    <li><a href="#">Sign Up</a></li>
-                                </ul>
-                            </li>
-                            
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </header>
+    <body>
+        
+    </body>
+    
+
+    
+
+
 </body>
 </html>
 
