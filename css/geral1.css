@@ -7,4 +7,26 @@
 html {
   height: 100%;
 }
+.navbar-brand {
+  height: max-content;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 31px;
+}
+.navbar-nav > li >a{
+  line-height: 31px;
+  font-size: 15px;
+}
+.navbar-nav > li > a > img{
+  height: 30px;
+  width: 30px;
+}
+.navbar-toggle {
+  float: left;
+  margin-top: 15px;
+}
+.navbar-brand {
+  float: right;
+}
+
 /*Barra de navegacao*****************************************************************/
