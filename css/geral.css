@@ -176,11 +176,16 @@ body.open .navbar-menu {
   }
   .dropdownBotao1 {
     background: black;
+    top: -5px;
+    transform: translateY(-100%);
   }
   .dropdownBotaoPerfil{
     margin-left:0px;
     position: fixed;
-    bottom: 130px;
+    bottom: 20px;
+  }
+  .button.dropdown-toggle.buttonNavBar.iconDropDown::after {
+    transform: rotateX(180deg);
   }
 }
 .dropdownSubBotao{
@@ -209,6 +214,9 @@ body.open .navbar-menu {
 .buttonNavBar > img{
   width: 30px;
   height: 30px; 
+}
+.dropdownBotaoPerfil > .iconDropDown::after{
+  transform: rotateX(180deg);
 }
 
 /***********************************************************************************/
