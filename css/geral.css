@@ -49,6 +49,21 @@ body {
 .buttonNavBar.buttonHover:hover{
   color: #D02225;
 }
+.dropdown-toggle.buttonNavBar {
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.dropdown-toggle.buttonNavBar.buttonHover:hover{
+  color: #D02225;
+}
+.buttonNavBarDropdown:hover{
+  color: #D02225;
+  background-color: transparent;
+}
 .navbar-overlay {
   position: fixed;
   z-index: 2;
@@ -132,6 +147,70 @@ body.open .navbar-menu {
   color: inherit;
   color: #D02225;
 }
+.navbar-menu > .btn-group > .buttonNavBar {
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  padding: 0 8px;
+}
+.navbar-menu > .btn-group > .buttonNavBar.active {
+  color: inherit; 
+}
+.navbar-menu > .btn-group > .buttonNavBar.active:hover{
+  color: inherit;
+  color: #D02225;
+}
+.dropdownBotao{
+  background: #19191c;
+}
+.dropdownBotao1{
+  background: #19191c;
+}
+@media only screen and (max-width: 1170px) {
+  .navbar-menu{
+    width: fit-content;
+    width: 270px;
+    overflow-y: auto;
+  }
+  .dropdownBotao {
+    background: black;
+  }
+  .dropdownBotao1 {
+    background: black;
+  }
+  .dropdownBotaoPerfil{
+    margin-left:0px;
+    position: fixed;
+    bottom: 130px;
+  }
+}
+.dropdownSubBotao{
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Poppins";
+  font-size: 14px;
+  padding-top: 6px;
+  padding-left: 25px;
+}
+.selecionado{
+  background-color: transparent;
+  color: white;
+}
+@media only screen and (min-width: 1170px) {
+  .dropdownBotao1{
+    left:100%; 
+    transform: translate(-100%,0%);
+  }
+  .dropdownBotaoPerfil{
+    margin-left: 100px;
+  }
+}
+.dropdown-menu > .dropdownSubBotao > .iconBotao{
+  margin-right: 5px;
+}
+.buttonNavBar > img{
+  width: 30px;
+  height: 30px; 
+}
+
 /***********************************************************************************/
 /*main-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 main {
@@ -337,4 +416,3 @@ footer > div > a > img{
     visibility: none;
     color: red;
 }
-
