@@ -158,7 +158,7 @@ function mostraTipoAlerta_eliminarTipoInscricao(tipoAlerta, mensagemFinal){
         //existe registo que não pode ser eliminado
         Swal.fire(
             'Impossível Eliminar!',
-            'O seu registo não pode ser eliminado pois já se encontra eliminado',
+            'O seu registo não pode ser eliminado pois já se encontra eliminado!',
             'error'
         )
         limpaDados_eliminarTipoIncricao();    
@@ -167,7 +167,7 @@ function mostraTipoAlerta_eliminarTipoInscricao(tipoAlerta, mensagemFinal){
         //existe registo que não pode ser eliminado
         Swal.fire(
             'Impossível Eliminar!',
-            'O seu registo não pode ser eliminado por um motivo desconhecido',
+            'O seu registo não pode ser eliminado pois foi alterado, atualize a página!',
             'error'
         )
         limpaDados_eliminarTipoIncricao();    
