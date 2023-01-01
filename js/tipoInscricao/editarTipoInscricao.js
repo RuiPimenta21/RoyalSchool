@@ -145,7 +145,7 @@ function mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLi
 
 function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade){ 
     xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onload = function() {
 
         document.getElementById("txtErro").style.display = "none";
         document.getElementById("txtErro").style.visibility = "none";
@@ -155,9 +155,20 @@ function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, 
         this.status
         this.responseText
 
+        const mensagem = JSON.parse(this.responseText);
+        //console.log(myObj);
+
         //operacao está CONCLUIDA e resposta está OK
-        if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
-            mostraTipoAlerta_editarTipoInscricao(true);
+        if (this.readyState == 4 && this.status == 200 && mensagem[0] == 1) {
+           mostraTipoAlerta_editarTipoInscricao(true, 1);
+
+           //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
+            //funcao em outro ficheiro
+            carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
+            linhaPintada = false;
+        }
+        else if(mensagem[0] == 2){
+            mostraTipoAlerta_editarTipoInscricao(true, 2);
 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
@@ -165,7 +176,8 @@ function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, 
             linhaPintada = false;
         }
         else{
-            mostraTipoAlerta_editarTipoInscricao(false);
+            //erro que não vem de nehum resultado da query
+            mostraTipoAlerta_editarTipoInscricao(false, 0);
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
@@ -193,8 +205,8 @@ function faltaCampo_editarTipoInscricao(campo){
     })
 }
 
-function mostraTipoAlerta_editarTipoInscricao(tipoAlerta){
-    if (tipoAlerta == true){
+function mostraTipoAlerta_editarTipoInscricao(tipoAlerta, mensagem){
+    if (tipoAlerta == true && mensagem == 1){
         //editado
         Swal.fire(
             'A Editar!',
@@ -202,6 +214,13 @@ function mostraTipoAlerta_editarTipoInscricao(tipoAlerta){
             'success'
         )
         limpaDados_editarTipoIncricao();    
+    }
+    else if(tipoAlerta == true && mensagem == 2){
+        Swal.fire(
+            'Impossível Editar!',
+            'O seu registo não pode ser editado pois já se encontra eliminado, atualize a página!',
+            'error'
+        )
     }
     else{
         //nao gravado

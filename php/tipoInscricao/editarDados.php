@@ -17,8 +17,19 @@ try{
    $Conexao = Conexao::getConnection();
 
    $stringQuery = "exec editaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
+   
    $query = $Conexao->query($stringQuery);
-   echo "Carregou query!";
+   $dados = $query->fetchAll();
+
+   $linha=0;
+   foreach($dados as $dado) {
+      $dado[$linha];
+      $linha++;
+   }
+   $myArr = $dado;
+   $myJSON = json_encode($myArr);
+   echo $myJSON;
+
 }catch(Exception $e){
    echo $e->getMessage();
    exit;
