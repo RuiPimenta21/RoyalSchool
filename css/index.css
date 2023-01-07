@@ -11,35 +11,55 @@ body {
     position: relative;
     height: 100vh;
     background-image: url(../imagens/background.jpg);
-
     background-repeat: no-repeat;
-    background-size: 80%, 80%;
+    background-size: 60%, 60%;
     background-position: center;
 }
 .login1{
     position: absolute;
-    height: 600px;
     width: 450px;
-    background-color: #3b3d43ef;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
+    background-color: #3D3F45;
 }
 .login2{
-    margin-top: 50px;
+    height: min-content;
     text-align: center;
-    color: rgb(196, 196, 196);
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 70px;
 }
 .login2 > img{
     height: 100px;
     width: auto;  
 }
+.login2 > h4{
+    margin-top: 0px;
+    color: #8d8d8d;
+}
 .login3{
-    margin-top: 60px;
-    margin-left: 30px;
-    margin-right: 30px;
+    height: min-content;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 .txt1{
+    color: white;
+}
+.login4{
+    height: min-content;
+    text-align: center;
+    margin-top: 40px;
+}
+#passwordAjuda{
+    margin-top: 20px;
+    text-decoration: none;
+    color: #8d8d8d;
+}
+#passwordAjuda:hover{
     color: white;
 }
