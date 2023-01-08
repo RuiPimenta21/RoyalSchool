@@ -14,9 +14,9 @@ body {
 }
 .login{
     position: relative;
-    background-image: url(../imagens/backgroundLogin.jpg);
+    background-image: url(../imagens/backgroundLogin1.jpg);
     background-repeat: no-repeat;
-    background-size: 80%, 80%;
+    background-size: 100%, 100%;
     background-position: center bottom;
     display: inline-block;
     top: 50%;
@@ -37,11 +37,20 @@ body {
     width: 40vw;
 }
 .login1_1 > img{
-    width: 300px;
+    width: 400px;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -150%);
-    filter: drop-shadow(1px 1px 5px #ffffff);
+    filter: drop-shadow(5px 5px 50px #ffffff);
+}
+.login1_1 > p {
+    color: #C62023;
+    font-size: 36px;
+    font-weight: 600;
+    left: 0%;
+    transform: translate(0%, -200%);
+    width: auto;
+    text-align: center;
 }
 .login1_2{
     border-top-right-radius : 20px;
@@ -64,12 +73,13 @@ body {
 .login1_2_1 > img{
     height: 100px;
     width: auto;  
-    filter: drop-shadow(1px 2px 2px #000000);
+    filter: drop-shadow(1px 2px 2px #01175f);
     border: 20px;
 }
 .login1_2_1> h4{
     margin-top: 0px;
     color: white;
+    visibility: hidden;
 }
 .login1_2_2{
     height: min-content;
@@ -89,7 +99,7 @@ body {
 #passwordAjuda{
     margin-top: 20px;
     text-decoration: none;
-    color: #8d8d8d;
+    color: #e7e7e7;
 }
 #passwordAjuda:hover{
     color: white;
