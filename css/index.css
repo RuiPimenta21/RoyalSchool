@@ -12,6 +12,7 @@ body {
     height: 100vh;
     background-color:#ffffff;
 }
+
 .login{
     position: relative;
     background-image: url(../imagens/backgroundLogin1.jpg);
@@ -104,4 +105,116 @@ body {
 }
 #passwordAjuda:hover{
     color: white;
+}
+
+@media only screen and (min-width: 1921px){
+
+}
+@media only screen and (max-width: 1920px) and (min-width: 1141px) {
+    .login{
+        position: relative;
+        background-image: url(../imagens/backgroundLogin1.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%, 100%;
+        background-position: center bottom;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        -moz-box-shadow: 0px 0px 100px 100px #EFEFF0;
+        box-shadow: 0px 0px 100px 100px #EFEFF0;
+    }
+}
+@media only screen and (max-width: 1140px) and (min-width: 670px){
+    .login{
+        position: relative;
+        background-image: url(../imagens/backgroundLogin1.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%, 100%;
+        background-position: center bottom;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        -moz-box-shadow: 0px 0px 100px 100px #EFEFF0;
+        box-shadow: 0px 0px 100px 100px #EFEFF0;
+    }
+    .login1{
+        border-top-right-radius : 20px;
+        border-bottom-right-radius : 20px;
+        background-color: #3d3f4515;
+        min-width: auto;
+    }
+    .login1_1{
+        visibility: collapse;
+    }
+    .login1_2{
+        margin-left: auto;
+        margin-right: auto;
+        border-top-right-radius : 20px;
+        border-bottom-right-radius : 20px;
+        border-top-left-radius : 20px;
+        border-bottom-left-radius : 20px;
+        position: relative;
+        width: 375px;
+        background-color: #3d3f45bb;
+        top: 50%;
+        left: -50%;
+        transform: translate(50%, 0%);
+    }
+}
+@media only screen and (max-width: 669px){
+    .login{
+        background-image: url(../imagens/backgroundLogin1.jpg);
+        width: 100vw;
+    }
+    .login1_1{
+        visibility: collapse;
+        height: 0px;
+        width: 0px;
+        margin: 0px;
+    }
+    .login1_2{
+        border-top-right-radius : 20px;
+        border-bottom-right-radius : 20px;
+        border-top-left-radius : 20px;
+        border-bottom-left-radius : 20px;
+        background-color: #3d3f45bb;
+        width: 300px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0%);
+    }
+    .login1_2_1{
+        height: min-content;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:auto;
+        margin-bottom: auto;
+    }
+    .login1_2_1 > img{
+        height: 100px;
+        width: auto;  
+        filter: drop-shadow(1px 2px 2px #01175f);
+        border: 20px;
+    }
+    .login1_2_1> h4{
+        visibility: collapse;
+    }
+    .login1_2_2{
+        height: min-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .login1_2_2{
+        height: min-content;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
