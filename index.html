@@ -14,33 +14,44 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="login1">
-        <div class="login2">
-            <img src="imagens/logoFooter.png" alt="Royal School Rodapé">
-            <h4 class="form-text">Iniciar sessão</h4>
+   
+    <div class="login">
+        <div class="login1">
+            <div class="login1_1">
+                <!--<img src="imagens/logo1.png" alt="Royal School">-->
+            </div>
+            <div class="login1_2">
+                <div class="login1_2_1">
+                    <img src="imagens/logoFooter.png" alt="Royal School">
+                    <h4 class="form-text">Iniciar sessão</h4>
+                </div>
+                <div class="login1_2_2">
+                    <form>
+                        <div class="form-group">
+                            <label for="email" class="txt1">Email</label>
+                            <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="txt1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="login1_2_3">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+                            <a href="" id="passwordAjuda" class="form-text ajuda">Recuperar password.</a>
+                        </div>
+                        </form>
+                </div>      
+            </div>
+            
         </div>
-        <div class="login3">
-            <form>
-                <div class="form-group">
-                    <label for="email" class="txt1">Email</label>
-                    <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" class="txt1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="login4">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
-                    <a href="" id="passwordAjuda" class="form-text ajuda">Recuperar password.</a>
-                </div>
-              </form>
-        </div>
-        <div></div>
         
-    </div>
-
+    </div>    
+  
+    
     <div id="txtErro"></div>
     <!--JavaScript para BootStrap-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
