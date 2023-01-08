@@ -41,7 +41,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -150%);
-    filter: drop-shadow(5px 5px 50px #ffffff);
+    filter: drop-shadow(1px 1px 20px #e5d1d1);
 }
 .login1_1 > p {
     color: #C62023;
@@ -51,6 +51,7 @@ body {
     transform: translate(0%, -200%);
     width: auto;
     text-align: center;
+    filter: drop-shadow(1px 1px 10px #ffffff);
 }
 .login1_2{
     border-top-right-radius : 20px;
