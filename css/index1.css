@@ -9,8 +9,8 @@ html {
 }
 body {
     height: 100vh;
-    background-color: red;
     position: relative;
+    /*background-color: red;*/
 }
 .div1{
     position: absolute;
@@ -26,7 +26,7 @@ body {
 }
 .div1_1{
     display: inline;
-    background-color: rgba(0, 0, 255, 0.267);
+    /*background-color: rgba(0, 0, 255, 0.267);*/
 }
 .div1_2{
     display: inline;
@@ -34,47 +34,65 @@ body {
     border-radius: 20px;
 }
 .div1_1_1{
-    height: 70%;
-    background-color: rgba(172, 255, 47, 0.397);
+    height: 50%;
     position: relative;
+    /*background-color: rgba(172, 255, 47, 0.397);*/
 }
 .div1_1_2{
-    height: 30%;
-    background-color: rgba(137, 43, 226, 0.356);
+    height: 50%;
+    /*background-color: rgba(137, 43, 226, 0.356);*/
 }
-
 .div1_2_1{
-    background-color: rgba(172, 255, 47, 0.397);
+    /*background-color: rgba(255, 47, 47, 0.397);*/
 }
 .div1_2_2{
-    background-color: rgba(137, 43, 226, 0.356);
+    /*background-color: rgba(137, 43, 226, 0.356);*/
 }
 .div1_1_1 > img{
     position: absolute;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
+    filter: drop-shadow(2px 2px 4px #222020);
 }
 .div1_1_2 > p{
     color: #C62023;
     font-weight: 600;
     text-align: center;
+    filter: drop-shadow(2px 2px 4px #222020);
+}
+.div1_2_1 > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    filter: drop-shadow(1px 2px 2px #01175f);
 }
 .div1_2_2_1{
     position: absolute;
-    background-color: aqua;
     bottom: 0px;
     text-align: center;
+    padding-bottom: 20px;
+    /*background-color: aqua;*/
 }
-
+.txt1 {
+    color: white;
+}
+#passwordAjuda{
+    text-decoration: none;
+    color: #e7e7e7;
+}
+#passwordAjuda:hover{
+    color: white;
+}
 @media only screen and (min-width: 1351px){
     .div1_1{
         height: 600px;
-        width: 800px;
+        width: 900px;
     }
     .div1_2{
         height: 600px;
-        width: 500px;
+        width: 400px;
     }
     .div1_2_1{
         height: 30%;
@@ -90,19 +108,21 @@ body {
     .div1_1_2 > p{
         font-size: 36px;
     }
+    .div1_2_1 > img{
+        height: 140px;
+    }
     .div1_2_2_1{
-        width: 420px;
+        width: 320px;
     }
 }
-
 @media only screen and (max-width: 1351px) and (min-width: 1151px){
     .div1_1{
         height: 600px;
-        width: 600px;
+        width: 700px;
     }
     .div1_2{
         height: 600px;
-        width: 500px;
+        width: 400px;
     }
     .div1_2_1{
         height: 30%;
@@ -118,19 +138,51 @@ body {
     .div1_1_2 > p{
         font-size: 28px;
     }
+    .div1_2_1 > img{
+        height: 140px;
+    }
     .div1_2_2_1{
-        width: 420px;
+        width: 320px;
     }
 }
-
 @media only screen and (max-width: 1150px) and (min-width: 951px){
+    .div1_1{
+        height: 520px;
+        width: 500px;
+    }
+    .div1_2{
+        height: 520px;
+        width: 300px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 140px;
+    }
+    .div1_1_2 > p{
+        font-size: 20px;
+    }
+    .div1_2_1 > img{
+        height: 180px;
+    }
+    .div1_2_2_1{
+        width: 220px;
+    }
+}
+@media only screen and (max-width: 950px) and (min-width: 751px){
     .div1_1{
         height: 520px;
         width: 400px;
     }
     .div1_2{
         height: 520px;
-        width: 500px;
+        width: 300px;
     }
     .div1_2_1{
         height: 30%;
@@ -144,22 +196,23 @@ body {
         height: 110px;
     }
     .div1_1_2 > p{
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .div1_2_1 > img{
+        height: 120px;
     }
     .div1_2_2_1{
-        width: 420px;
+        width: 220px;
     }
 }
-
-@media only screen and (max-width: 950px) and (min-width: 551px){
+@media only screen and (max-width: 750px) and (min-width: 651px){
     .div1_1{
         height: 520px;
-        width: 0px;
-        visibility: collapse;
+        width: 300px;
     }
     .div1_2{
         height: 520px;
-        width: 500px;
+        width: 300px;
     }
     .div1_2_1{
         height: 30%;
@@ -170,17 +223,19 @@ body {
         margin-right: 40px;
     }
     .div1_1_1 > img{
-        height: 0px;
+        height: 110px;
     }
     .div1_1_2 > p{
-        font-size: 0px;
+        font-size: 18px;
+    }
+    .div1_2_1 > img{
+        height: 120px;
     }
     .div1_2_2_1{
-        width: 420px;
+        width: 220px;
     }
 }
-
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 650px){
     .div1_1{
         height: 520px;
         width: 0px;
@@ -204,7 +259,11 @@ body {
     .div1_1_2 > p{
         font-size: 0px;
     }
+    .div1_2_1 > img{
+        height: 100px;
+    }
     .div1_2_2_1{
         width: 220px;
     }
+   
 }
