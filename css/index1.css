@@ -42,12 +42,29 @@ body {
     height: 30%;
     background-color: rgba(137, 43, 226, 0.356);
 }
+
+.div1_2_1{
+    background-color: rgba(172, 255, 47, 0.397);
+}
+.div1_2_2{
+    background-color: rgba(137, 43, 226, 0.356);
+}
 .div1_1_1 > img{
-    height: 250px;
     position: absolute;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
+}
+.div1_1_2 > p{
+    color: #C62023;
+    font-weight: 600;
+    text-align: center;
+}
+.div1_2_2_1{
+    position: absolute;
+    background-color: aqua;
+    bottom: 0px;
+    text-align: center;
 }
 
 @media only screen and (min-width: 1351px){
@@ -59,7 +76,23 @@ body {
         height: 600px;
         width: 500px;
     }
-
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 220px;
+    }
+    .div1_1_2 > p{
+        font-size: 36px;
+    }
+    .div1_2_2_1{
+        width: 420px;
+    }
 }
 
 @media only screen and (max-width: 1351px) and (min-width: 1151px){
@@ -71,39 +104,107 @@ body {
         height: 600px;
         width: 500px;
     }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 180px;
+    }
+    .div1_1_2 > p{
+        font-size: 28px;
+    }
+    .div1_2_2_1{
+        width: 420px;
+    }
 }
 
 @media only screen and (max-width: 1150px) and (min-width: 951px){
     .div1_1{
-        height: 600px;
+        height: 520px;
         width: 400px;
     }
     .div1_2{
-        height: 600px;
+        height: 520px;
         width: 500px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 110px;
+    }
+    .div1_1_2 > p{
+        font-size: 20px;
+    }
+    .div1_2_2_1{
+        width: 420px;
     }
 }
 
 @media only screen and (max-width: 950px) and (min-width: 551px){
     .div1_1{
-        height: 600px;
+        height: 520px;
         width: 0px;
         visibility: collapse;
     }
     .div1_2{
-        height: 600px;
+        height: 520px;
         width: 500px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 0px;
+    }
+    .div1_1_2 > p{
+        font-size: 0px;
+    }
+    .div1_2_2_1{
+        width: 420px;
     }
 }
 
 @media only screen and (max-width: 550px){
     .div1_1{
-        height: 500px;
+        height: 520px;
         width: 0px;
         visibility: collapse;
     }
     .div1_2{
-        height: 500px;
+        height: 520px;
         width: 300px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 0px;
+    }
+    .div1_1_2 > p{
+        font-size: 0px;
+    }
+    .div1_2_2_1{
+        width: 220px;
     }
 }
