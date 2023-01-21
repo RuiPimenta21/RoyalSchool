@@ -1,0 +1,81 @@
+@charset "UTF-8";
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100vh;
+    background-color:#a8a8a8;
+    position: relative;
+}
+.div1{
+    background-image: url(../imagens/backgroundLogin1.jpg);
+    position: absolute;
+    display: inline-flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: max-content;
+    background-position: center;
+}
+.div1_1{
+    display: inline;
+    background-color: rgba(255, 255, 0, 0.226);
+}
+.div1_2{
+    display: inline;
+    background-color: rgb(0, 0, 255, 0.226);
+}
+
+@media only screen and (min-width: 1351px){
+    .div1_1{
+        height: 600px;
+        width: 800px;
+    }
+    .div1_2{
+        height: 600px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 1351px) and (min-width: 1151px){
+    .div1_1{
+        height: 600px;
+        width: 600px;
+    }
+    .div1_2{
+        height: 600px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 951px){
+    .div1_1{
+        height: 600px;
+        width: 400px;
+    }
+    .div1_2{
+        height: 600px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .div1_1{
+        height: 600px;
+        width: 0px;
+        visibility: collapse;
+    }
+    .div1_2{
+        height: 600px;
+        width: 500px;
+    }
+}
