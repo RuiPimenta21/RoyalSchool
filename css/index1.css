@@ -11,6 +11,7 @@ body {
     height: 100vh;
     position: relative;
     /*background-color: red;*/
+    min-height: 560px;   /*520px + 20px+20px*     (para suportar ecras na horizontal dos telemoveis)/
 }
 .div1{
     position: absolute;
