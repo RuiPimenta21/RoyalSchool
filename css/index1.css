@@ -11,7 +11,7 @@ body {
     height: 100vh;
     position: relative;
     /*background-color: red;*/
-    min-height: 560px;   /*520px + 20px+20px*     (para suportar ecras na horizontal dos telemoveis)/
+    min-height: 560px;   /*520px + 20px+20px     (para suportar ecras na horizontal dos telemoveis)*/
 }
 .div1{
     position: absolute;
@@ -78,6 +78,8 @@ body {
 }
 .txt1 {
     color: white;
+    font-size: medium; 
+    font-weight: 400;
 }
 #passwordAjuda{
     text-decoration: none;
