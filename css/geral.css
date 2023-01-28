@@ -228,6 +228,7 @@ main {
   min-width: 245px; /*tamanho minimo de alguns telemoveis 320, mas eu ja dou padding , logo 300*/
   max-width: 1680px;
   margin: auto;  /*centra o main*/
+  height: 94vh;                                                                                               /*->recente*/
 }
 section {
   background-color: white;

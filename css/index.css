@@ -8,213 +8,265 @@ html {
     height: 100%;
 }
 body {
-    position: relative;
     height: 100vh;
-    background-color:#ffffff;
-}
-
-.login{
     position: relative;
-    background-image: url(../imagens/backgroundLogin1.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%, 100%;
-    background-position: center bottom;
-    display: inline-block;
+    /*background-color: red;*/
+    min-height: 560px;   /*520px + 20px+20px     (para suportar ecras na horizontal dos telemoveis)*/
+}
+.div1{
+    position: absolute;
+    display: inline-flex;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px;
-    -moz-box-shadow: 0px 0px 100px 100px #EFEFF0;
-    box-shadow: 0px 0px 100px 100px #EFEFF0;
+    background-image: url(../imagens/index/backgroundLogin.jpg);
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-attachment: fixed;
 }
-.login1{
-    border-top-right-radius : 20px;
-    border-bottom-right-radius : 20px;
-    background-color: #3d3f4515;
+.div1_1{
+    display: inline;
+    /*background-color: rgba(0, 0, 255, 0.267);*/
 }
-.login1_1{
-    position: relative;
-    display: inline-block;
-    width: 40vw;
-}
-.login1_1 > img{
-    width: 400px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -150%);
-    filter: drop-shadow(1px 1px 20px #e5d1d1);
-}
-.login1_1 > p {
-    color: #C62023;
-    font-size: 36px;
-    font-weight: 600;
-    left: 0%;
-    transform: translate(0%, -200%);
-    width: auto;
-    text-align: center;
-    filter: drop-shadow(1px 1px 10px #ffffff);
-}
-.login1_2{
-    border-top-right-radius : 20px;
-    border-bottom-right-radius : 20px;
-    border-top-left-radius : 20px;
-    border-bottom-left-radius : 20px;
-    position: relative;
-    display: inline-block;
-    width: 450px;
+.div1_2{
+    display: inline;
     background-color: #3d3f45bb;
+    border-radius: 20px;
 }
-.login1_2_1{
-    height: min-content;
+.div1_1_1{
+    height: 50%;
+    position: relative;
+    /*background-color: rgba(172, 255, 47, 0.397);*/
+}
+.div1_1_2{
+    height: 50%;
+    /*background-color: rgba(137, 43, 226, 0.356);*/
+}
+.div1_2_1{
+    /*background-color: rgba(255, 47, 47, 0.397);*/
+}
+.div1_2_2{
+    /*background-color: rgba(137, 43, 226, 0.356);*/
+}
+.div1_1_1 > img{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(2px 2px 4px #222020);
+}
+.div1_1_2 > p{
+    color: #C62023;
+    font-weight: 600;
     text-align: center;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 40px;
-    margin-bottom: 70px;
+    filter: drop-shadow(2px 2px 4px #222020);
 }
-.login1_2_1 > img{
-    height: 100px;
-    width: auto;  
+.div1_2_1 > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
     filter: drop-shadow(1px 2px 2px #01175f);
-    border: 20px;
 }
-.login1_2_1> h4{
-    margin-top: 0px;
-    color: white;
-    visibility: hidden;
-}
-.login1_2_2{
-    height: min-content;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-.txt1{
-    color: white;
-}
-.login1_2_3{
-    height: min-content;
+.div1_2_2_1{
+    position: absolute;
+    bottom: 0px;
     text-align: center;
-    margin-top: 40px;
+    padding-bottom: 20px;
+    /*background-color: aqua;*/
+}
+.txt1 {
+    color: white;
+    font-size: medium; 
+    font-weight: 400;
 }
 #passwordAjuda{
-    margin-top: 20px;
     text-decoration: none;
     color: #e7e7e7;
 }
 #passwordAjuda:hover{
     color: white;
 }
-
-@media only screen and (min-width: 1921px){
-
-}
-@media only screen and (max-width: 1920px) and (min-width: 1141px) {
-    .login{
-        position: relative;
-        background-image: url(../imagens/backgroundLogin1.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%, 100%;
-        background-position: center bottom;
-        display: inline-block;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 20px;
-        -moz-box-shadow: 0px 0px 100px 100px #EFEFF0;
-        box-shadow: 0px 0px 100px 100px #EFEFF0;
+@media only screen and (min-width: 1351px){
+    .div1_1{
+        height: 600px;
+        width: 900px;
+    }
+    .div1_2{
+        height: 600px;
+        width: 400px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 220px;
+    }
+    .div1_1_2 > p{
+        font-size: 36px;
+    }
+    .div1_2_1 > img{
+        height: 140px;
+    }
+    .div1_2_2_1{
+        width: 320px;
     }
 }
-@media only screen and (max-width: 1140px) and (min-width: 670px){
-    .login{
-        position: relative;
-        background-image: url(../imagens/backgroundLogin1.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%, 100%;
-        background-position: center bottom;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 20px;
-        -moz-box-shadow: 0px 0px 100px 100px #EFEFF0;
-        box-shadow: 0px 0px 100px 100px #EFEFF0;
+@media only screen and (max-width: 1351px) and (min-width: 1151px){
+    .div1_1{
+        height: 600px;
+        width: 700px;
     }
-    .login1{
-        border-top-right-radius : 20px;
-        border-bottom-right-radius : 20px;
-        background-color: #3d3f4515;
-        min-width: auto;
+    .div1_2{
+        height: 600px;
+        width: 400px;
     }
-    .login1_1{
-        visibility: collapse;
+    .div1_2_1{
+        height: 30%;
     }
-    .login1_2{
-        margin-left: auto;
-        margin-right: auto;
-        border-top-right-radius : 20px;
-        border-bottom-right-radius : 20px;
-        border-top-left-radius : 20px;
-        border-bottom-left-radius : 20px;
-        position: relative;
-        width: 375px;
-        background-color: #3d3f45bb;
-        top: 50%;
-        left: -50%;
-        transform: translate(50%, 0%);
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 180px;
+    }
+    .div1_1_2 > p{
+        font-size: 28px;
+    }
+    .div1_2_1 > img{
+        height: 120px;
+    }
+    .div1_2_2_1{
+        width: 320px;
     }
 }
-@media only screen and (max-width: 669px){
-    .login{
-        background-image: url(../imagens/backgroundLogin1.jpg);
-        width: 100vw;
+@media only screen and (max-width: 1150px) and (min-width: 951px){
+    .div1_1{
+        height: 520px;
+        width: 500px;
     }
-    .login1_1{
-        visibility: collapse;
-        height: 0px;
-        width: 0px;
-        margin: 0px;
-    }
-    .login1_2{
-        border-top-right-radius : 20px;
-        border-bottom-right-radius : 20px;
-        border-top-left-radius : 20px;
-        border-bottom-left-radius : 20px;
-        background-color: #3d3f45bb;
+    .div1_2{
+        height: 520px;
         width: 300px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%,0%);
     }
-    .login1_2_1{
-        height: min-content;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top:auto;
-        margin-bottom: auto;
+    .div1_2_1{
+        height: 30%;
     }
-    .login1_2_1 > img{
-        height: 100px;
-        width: auto;  
-        filter: drop-shadow(1px 2px 2px #01175f);
-        border: 20px;
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
     }
-    .login1_2_1> h4{
+    .div1_1_1 > img{
+        height: 140px;
+    }
+    .div1_1_2 > p{
+        font-size: 20px;
+    }
+    .div1_2_1 > img{
+        height: 110px;
+    }
+    .div1_2_2_1{
+        width: 220px;
+    }
+}
+@media only screen and (max-width: 950px) and (min-width: 751px){
+    .div1_1{
+        height: 520px;
+        width: 400px;
+    }
+    .div1_2{
+        height: 520px;
+        width: 300px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 110px;
+    }
+    .div1_1_2 > p{
+        font-size: 18px;
+    }
+    .div1_2_1 > img{
+        height: 110px;
+    }
+    .div1_2_2_1{
+        width: 220px;
+    }
+}
+@media only screen and (max-width: 750px) and (min-width: 651px){
+    .div1_1{
+        height: 520px;
+        width: 300px;
+    }
+    .div1_2{
+        height: 520px;
+        width: 300px;
+    }
+    .div1_2_1{
+        height: 30%;
+    }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 110px;
+    }
+    .div1_1_2 > p{
+        font-size: 18px;
+    }
+    .div1_2_1 > img{
+        height: 110px;
+    }
+    .div1_2_2_1{
+        width: 220px;
+    }
+}
+@media only screen and (max-width: 650px){
+    .div1_1{
+        height: 520px;
+        width: 0px;
         visibility: collapse;
     }
-    .login1_2_2{
-        height: min-content;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
+    .div1_2{
+        height: 520px;
+        width: 300px;
     }
-    .login1_2_2{
-        height: min-content;
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+    .div1_2_1{
+        height: 30%;
     }
+    .div1_2_2{
+        height: 70%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .div1_1_1 > img{
+        height: 0px;
+    }
+    .div1_1_2 > p{
+        font-size: 0px;
+    }
+    .div1_2_1 > img{
+        height: 100px;
+    }
+    .div1_2_2_1{
+        width: 220px;
+    }
+   
 }

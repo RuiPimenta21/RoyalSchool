@@ -2,7 +2,7 @@
 define('DB_HOST'        , "FIXO\SQLEXPRESS");
 define('DB_USER'        , "admin");
 define('DB_PASSWORD'    , "admin");
-define('DB_NAME'        , "RoyalSchoolDB");
+define('DB_NAME'        , "RoyalSchoolffDB");
 define('DB_DRIVER'      , "sqlsrv");
 
 //decoding 
