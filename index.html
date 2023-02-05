@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/geral.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="div1">
@@ -31,17 +32,17 @@
                 <img src="imagens/index/logo2.png" alt="Royal School">
             </div>
             <div class="div1_2_2">
-                <form>
+                <form name="formIndex" id="formIndex" method="post">
                     <div class="form-group">
                         <label for="email" class="txt1">Email</label>
                         <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" required>
                     </div>
                     <div class="form-group">
                         <label for="password" class="txt1">Password</label>
-                        <input type="password" id="password"  name="password" class="form-control" placeholder="Password" autocomplete="off">
+                        <input type="password" id="password"  name="password" class="form-control" placeholder="Password" autocomplete="off" required>
                         <p style="display: inline-block; color: #e7e7e7; font-size: small; margin-top: 10px;"><input type="checkbox" onclick="mostrarPassword()">  Mostrar</p>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+                    <button type="button" value="Entrar" title= "Entrar" class="btn btn-primary btn-lg btn-block" onclick="validaFormulario_Index()">Entrar</button>
                     <div class="div1_2_2_1">
                         <a href="" id="passwordAjuda" class="form-text">Recuperar password.</a>
                     </div>
@@ -57,6 +58,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
+    <!--Por página-->
+    <script src="js/index/loginIndex.js"></script>
+
 </body>
 </html>
 

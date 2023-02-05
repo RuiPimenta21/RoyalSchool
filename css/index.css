@@ -88,6 +88,12 @@ body {
 #passwordAjuda:hover{
     color: white;
 }
+#txtErro{
+    display:none;
+    visibility: none;
+    color: red;
+}
+
 @media only screen and (min-width: 1351px){
     .div1_1{
         height: 600px;
