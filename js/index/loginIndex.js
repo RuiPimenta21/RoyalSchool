@@ -7,6 +7,10 @@ function validaFormulario_Index() {
         faltaCampoEmail_loginIndex();
         document.forms["formIndex"]["email"].focus();
     }
+    else if (password == ""){
+        faltaCampoPassword_loginIndex();
+        document.forms["formIndex"]["password"].focus();
+    }
     else{
         //valida validaEmailInterno agora
         validaEmailInterno(email, password)
@@ -17,6 +21,7 @@ function validaEmailExterno(email) {
     const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return res.test(String(email).toLowerCase());
 }
+
 
 function validaEmailInterno(email, password){
     xhttp = new XMLHttpRequest();
@@ -36,9 +41,20 @@ function validaEmailInterno(email, password){
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200) {
             if(mensagemLogin[0] == 1){
-                faltaCampoEmail_loginIndex()
+                dadosInternosErrados_loginIndex()
             }
             else if(mensagemLogin[0] == 2){
+                dadosInternosErrados_loginIndex()
+            }
+            else if (mensagemLogin[0] == 3){
+                console.log("Login com sucesso")
+                console.log("utilizador_id" + mensagemLogin[1])
+                console.log("utilizador_nome" + mensagemLogin[2])
+                
+                window.location.replace("./index2.php");
+                exit(); 
+            }
+            else if (mensagemLogin[0] == 4){
                 dadosInternosErrados_loginIndex()
             }
         }
@@ -59,6 +75,14 @@ function faltaCampoEmail_loginIndex(){
         icon: 'error',
         title: "Email",
         text: 'Por favor introduza uma email válido.',
+    })
+}
+
+function faltaCampoPassword_loginIndex(){
+    Swal.fire({
+        icon: 'error',
+        title: "Password",
+        text: 'Por favor introduza uma password válida.',
     })
 }
 

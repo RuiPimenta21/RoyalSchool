@@ -1,15 +1,16 @@
 <?php
-    session_start();
+   // Start the session
+   session_start();
 
-    define('DB_HOST'        , "FIXO\SQLEXPRESS");
-    define('DB_USER'        , "admin");
-    define('DB_PASSWORD'    , "admin");
-    define('DB_NAME'        , "RoyalSchoolDB");
-    define('DB_DRIVER'      , "sqlsrv");
+   define('DB_HOST'        , "FIXO\SQLEXPRESS");
+   define('DB_USER'        , "admin");
+   define('DB_PASSWORD'    , "admin");
+   define('DB_NAME'        , "RoyalSchoolDB");
+   define('DB_DRIVER'      , "sqlsrv");
 
    //decoding 
-    $txtEmail = rawurldecode($_REQUEST["email"]);
-    $txtPassword = rawurldecode($_REQUEST["password"]);
+   $txtEmail = rawurldecode($_REQUEST["email"]);
+   $txtPassword = rawurldecode($_REQUEST["password"]);
 
    require_once "../Conexao.php";
    try{
@@ -27,6 +28,13 @@
       }
       $myArr = $dado;
       $myJSON = json_encode($myArr);
+      
+      if($myArr[0] == 3){
+         //Atribui variaveis de sessão
+         $_SESSION["utilizador_id"] =  $myArr[1];
+         $_SESSION["utilizador_nome"] =  $myArr[2];
+      }
+      
       echo $myJSON;
 
    }catch(Exception $e){
@@ -34,11 +42,5 @@
       exit;
    }
 
-
-
-   if($myArr[1] == 3){
-        $_SESSION['nomeUtilizador']= $myArr[1];
-        header("location:admin.php");
-   }
 ?>
 

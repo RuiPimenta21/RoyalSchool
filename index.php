@@ -1,3 +1,6 @@
+<?php
+       session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -63,4 +66,14 @@
 
 </body>
 </html>
+
+<?php
+    //caso ele saia de qualquer pagina para o index encerra sessao
+
+    // remove all session variables
+    session_unset();
+
+    // destroy the session
+    session_destroy();
+?>
 
