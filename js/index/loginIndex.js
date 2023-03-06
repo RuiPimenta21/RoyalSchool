@@ -48,8 +48,8 @@ function validaEmailInterno(email, password){
             }
             else if (mensagemLogin[0] == 3){
                 console.log("Login com sucesso")
-                console.log("utilizador_id" + mensagemLogin[1])
-                console.log("utilizador_nome" + mensagemLogin[2])
+                //console.log("utilizador_id" + mensagemLogin[1])
+                //console.log("utilizador_nome" + mensagemLogin[2])
                 
                 window.location.replace("./index2.php");
                 exit(); 

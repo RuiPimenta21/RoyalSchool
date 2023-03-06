@@ -1,16 +1,28 @@
+<?php
+    session_start();
+    
+    if (!isset($_SESSION["utilizador_id"])){
+        header("Location: ./index.php");
+    }
+
+    if (!empty($_POST['fname'])) {
+        $_SESSION['utilizador_nome'] = $_POST['fname'];
+    }
+?>
+
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal School</title>
     <!-- ********************************************  Ico  ********************************************  -->
     <link rel="shortcut icon" href="imagens/logo.ico" type="image/x-icon">
 
     <!-- ********************************************  Style  ********************************************  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
-    <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
+    <link rel="stylesheet" href="css/perfil.css"><!-- CSS Geral-->
     
     <!-- ********************************************  Icons  ********************************************  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
@@ -29,10 +41,9 @@
         });
     </script>
 
-
 </head>
 <body>
-    <header>
+<header>
         <nav class="navbar">
             <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
@@ -82,82 +93,20 @@
         </nav>
     </header>
     <main>
-        <section >
-            <h4>Criar registo</h4>
-            <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
-                <div class="form-row">
-                    <div class="form-group col-md-6" style="display:none;">
-                        <label for="id">Id</label>
-                        <input type="text" id="id" name="txtId" class="form-control" placeholder="Id"  required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  autocomplete="off" required>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="valorInscricao">Valor Inscrição S/Iva</label>
-                        <input type="number" id="valorInscricao" name="txtValorInscricao" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-3 mb-3">
-                        <label for="valorLivro">Valor Livro S/Iva</label>
-                        <input type="number" id="valorLivro" name="txtValorLivro" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="valorMensalidade">Valor Mensalidade S/Iva</label>
-                        <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
-                    </div>
-                    
-                </div>
-                <button type="button" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button>
-                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
-                <button type="button" value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary" id="botaoGravar">Registar <i class="fa fa-save"></i></button>
-            </form>
+        <section>
+            <h1>Primeira Section</h1>
+            <?php
+                echo "Olá " . $_SESSION["utilizador_nome"] . ".<br>";
+            ?>
+            <form action="./index2.php"  method='post'>
+                <label for="fname">Novo nome:</label><br>
+                <input type="text" id="fname" name="fname"><br><br>
+                <input type="submit" value="Gravar">
+            </form> 
+            <a href="index3.php" class="button">Pagina 3</a>
+            <br>
+            <a href="index4.php" class="button">Encerrar sessão!</a>
         </section>
-        <section class="sectionSeguintes">
-            <h4>Consultar registo</h4>
-            <div class="tabelaFiltrosDiv">
-                <div class="filtrosNav">
-                    <div class="divRadioGroup">                              
-                        <button type="button" class="btn btn-success"  title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
-                    </div>
-                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
-                        <div class="divRadioGroup">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
-                                <label class="btn btn-secondary active" >
-                                    <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc" checked> Asc
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
-                                </label>
-                            </div>
-                        </div>
-                        <div class="divRadioGroup">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
-                                <label class="btn btn-secondary active">
-                                    <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked> Top10
-                                </label>
-                                    <label class="btn btn-secondary">
-                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
-                                </label>
-                            </div> 
-                        </div>
-                        <div class="divRadioGroup form-group col-md-4">
-                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
-                        </div>
-                    </form>
-                </div>
-                <div class="tabelaEncolheX">
-                    <div class="tabelaEncolheY">
-                        <div id="tabelaTipoInscricao"></div>
-                    </div>
-                </div>
-            </div>
-        </section>    
     </main>
     <footer>
         <div>
@@ -180,11 +129,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
-    <script src="js/tipoInscricao/mostrarTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/registarTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/editarTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/eliminarTipoInscricao.js"></script>
-    
 </body>
 </html>
-

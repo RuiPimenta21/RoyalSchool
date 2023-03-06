@@ -14,7 +14,7 @@ body {
     min-height: 560px;   /*520px + 20px+20px     (para suportar ecras na horizontal dos telemoveis)*/
 }
 .div1{
-    position: absolute;
+    position: fixed;
     display: inline-flex;
     top: 50%;
     left: 50%;
