@@ -97,14 +97,14 @@
         <section>
             <h4>Editar Perfil</h4>
             <form name="formPerfil" id= "formPerfil" method="post">
-                <div>
-
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <label class="form-label text-white m-1" for="customFile2">
-                                    <img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label>
-                            <input type="file" class="form-control d-none" id="customFile2" />
-                        </div>
+            <div class="form-row">
+                    <div class="form-group col-md-10">
+                        <label for="inputEmail4">Observações</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="customFile2"><img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label>
+                        <input type="file" class="form-control d-none" id="customFile2"/>
                     </div>
                 </div>
                 <div class="form-row">

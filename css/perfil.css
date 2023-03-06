@@ -1,7 +1,7 @@
 .justify-content-center {
-    -webkit-box-pack: center!important;
-    -ms-flex-pack: center!important;
-    justify-content: center!important;
+    -webkit-box-pack: right!important;
+    -ms-flex-pack: right!important;
+    justify-content: right!important;
 }
 .imagemPerfilUpload{
     width: 150px; 
