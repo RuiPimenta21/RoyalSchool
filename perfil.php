@@ -22,7 +22,8 @@
 
     <!-- ********************************************  Style  ********************************************  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
-    <link rel="stylesheet" href="css/perfil.css"><!-- CSS Geral-->
+    <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
+    <link rel="stylesheet" href="css/perfil.css"><!-- CSS Perfil-->
     
     <!-- ********************************************  Icons  ********************************************  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
@@ -49,7 +50,7 @@
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
                 <span class="material-icons">menu</span>
             </button>
-            <h1 class="navbar-title">Tipo Inscrição</h1>
+            <h1 class="navbar-title">Perfil</h1>
             <nav class="navbar-menu">
                 <button type="button" class="buttonNavBar buttonHover">Home</button>
                 <button type="button" class="buttonNavBar buttonHover" href="#">Incrição</button>
@@ -71,19 +72,19 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <button class="dropdown-toggle buttonNavBar active" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
+                    <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#">Tipo Incrição</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Tipo Incrição</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Mensalidade</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Desconto</a>
                     </div>
                 </div>
-                <div class="btn-group dropdownBotaoPerfil">
+                <div class="btn-group dropdownBotaoPerfil active">
                     <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="imagens/Pessoas.png" alt="fotoPerfil">
                         Rui Pimenta</button>
                     <div class="dropdown-menu dropdownBotao1">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-language iconBotao"></i>Idioma</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-sign-out iconBotao"></i>Terminar Sessão</a>
@@ -94,7 +95,87 @@
     </header>
     <main>
         <section>
-            <h1>Primeira Section</h1>
+            <h4>Editar Perfil</h4>
+            <form name="formPerfil" id= "formPerfil" method="post">
+                <div>
+
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <label class="form-label text-white m-1" for="customFile2">
+                                    <img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label>
+                            <input type="file" class="form-control d-none" id="customFile2" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="inputEmail4">Nome Completo</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Cartão de Cidadão (CC)</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustomUsername">Nome Perfil</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">País</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Distrito</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Concelho</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Morada</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-2">
+                    <label for="inputZip">Código-Postal</label>
+                    <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Telemóvel</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                </div>
+                
+
+                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <?php
                 echo "Olá " . $_SESSION["utilizador_nome"] . ".<br>";
             ?>

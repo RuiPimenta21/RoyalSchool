@@ -16,7 +16,8 @@ body {
   margin-right: 10px;
   background: #3b3d43;
 }
-/*Barra de navegacao*****************************************************************/
+
+ /*  ********************************************  Header  ********************************************  */
 .navbar {
   position: fixed;
   z-index: 1;
@@ -29,7 +30,6 @@ body {
   height: 64px;
   background: #19191c;
   color: #f9f9f9;
-  /*font-family: "Poppins";*/
   box-sizing: border-box;
 }
 @media only screen and (min-width: 1170px) {
@@ -191,7 +191,6 @@ body.open .navbar-menu {
 }
 .dropdownSubBotao{
   color: rgba(255, 255, 255, 0.5);
-  /*font-family: "Poppins";*/
   font-size: 14px;
   padding-top: 6px;
   padding-left: 25px;
@@ -219,8 +218,8 @@ body.open .navbar-menu {
 .dropdownBotaoPerfil > .iconDropDown::after{
   transform: rotateX(180deg);
 }
-/***********************************************************************************/
-/*main-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+ /*  ********************************************  Main  ********************************************  */
 main {
   /*background-color: red;*/
   background-color: white;
@@ -228,7 +227,7 @@ main {
   min-width: 245px; /*tamanho minimo de alguns telemoveis 320, mas eu ja dou padding , logo 300*/
   max-width: 1680px;
   margin: auto;  /*centra o main*/
-  min-height: calc(100vh - 64px - 40px);                                                                        /*->recente*/
+  min-height: calc(100vh - 64px - 40px);   /*->recente*/
 }
 section {
   background-color: white;
@@ -237,6 +236,8 @@ section {
   background-color: white;
   margin-top: 50px;
 }
+
+ /*  ********************************************  Componentes dentro do Main  ********************************************  */
 #botaoGravar{
   float:right;
   position: relative;
@@ -342,7 +343,10 @@ section {
 td { cursor: pointer;}
 
 
-/*Footer --------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+ /*  ********************************************  Footer  ********************************************  */
 footer {
   position: fixed;
   left: 0;
@@ -406,15 +410,7 @@ footer > div > a > img{
     margin-right: 5px;
   }
 }
-.fa-facebook-square:hover {
-	transform: translate(-50%, -10%);
-}
-.fa-instagram:hover {
-	transform: translate(-50%, -10%);
-}
-.fa-whatsapp:hover {
-	transform: translate(-50%, -10%);
-}
+
 #tabelaTipoInscricao{
   display:none;
   visibility: none;
