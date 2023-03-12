@@ -1,7 +1,7 @@
 <?php
-   define('DB_HOST'        , "FIXO\SQLEXPRESS");
-   define('DB_USER'        , "admin");
-   define('DB_PASSWORD'    , "admin");
+   define('DB_HOST'        , "34.175.23.173");
+   define('DB_USER'        , "sqlserver");
+   define('DB_PASSWORD'    , "@OversystemS7276");
    define('DB_NAME'        , "RoyalSchoolDB");
    define('DB_DRIVER'      , "sqlsrv");
 

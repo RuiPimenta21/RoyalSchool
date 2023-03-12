@@ -97,66 +97,74 @@
         <section>
             <h4>Editar Perfil</h4>
             <form name="formPerfil" id= "formPerfil" method="post">
-            <div class="form-row">
-                    <div class="form-group col-md-10">
-                        <label for="inputEmail4">Observações</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="customFile2"><img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label>
-                        <input type="file" class="form-control d-none" id="customFile2"/>
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="display:none;">
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="txtId" class="form-control" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
+                <div class="form-group col-md-2">
+                        <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
+                        <p><label style="text-align: center; display: block;"  for="customFile2"><img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label></p>
+                        <p><input type="file" class="form-control d-none" id="customFile2"/></p>
+                    </div>
+                
+                    <div class="form-group col-md-10">
+                        <label for="observacao">Observações</label>
+                        <textarea type="textarea" id="observacao"  name="txtObservacao" rows="8" class="form-control" autocomplete="off"></textarea>
+                    </div>
+                   
+                </div>
+                <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="inputEmail4">Nome Completo</label>
-                        <input type="text" class="form-control" id="inputEmail4">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome"  name="txtNome" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputState">Cartão de Cidadão (CC)</label>
-                        <input type="text" class="form-control" id="inputEmail4">
+                        <label for="cc">Cartão de Cidadão (CC)</label>
+                        <input type="text" id="cc" name="txtCC" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="txtEmail" class="form-control" required>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationCustomUsername">Nome Perfil</label>
+                        <label for="nomePerfil">Nome Perfil</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                         </div>
                     </div>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="inputState">País</label>
-                        <input type="text" class="form-control" id="inputEmail4">
+                        <label for="pais">País</label>
+                        <input type="text" id="pais" name="txtPais" class="form-control" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputState">Distrito</label>
-                        <input type="text" class="form-control" id="inputEmail4">
+                        <label for="distrito">Distrito</label>
+                        <input type="text" id="distrito" name="txtDistrito" class="form-control" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputState">Concelho</label>
-                        <input type="text" class="form-control" id="inputEmail4">
+                        <label for="concelho">Concelho</label>
+                        <input type="text" id="concelho" name="txtConcelho" class="form-control" required>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">Morada</label>
-                        <input type="text" class="form-control" id="inputCity">
+                    <div class="form-group col-md-8">
+                        <label for="morada">Morada</label>
+                        <input type="text" id="morada" name="txtMorada" class="form-control" required>
                     </div>
                     <div class="form-group col-md-2">
-                    <label for="inputZip">Código-Postal</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <label for="codigoPostal">Código-Postal</label>
+                    <input type="number" id="codigoPostal" name="txtCodigoPostal" class="form-control" required>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputState">Telemóvel</label>
-                        <input type="text" class="form-control" id="inputEmail4">
+                    <div class="form-group col-md-2">
+                        <label for="telemovel">Telemóvel</label>
+                        <input type="number" id="telemovel" name="txtTelemovel" class="form-control" required>
                     </div>
                 </div>
                 
