@@ -6,8 +6,10 @@
     }
 
     if (!empty($_POST['fname'])) {
-        $_SESSION['utilizador_nome'] = $_POST['fname'];
+        $_SESSION['utilizador_perfil'] = $_POST['fname'];
     }
+
+    echo ($_SESSION["utilizador_id"]);
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +42,12 @@
                 $(this).val(parseFloat($(this).val()).toFixed(2));
             });
         });
+
+
+        /*
+        sessionStorage.setItem("utilizador_id", "<?php echo $_SESSION['utilizador_id'];?>");
+        */
+
     </script>
 
 </head>
@@ -82,7 +90,8 @@
                 <div class="btn-group dropdownBotaoPerfil active">
                     <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="imagens/Pessoas.png" alt="fotoPerfil">
-                        Rui Pimenta</button>
+                        Rui Pimenta
+                    </button>
                     <div class="dropdown-menu dropdownBotao1">
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-language iconBotao"></i>Idioma</a>
@@ -94,53 +103,68 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="sectionSeguintes">
             <h4>Editar Perfil</h4>
             <form name="formPerfil" id= "formPerfil" method="post">
                 <div class="form-row">
-                    <div class="form-group col-md-12" style="display:none;">
+                    <div class="form-group col-md-12" style="display:true;">
                         <label for="id">Id</label>
-                        <input type="text" id="id" name="txtId" class="form-control" autocomplete="off" required>
+                        <input type="text" id="id" name="txtId" class="form-control" value="<?php echo $_SESSION['utilizador_id'];?>" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
-                <div class="form-group col-md-2">
+                    <div class="form-group col-md-2">
                         <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
                         <p><label style="text-align: center; display: block;"  for="customFile2"><img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label></p>
                         <p><input type="file" class="form-control d-none" id="customFile2"/></p>
                     </div>
-                
                     <div class="form-group col-md-10">
                         <label for="observacao">Observações</label>
                         <textarea type="textarea" id="observacao"  name="txtObservacao" rows="8" class="form-control" autocomplete="off"></textarea>
                     </div>
-                   
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-8">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome"  name="txtNome" class="form-control" autocomplete="off" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="cc">Cartão de Cidadão (CC)</label>
-                        <input type="text" id="cc" name="txtCC" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-6">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="txtEmail" class="form-control" required>
+                        <input type="email" id="email" name="txtEmail" class="form-control" autocomplete="off" required>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="nomePerfil">Nome Perfil</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_perfil'];?>" aria-describedby="inputGroupPrepend"  required>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
+                            </div>
+                            <input type="text" id="password" name="txtPassword" class="form-control" aria-describedby="inputGroupPrepend" autocomplete="off" required>
                         </div>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome"  name="txtNome" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="cc">Cartão de Cidadão (CC)</label>
+                        <input type="text" id="cc" name="txtCC" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataNascimento">Data Nascimento</label>
+                        <input type="date" id="dataNascimento" name="txtDataNascimento" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="acesso">Tipo de Acesso</label>
+                        <input type="text" id="acesso" name="txtAcesso" class="form-control" autocomplete="off" required>
+                    </div>
+                </div>             
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="pais">País</label>
@@ -154,47 +178,27 @@
                         <label for="concelho">Concelho</label>
                         <input type="text" id="concelho" name="txtConcelho" class="form-control" required>
                     </div>
-                    <div class="form-group col-md-8">
+                </div>             
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="morada">Morada</label>
-                        <input type="text" id="morada" name="txtMorada" class="form-control" required>
+                        <input type="text" id="morada" name="txtMorada" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="cc">Identificação Fiscal (NIF)</label>
+                        <input type="text" id="cc" name="txtCC" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
                     <label for="codigoPostal">Código-Postal</label>
-                    <input type="number" id="codigoPostal" name="txtCodigoPostal" class="form-control" required>
+                    <input type="number" id="codigoPostal" name="txtCodigoPostal" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="telemovel">Telemóvel</label>
-                        <input type="number" id="telemovel" name="txtTelemovel" class="form-control" required>
+                        <input type="number" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" required>
                     </div>
                 </div>
-                
-
                 <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <?php
-                echo "Olá " . $_SESSION["utilizador_nome"] . ".<br>";
-            ?>
-            <form action="./index2.php"  method='post'>
-                <label for="fname">Novo nome:</label><br>
-                <input type="text" id="fname" name="fname"><br><br>
-                <input type="submit" value="Gravar">
-            </form> 
-            <a href="index3.php" class="button">Pagina 3</a>
-            <br>
-            <a href="index4.php" class="button">Encerrar sessão!</a>
         </section>
     </main>
     <footer>
@@ -218,5 +222,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
+    <script src="js/perfil/mostrarPerfil.js"></script>
+    <script src="js/perfil/editarPerfil.js"></script>
+    <script>
+       
+       /*
+       //carrega dados ao abrir a pagina
+        carregaIdUtilizador_mostrarTipoInscricao("<?php echo $_SESSION['utilizador_id'];?>");
+        */
+    </script>
 </body>
 </html>

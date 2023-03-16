@@ -32,7 +32,7 @@
       if($myArr[0] == 3){
          //Atribui variaveis de sessão
          $_SESSION["utilizador_id"] =  $myArr[1];
-         $_SESSION["utilizador_nome"] =  $myArr[2];
+         $_SESSION["utilizador_perfil"] = $myArr[2];  
       }
       
       echo $myJSON;
