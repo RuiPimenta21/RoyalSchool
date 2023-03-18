@@ -1,10 +1,10 @@
 <?php
-define('DB_HOST'        , "FIXO\SQLEXPRESS");
-define('DB_USER'        , "admin");
-define('DB_PASSWORD'    , "admin");
-define('DB_NAME'        , "RoyalSchoolDB");
-define('DB_DRIVER'      , "sqlsrv");
-
+   define('DB_HOST'        , "FIXO\SQLEXPRESS");
+   define('DB_USER'        , "admin");
+   define('DB_PASSWORD'    , "admin");
+   define('DB_NAME'        , "RoyalSchoolDB");
+   define('DB_DRIVER'      , "sqlsrv");
+   
 //decoding 
 $txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
 $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);

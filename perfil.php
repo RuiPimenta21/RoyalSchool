@@ -90,7 +90,7 @@
                 <div class="btn-group dropdownBotaoPerfil active">
                     <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="imagens/Pessoas.png" alt="fotoPerfil">
-                        Rui Pimenta
+                        <?php echo $_SESSION['utilizador_perfil'];?>
                     </button>
                     <div class="dropdown-menu dropdownBotao1">
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
@@ -109,7 +109,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:true;">
                         <label for="id">Id</label>
-                        <input type="text" id="id" name="txtId" class="form-control" value="<?php echo $_SESSION['utilizador_id'];?>" autocomplete="off" required>
+                        <input type="text" id="id" name="txtId" class="form-control" value="<?php echo $_SESSION['utilizador_id'];?>" autocomplete="off" readonly required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -134,7 +134,7 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_perfil'];?>" aria-describedby="inputGroupPrepend"  required>
+                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_perfil'];?>" aria-describedby="inputGroupPrepend" autocomplete="off" required>
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
@@ -143,7 +143,7 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" id="password" name="txtPassword" class="form-control" aria-describedby="inputGroupPrepend" autocomplete="off" required>
+                            <input type="text" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" required>
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="cc">Cartão de Cidadão (CC)</label>
-                        <input type="text" id="cc" name="txtCC" class="form-control" required>
+                        <input type="text" id="cc" name="txtCC" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataNascimento">Data Nascimento</label>
@@ -162,21 +162,21 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="acesso">Tipo de Acesso</label>
-                        <input type="text" id="acesso" name="txtAcesso" class="form-control" autocomplete="off" required>
+                        <input type="text" id="acesso" name="txtAcesso" class="form-control" autocomplete="off" readonly required>
                     </div>
                 </div>             
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="pais">País</label>
-                        <input type="text" id="pais" name="txtPais" class="form-control" required>
+                        <input type="text" id="pais" name="txtPais" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="distrito">Distrito</label>
-                        <input type="text" id="distrito" name="txtDistrito" class="form-control" required>
+                        <input type="text" id="distrito" name="txtDistrito" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="concelho">Concelho</label>
-                        <input type="text" id="concelho" name="txtConcelho" class="form-control" required>
+                        <input type="text" id="concelho" name="txtConcelho" class="form-control" autocomplete="off" required>
                     </div>
                 </div>             
                 <div class="form-row">
@@ -185,16 +185,16 @@
                         <input type="text" id="morada" name="txtMorada" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="cc">Identificação Fiscal (NIF)</label>
-                        <input type="text" id="cc" name="txtCC" class="form-control" autocomplete="off" required>
+                        <label for="nif">Identificação Fiscal (NIF)</label>
+                        <input type="text" id="nif" name="txtNif" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
                     <label for="codigoPostal">Código-Postal</label>
-                    <input type="number" id="codigoPostal" name="txtCodigoPostal" class="form-control" autocomplete="off" required>
+                    <input type="text" id="codigoPostal" name="txtCodigoPostal" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="telemovel">Telemóvel</label>
-                        <input type="number" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" required>
+                        <input type="tel" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" required>
                     </div>
                 </div>
                 <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
