@@ -232,6 +232,10 @@ main {
 section {
   background-color: white;
 }
+.sectionUnica {
+  background-color: white;
+  margin-bottom: 50px;
+}
 .sectionSeguintes {
   background-color: white;
   margin-top: 50px;

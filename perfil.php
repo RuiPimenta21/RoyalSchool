@@ -8,8 +8,6 @@
     if (!empty($_POST['fname'])) {
         $_SESSION['utilizador_perfil'] = $_POST['fname'];
     }
-
-    echo ($_SESSION["utilizador_id"]);
 ?>
 
 <!DOCTYPE html>
@@ -42,17 +40,11 @@
                 $(this).val(parseFloat($(this).val()).toFixed(2));
             });
         });
-
-
-        /*
-        sessionStorage.setItem("utilizador_id", "<?php echo $_SESSION['utilizador_id'];?>");
-        */
-
     </script>
 
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar">
             <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
@@ -103,7 +95,7 @@
         </nav>
     </header>
     <main>
-        <section class="sectionSeguintes">
+        <section class="sectionUnica">
             <h4>Editar Perfil</h4>
             <form name="formPerfil" id= "formPerfil" method="post">
                 <div class="form-row">
@@ -126,7 +118,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="txtEmail" class="form-control" autocomplete="off" required>
+                        <input type="email" id="email" name="txtEmail" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="nomePerfil">Nome Perfil</label>
@@ -134,7 +126,7 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_perfil'];?>" aria-describedby="inputGroupPrepend" autocomplete="off" required>
+                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_perfil'];?>" aria-describedby="inputGroupPrepend" autocomplete="off" readonly required>
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
@@ -143,18 +135,18 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" required>
+                            <input type="text" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="50" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome"  name="txtNome" class="form-control" autocomplete="off" required>
+                        <input type="text" id="nome"  name="txtNome" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="cc">Cartão de Cidadão (CC)</label>
-                        <input type="text" id="cc" name="txtCC" class="form-control" autocomplete="off" required>
+                        <input type="text" id="cc" name="txtCC" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataNascimento">Data Nascimento</label>
@@ -168,33 +160,33 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="pais">País</label>
-                        <input type="text" id="pais" name="txtPais" class="form-control" autocomplete="off" required>
+                        <input type="text" id="pais" name="txtPais" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="distrito">Distrito</label>
-                        <input type="text" id="distrito" name="txtDistrito" class="form-control" autocomplete="off" required>
+                        <input type="text" id="distrito" name="txtDistrito" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="concelho">Concelho</label>
-                        <input type="text" id="concelho" name="txtConcelho" class="form-control" autocomplete="off" required>
+                        <input type="text" id="concelho" name="txtConcelho" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                 </div>             
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="morada">Morada</label>
-                        <input type="text" id="morada" name="txtMorada" class="form-control" autocomplete="off" required>
+                        <input type="text" id="morada" name="txtMorada" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="nif">Identificação Fiscal (NIF)</label>
-                        <input type="text" id="nif" name="txtNif" class="form-control" autocomplete="off" required>
+                        <input type="text" id="nif" name="txtNif" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                     <label for="codigoPostal">Código-Postal</label>
-                    <input type="text" id="codigoPostal" name="txtCodigoPostal" class="form-control" autocomplete="off" required>
+                    <input type="text" id="codigoPostal" name="txtCodigoPostal" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="telemovel">Telemóvel</label>
-                        <input type="tel" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" required>
+                        <input type="tel" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" maxlength="9" required>
                     </div>
                 </div>
                 <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
@@ -224,12 +216,5 @@
     <!--Por página-->
     <script src="js/perfil/mostrarPerfil.js"></script>
     <script src="js/perfil/editarPerfil.js"></script>
-    <script>
-       
-       /*
-       //carrega dados ao abrir a pagina
-        carregaIdUtilizador_mostrarTipoInscricao("<?php echo $_SESSION['utilizador_id'];?>");
-        */
-    </script>
 </body>
 </html>
