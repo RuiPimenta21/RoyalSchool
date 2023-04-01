@@ -69,6 +69,10 @@ body {
     padding-top: 30px;
     filter: drop-shadow(1px 2px 2px #01175f);
 }
+.bottaoEntrar{
+    padding-bottom: 40px;
+    /*background-color: aqua;*/
+}
 .div1_2_2_1{
     position: absolute;
     bottom: 0px;

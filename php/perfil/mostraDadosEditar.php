@@ -17,6 +17,9 @@
   .td_quantidade {
     text-align:right;
   }
+  tr{
+    font-size: 14px;
+  }
 </style>
 
 <?php

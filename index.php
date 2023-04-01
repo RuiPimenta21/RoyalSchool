@@ -38,13 +38,18 @@
                 <form name="formIndex" id="formIndex" method="post">
                     <div class="form-group">
                         <label for="email" class="txt1">Email</label>
-                        <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" required>
+                        <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" maxlength="50" required>
                     </div>
                     <div class="form-group">
                         <label for="password" class="txt1">Password</label>
-                        <input type="password" id="password"  name="password" class="form-control" placeholder="Password" autocomplete="off" required>
-                        <p style="display: inline-block; color: #e7e7e7; font-size: small; margin-top: 10px;"><input type="checkbox" onclick="mostrarPassword()">  Mostrar</p>
+                        <div class="input-group">
+                            <div class="input-group-prepend" onclick="mostrarPassword()">
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
+                            </div>
+                            <input type="password" id="password" name="password" class="form-control" aria-describedby="inputGroupPrepend" placeholder="Password" autocomplete="off" maxlength="50" required>
+                        </div>
                     </div>
+                    <div class="bottaoEntrar"></div>
                     <button type="button" value="Entrar" title= "Entrar" class="btn btn-primary btn-lg btn-block" onclick="validaFormulario_Index()">Entrar</button>
                     <div class="div1_2_2_1">
                         <a href="" id="passwordAjuda" class="form-text">Recuperar password.</a>

@@ -82,7 +82,7 @@
                 <div class="btn-group dropdownBotaoPerfil active">
                     <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="imagens/Pessoas.png" alt="fotoPerfil">
-                        <?php echo $_SESSION['utilizador_perfil'];?>
+                        <a id="parametroUtilizadorPerfil" name="txtParametroUtilizadorPerfil"><?php echo $_SESSION['utilizador_perfil'];?></a>
                     </button>
                     <div class="dropdown-menu dropdownBotao1">
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
@@ -132,10 +132,10 @@
                     <div class="col-md-3 mb-3">
                         <label for="password">Password</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
+                            <div class="input-group-prepend" onclick="mostrarPassword()">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
                             </div>
-                            <input type="text" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="50" required>
+                            <input type="password" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="50" required>
                         </div>
                     </div>
                 </div>

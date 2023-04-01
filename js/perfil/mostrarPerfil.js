@@ -5,9 +5,6 @@ let utilizadorPassword = "";
 carregaDados_mostarPerfil();
 
 function carregaDados_mostarPerfil(){
-    utilizadorId = document.forms["formPerfil"]["txtId"].value;
-    utilizadorPassword = document.forms["formPerfil"]["txtPassword"].value;
-
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtErro").style.display = "none";
@@ -45,8 +42,17 @@ function carregaDados_mostarPerfil(){
         }
     }
     //Encoding
-    xhttp.open("GET", "php/perfil/mostraDados.php?utilizadorId="+encodeURIComponent(utilizadorId)+"&utilizadorPassword="+encodeURIComponent(utilizadorPassword), true);
+    xhttp.open("POST", "php/perfil/mostraDados.php", true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 
 }
+
+function mostrarPassword_mostrarPerfil() {
+    var x = document.forms["formPerfil"]["txtPassword"];
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }

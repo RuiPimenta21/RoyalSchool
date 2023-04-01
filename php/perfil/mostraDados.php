@@ -1,4 +1,7 @@
 <?php
+
+   session_start();
+
    define('DB_HOST'        , "FIXO\SQLEXPRESS");
    define('DB_USER'        , "admin");
    define('DB_PASSWORD'    , "admin");
@@ -6,15 +9,14 @@
    define('DB_DRIVER'      , "sqlsrv");
 
    //decoding 
-   $txtId = rawurldecode($_REQUEST["utilizadorId"]);
-   $txtPassword = rawurldecode($_REQUEST["utilizadorPassword"]);
+   $txtId = rawurldecode($_SESSION["utilizador_id"]);
 
    require_once "../Conexao.php";
    try{
       $Conexao = Conexao::getConnection();
 
       $stringQuery="";
-      $stringQuery = "exec rpt_mostraPerfil @id = '".$txtId."',  @password = '".$txtPassword."'";
+      $stringQuery = "exec rpt_mostraPerfil @id = '".$txtId."'";
       
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();

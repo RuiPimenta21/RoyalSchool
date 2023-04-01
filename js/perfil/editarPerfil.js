@@ -1,5 +1,5 @@
 function validaFormulario_editarPerfil() {
-   
+
     let id = document.forms["formPerfil"]["txtId"].value;
     let fotografia = "" /*document.forms["formPerfil"]["txtfotografia"].value;*/
     let observacao = document.forms["formPerfil"]["txtObservacao"].value;
@@ -93,8 +93,7 @@ function confirmaDados_editarPerfil(id,fotografia,observacao,email,password,nome
         confirmButtonText: 'Sim, editar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            //editar_editarPerfil(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
-            console.log("chegou aqui!")
+            editar_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
         }
     })
 }
@@ -105,12 +104,11 @@ function mostraDados_editarPerfil(id,fotografia,observacao,email,password,nomeCo
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("GET", "php/perfil/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
+    xhttp.open("POST", "php/perfil/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-/*
 function editar_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
     xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -128,20 +126,24 @@ function editar_editarPerfil(id,fotografia,observacao,email,password,nomeComplet
 
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && mensagem[0] == 1) {
-           mostraTipoAlerta_editarPerfil(true, 1);
+            mostraTipoAlerta_editarPerfil(true, 1);
 
+            //carrega nome de utilizador na barra de navegacao
+            document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
+            document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
+            document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
+
+           
            //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
-            carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
-            linhaPintada = false;
+            carregaDados_mostarPerfil();
         }
         else if(mensagem[0] == 2){
             mostraTipoAlerta_editarPerfil(true, 2);
 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
-            //funcao em outro ficheiro
-            carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
-            linhaPintada = false;
+             //funcao em outro ficheiro
+             carregaDados_mostarPerfil();
         }
         else{
             //erro que não vem de nehum resultado da query
@@ -152,9 +154,47 @@ function editar_editarPerfil(id,fotografia,observacao,email,password,nomeComplet
         }
     };
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/editarDados.php?id="+encodeURIComponent(id)+"&fotografia="+encodeURIComponent(fotografia)+"&observacao="+encodeURIComponent(observacao)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
+    xhttp.open("POST", "php/perfil/editarDados.php?id="+encodeURIComponent(id)+"&fotografia="+encodeURIComponent(fotografia)+"&observacao="+encodeURIComponent(observacao)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-*/
+function faltaCampo_editarPerfil(campo){
+    Swal.fire({
+        icon: 'error',
+        title: campo,
+        text: 'Por favor introduza uma valor válido.',
+    })
+}
+
+function mostraTipoAlerta_editarPerfil(tipoAlerta, mensagem){
+    if (tipoAlerta == true && mensagem == 1){
+        //editado
+        Swal.fire(
+            'A Editar!',
+            'O seu registo foi editado com sucesso!',
+            'success'
+        )
+        limpaDados_editarPerfil();    
+    }
+    else if(tipoAlerta == true && mensagem == 2){
+        Swal.fire(
+            'Impossível Editar!',
+            'O seu registo não pode ser editado pois já se encontra eliminado, atualize a página!',
+            'error'
+        )
+    }
+    else{
+        //nao gravado
+        Swal.fire(
+            'Erro!',
+            'Erro ao editar registo!',
+            'error'
+        )
+    }
+}
+
+function limpaDados_editarPerfil(){
+    document.getElementById("formPerfil").reset();
+}
+  
