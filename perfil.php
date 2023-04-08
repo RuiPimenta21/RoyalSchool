@@ -40,8 +40,23 @@
                 $(this).val(parseFloat($(this).val()).toFixed(2));
             });
         });
-    </script>
 
+        //Permitir que a imagem apareça de imediato quando selecionado
+        window.addEventListener('load', function() {
+            document.querySelector('input[type="file"]').addEventListener('change', function() {
+                if(validaFotografia_editarPerfil()){
+                    if (this.files && this.files[0]) {
+                        var img = document.querySelector('img.imagemPerfilUpload');
+                        img.onload = () => {
+                            URL.revokeObjectURL(img.src); 
+                        }
+                        img.src = URL.createObjectURL(this.files[0]);
+                    }
+                }
+            });
+        });
+        
+    </script>
 </head>
 <body>
     <header>
@@ -105,10 +120,26 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <!--
                     <div class="form-group col-md-2">
                         <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
                         <p><label style="text-align: center; display: block;"  for="customFile2"><img src="./imagens/utilizadores/WhatsApp Image 2021-09-10 at 16.50.07.jpeg" alt="example placeholder" class="imagemPerfilUpload"/></label></p>
                         <p><input type="file" class="form-control d-none" id="customFile2"/></p>
+                    </div>
+                    -->
+                      <!--
+                    <div class="form-group col-md-2">
+                        <img id="myImg" class="imagemPerfilUpload" src="./imagens/perfil/perfilStandard.png">
+                        <br>
+                        <input type="file"  id="fileToUpload" accept=".jpg,.jpeg,.png" onchange="validateFileType()"/>
+                        <br>
+                    </div>
+
+                    -->
+                    <div class="form-group col-md-2">
+                        <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
+                        <p><label style="text-align: center; display: block;"  for="fotografia"><img id="myImg" src="./imagens/perfil/perfilStandard.png" alt="example placeholder" class="imagemPerfilUpload"/></label></p>
+                        <p><input type="file" id="fotografia" name="txtFotografia" accept=".jpg,.jpeg,.png" class="form-control d-none"/></p>
                     </div>
                     <div class="form-group col-md-10">
                         <label for="observacao">Observações</label>

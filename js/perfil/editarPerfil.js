@@ -1,3 +1,20 @@
+function validaFotografia_editarPerfil(){
+    var fileToUpload = document.getElementById("fotografia").value;
+    var idxDot = fileToUpload.lastIndexOf(".") + 1;
+    var extFile = fileToUpload.substr(idxDot, fileToUpload.length).toLowerCase();
+    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+        //mensagem
+        return true;
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Fotografia',
+            text: 'Somente arquivos jpg, jpeg e png são permitidos!',
+        })
+        return false;
+    }   
+}
+
 function validaFormulario_editarPerfil() {
 
     let id = document.forms["formPerfil"]["txtId"].value;
