@@ -10,7 +10,6 @@ define('DB_DRIVER'      , "sqlsrv");
 
 //decoding 
 $txtId = rawurldecode($_REQUEST["id"]);
-$txtFotografia = rawurldecode($_REQUEST["fotografia"]);
 $txtObservacao = rawurldecode($_REQUEST["observacao"]);
 $txtEmail = rawurldecode($_REQUEST["email"]);
 $txtPassword = rawurldecode($_REQUEST["password"]);
@@ -30,7 +29,7 @@ require_once "../Conexao.php";
 try{
    $Conexao = Conexao::getConnection();
 
-   $stringQuery = "exec editaPerfil @id = '".$txtId."', @fotografia = '".$txtFotografia."', @observacao = '".$txtObservacao."', @email = '".$txtEmail."' , @password = '".$txtPassword."', @nomeCompleto = '".$txtNomeCompleto."', @cc = '".$txtCC."', @dataNascimento = '".$txtDataNascimento."', @pais = '".$txtPais."', @distrito = '".$txtDistrito."', @concelho = '".$txtConcelho."', @morada = '".$txtMorada."', @nif = '".$txtNif."', @codigoPostal = '".$txtCodigoPostal."', @telemovel = '".$txtTelemovel."',  @utilizador = '".$txUtilizador."'";
+   $stringQuery = "exec editaPerfil @id = '".$txtId."', @observacao = '".$txtObservacao."', @email = '".$txtEmail."' , @password = '".$txtPassword."', @nomeCompleto = '".$txtNomeCompleto."', @cc = '".$txtCC."', @dataNascimento = '".$txtDataNascimento."', @pais = '".$txtPais."', @distrito = '".$txtDistrito."', @concelho = '".$txtConcelho."', @morada = '".$txtMorada."', @nif = '".$txtNif."', @codigoPostal = '".$txtCodigoPostal."', @telemovel = '".$txtTelemovel."',  @utilizador = '".$txUtilizador."'";
    
    $query = $Conexao->query($stringQuery);
    $dados = $query->fetchAll();

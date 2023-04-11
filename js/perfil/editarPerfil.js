@@ -1,4 +1,5 @@
 function validaFotografia_editarPerfil(){
+
     var fileToUpload = document.getElementById("fotografia").value;
     var idxDot = fileToUpload.lastIndexOf(".") + 1;
     var extFile = fileToUpload.substr(idxDot, fileToUpload.length).toLowerCase();
@@ -15,62 +16,112 @@ function validaFotografia_editarPerfil(){
     }   
 }
 
-function editaFotografia_editarPerfil(){ 
-    xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
+function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
+/*
+    var arquivo = document.getElementById("fotografia").files[0];
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData();
 
-        document.getElementById("txtErro").style.display = "none";
-        document.getElementById("txtErro").style.visibility = "none";
-        document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
-       
-        this.readyState
-        this.status
-        this.responseText
+    formData.append("fotografia", arquivo);
 
-        const mensagem = JSON.parse(this.responseText);
-        //console.log(myObj);
-
+    xhr.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), true);
+    
+    xhr.onreadystatechange = function() {
         //operacao está CONCLUIDA e resposta está OK
-        if (this.readyState == 4 && this.status == 200 && mensagem[0] == 1) {
-            /*mostraTipoAlerta_editarPerfil(true, 1);
+        if (xhr.readyState == 4 && xhr.status == 200 && mensagem[0] == 1) {
+            // Lógica de manipulação da resposta do servidor aqui
+            xhr.responseText;
 
-            //carrega nome de utilizador na barra de navegacao
+            //carrega imagem do utilizador na barra de navegacao
             document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
             document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
             document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
-
-           
-           //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
-            //funcao em outro ficheiro
-            carregaDados_mostarPerfil();*/
+            return true;
         }
-        else if(mensagem[0] == 2){
-            /*mostraTipoAlerta_editarPerfil(true, 2);
-
-            //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
-             //funcao em outro ficheiro
-             carregaDados_mostarPerfil();*/
+        else if(mensagem[0] == 0){
+            //não passou na validação da imagem
+            mostraTipoAlertaFotografia_editarPerfil(mensagem[1]);
+            return false;
         }
         else{
-            //erro que não vem de nehum resultado da query
+            //erro que não vem do pedido
             mostraTipoAlerta_editarPerfil(false, 0);
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+            return false;
         }
     };
+    xhr.send(formData);
+    
+    */
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    xhttp = new XMLHttpRequest();
+
+        var arquivo = document.getElementById("fotografia").files[0];
+        var formData = new FormData();
+        formData.append("fotografia", arquivo);
+
+        xhttp.onload = function() {
+
+            document.getElementById("txtErro").style.display = "none";
+            document.getElementById("txtErro").style.visibility = "none";
+            document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+        
+            this.readyState
+            this.status
+            this.responseText
+
+            const mensagem = JSON.parse(this.responseText);
+            //console.log(myObj);
+
+            //operacao está CONCLUIDA e resposta está OK
+            if (this.readyState == 4 && this.status == 200 && mensagem[0] == 1) {
+
+                //carrega imagem do utilizador na barra de navegacao
+                /*document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
+                document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
+                document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
+                */return true;
+
+            }
+            else if(mensagem[0] == 0){
+                //não passou na validação da imagem
+                mostraTipoAlertaFotografia_editarPerfil(mensagem[1]);
+                return false;
+            }
+            else{
+                //erro que não vem do pedido
+                mostraTipoAlerta_editarPerfil(false, 0);
+                document.getElementById("txtErro").style.display = "block";
+                document.getElementById("txtErro").style.visibility = "visible";
+                document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
+                return false;
+            }
+        };
     //Encoding
     xhttp.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    xhttp.send();
+    xhttp.send(formData);
 }
-
-
 
 function validaFormulario_editarPerfil() {
 
     let id = document.forms["formPerfil"]["txtId"].value;
-    let fotografia = "" /*document.forms["formPerfil"]["txtfotografia"].value;*/
     let observacao = document.forms["formPerfil"]["txtObservacao"].value;
     let email = document.forms["formPerfil"]["txtEmail"].value;
     let password = document.forms["formPerfil"]["txtPassword"].value;
@@ -138,7 +189,7 @@ function validaFormulario_editarPerfil() {
         document.forms["formPerfil"]["txtTelemovel"].focus();
     }
     else{
-        confirmaDados_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+        confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
     }  
 }
 
@@ -150,7 +201,7 @@ function faltaCampo_editarPerfil(campo){
     })
 }
 
-function confirmaDados_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){
+function confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){
     mostraDados_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
     Swal.fire({
         title: 'Pretende editar?',
@@ -162,12 +213,22 @@ function confirmaDados_editarPerfil(id,fotografia,observacao,email,password,nome
         confirmButtonText: 'Sim, editar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            editar_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+            // se imagem standard salta processo de guardar imagem
+            if (imagemFezUpload == 1){
+                //Se a imagem tiver upload, espera resultado para guardar restantes dados
+                if(editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) == true){
+                    editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+                    imagemFezUpload == 0;
+                };
+            }
+            else{
+                editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+            }  
         }
     })
 }
 
-function mostraDados_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) {
+function mostraDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
@@ -178,7 +239,7 @@ function mostraDados_editarPerfil(id,fotografia,observacao,email,password,nomeCo
     xhttp.send();
 }
 
-function editar_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
+function editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
     xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 
@@ -234,6 +295,14 @@ function faltaCampo_editarPerfil(campo){
         title: campo,
         text: 'Por favor introduza uma valor válido.',
     })
+}
+
+function mostraTipoAlertaFotografia_editarPerfil(mensagem){
+    Swal.fire(
+        'Erro!',
+        mensagem,
+        'error'
+    )
 }
 
 function mostraTipoAlerta_editarPerfil(tipoAlerta, mensagem){

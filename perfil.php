@@ -34,6 +34,10 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Icons -->
     <script type="text/javascript">
+        
+        let imagemFezUpload = 0;
+        let target_file = "";
+
         //Permitir introdução de apenas valores com duas casas decimais
         $(document).ready(function () {
             $(".floatNumberField").change(function() {
@@ -48,7 +52,8 @@
                     if (this.files && this.files[0]) {
                         var img = document.querySelector('img.imagemPerfilUpload');
                         img.onload = () => {
-                            URL.revokeObjectURL(img.src); 
+                            URL.revokeObjectURL(img.src);
+                            imagemFezUpload = 1;
                         }
                         img.src = URL.createObjectURL(this.files[0]);
                     }
@@ -112,7 +117,7 @@
     <main>
         <section class="sectionUnica">
             <h4>Editar Perfil</h4>
-            <form name="formPerfil" id= "formPerfil" method="post">
+            <form name="formPerfil" id= "formPerfil" method="post" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:true;">
                         <label for="id">Id</label>
@@ -138,7 +143,7 @@
                     -->
                     <div class="form-group col-md-2">
                         <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
-                        <p><label style="text-align: center; display: block;"  for="fotografia"><img id="myImg" src="./imagens/perfil/perfilStandard.png" alt="example placeholder" class="imagemPerfilUpload"/></label></p>
+                        <p><label style="text-align: center; display: block;" for="fotografia"><img id="myImg" src="./imagens/perfil/perfilStandard.png" alt="example placeholder" class="imagemPerfilUpload"/></label></p>
                         <p><input type="file" id="fotografia" name="txtFotografia" accept=".jpg,.jpeg,.png" class="form-control d-none"/></p>
                     </div>
                     <div class="form-group col-md-10">
@@ -220,7 +225,7 @@
                         <input type="tel" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" maxlength="9" required>
                     </div>
                 </div>
-                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar">Editar <i class="fa fa-edit"></i></button>
+                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar<i class="fa fa-edit"></i></button>
             </form>
         </section>
     </main>
