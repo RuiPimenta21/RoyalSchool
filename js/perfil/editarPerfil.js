@@ -17,7 +17,6 @@ function validaFotografia_editarPerfil(){
 }
 
 function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
-/*
     var arquivo = document.getElementById("fotografia").files[0];
     var xhr = new XMLHttpRequest();
     var formData = new FormData();
@@ -27,34 +26,16 @@ function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,
     xhr.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), true);
     
     xhr.onreadystatechange = function() {
-        //operacao está CONCLUIDA e resposta está OK
-        if (xhr.readyState == 4 && xhr.status == 200 && mensagem[0] == 1) {
-            // Lógica de manipulação da resposta do servidor aqui
-            xhr.responseText;
+        if (xhr.readyState === 4 && xhr.status === 200) {
 
-            //carrega imagem do utilizador na barra de navegacao
-            document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
-            document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
-            document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
-            return true;
-        }
-        else if(mensagem[0] == 0){
-            //não passou na validação da imagem
-            mostraTipoAlertaFotografia_editarPerfil(mensagem[1]);
-            return false;
-        }
-        else{
-            //erro que não vem do pedido
-            mostraTipoAlerta_editarPerfil(false, 0);
-            document.getElementById("txtErro").style.display = "block";
-            document.getElementById("txtErro").style.visibility = "visible";
-            document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
-            return false;
+            // Lógica de manipulação da resposta do servidor aqui
+            console.log(xhr.responseText);
+            const mensagem = JSON.parse(xhr.responseText);
+            mensagem[0]
+        
         }
     };
     xhr.send(formData);
-    
-    */
  
     
     
@@ -66,7 +47,7 @@ function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,
     
     
     
-    
+    /*
     
 
 
@@ -96,7 +77,7 @@ function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,
                 /*document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
                 document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
                 document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
-                */return true;
+                return true;
 
             }
             else if(mensagem[0] == 0){
@@ -117,6 +98,7 @@ function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,
     xhttp.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send(formData);
+    */
 }
 
 function validaFormulario_editarPerfil() {
