@@ -427,5 +427,6 @@ footer > div > a > img{
 }
 
 .fotoPerfilNavBar{
-  border-radius: 50%;
+  border: 0.5px solid #696969; 
+  border-radius: 8px;
 }
