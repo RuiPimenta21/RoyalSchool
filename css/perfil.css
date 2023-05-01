@@ -10,3 +10,13 @@
     border-radius: 10px;
     margin-bottom: 40px;
 }
+
+.fotografia1{
+    margin-bottom: 0.5rem; 
+    visibility: hidden;
+}
+
+.fotografia2{
+    text-align: center; 
+    display: block;
+}

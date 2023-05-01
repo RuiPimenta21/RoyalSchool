@@ -55,10 +55,6 @@ try{
       $_SESSION['utilizador_urlFotografia'] = $myArr[3];
    }  
 
-
-
-
-
    if (!isset($_SESSION["utilizador_nomePerfil"]) and !isset($_SESSION["acesso_password"]) and !isset($_SESSION["utilizador_urlFotografia"])){
       header("Location: ./index.php");
    }

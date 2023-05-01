@@ -121,8 +121,8 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
-                        <p><label style="text-align: center; display: block;" for="fotografia"><img id="myImg" src=<?php echo "./imagens/perfil/".$_SESSION['utilizador_urlFotografia'];?> alt="example placeholder" class="imagemPerfilUpload"/></label></p>
+                        <p class="fotografia1">Fotografia</p>
+                        <p><label class="fotografia2" for="fotografia"><img id="myImg" src=<?php echo "./imagens/perfil/".$_SESSION['utilizador_urlFotografia'];?> alt="example placeholder" class="imagemPerfilUpload"/></label></p>
                         <p><input type="file" id="fotografia" name="txtFotografia" accept=".jpg,.jpeg,.png" class="form-control d-none"/></p>
                     </div>
                     <div class="form-group col-md-9">
@@ -139,7 +139,7 @@
                         <label for="nomePerfil">Nome Perfil</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o"></i></span>
                             </div>
                             <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_nomePerfil'];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="20" required>
                         </div>
@@ -148,7 +148,7 @@
                         <label for="password">Password</label>
                         <div class="input-group">
                             <div class="input-group-prepend" onclick="mostrarPassword()">
-                                <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" ></i></span>
                             </div>
                             <input type="password" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="50" required>
                         </div>
@@ -204,7 +204,7 @@
                         <input type="tel" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" maxlength="9" required>
                     </div>
                 </div>
-                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar<i class="fa fa-edit"></i></button>
+                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar <i class="fa fa-edit"></i></button>
             </form>
         </section>
     </main>
