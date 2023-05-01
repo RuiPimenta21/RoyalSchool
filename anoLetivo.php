@@ -1,9 +1,16 @@
 <?php
+$_SESSION['utilizador_nomePerfil'] = "rui";
+/*
     session_start();
     
     if (!isset($_SESSION["utilizador_id"])){
         header("Location: ./index.php");
     }
+
+    if (!empty($_POST['fname'])) {
+        $_SESSION['utilizador_nomePerfil'] = $_POST['fname'];
+    }
+*/    
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +26,7 @@
     <!-- ********************************************  Style  ********************************************  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
     <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
-    <link rel="stylesheet" href="css/perfil.css"><!-- CSS Perfil-->
+    <link rel="stylesheet" href="css/anoLetivo.css"><!-- CSS Ano Letivo-->
     
     <!-- ********************************************  Icons  ********************************************  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
@@ -29,34 +36,6 @@
     <script src="js/geral.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Icons -->
-    <script type="text/javascript">
-        
-        let imagemFezUpload = false;
-        let target_file = "";
-
-        //Permitir introdução de apenas valores com duas casas decimais
-        $(document).ready(function () {
-            $(".floatNumberField").change(function() {
-                $(this).val(parseFloat($(this).val()).toFixed(2));
-            });
-        });
-
-        //Permitir que a imagem apareça de imediato quando selecionado
-        window.addEventListener('load', function() {
-            document.querySelector('input[type="file"]').addEventListener('change', function() {
-                if(validaFotografia_editarPerfil() === true){
-                    if (this.files && this.files[0]) {
-                        var img = document.querySelector('img.imagemPerfilUpload');
-                        img.onload = () => {
-                            URL.revokeObjectURL(img.src);
-                            imagemFezUpload = true;
-                        }
-                        img.src = URL.createObjectURL(this.files[0]);
-                    }
-                }
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -65,7 +44,7 @@
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
                 <span class="material-icons">menu</span>
             </button>
-            <h1 class="navbar-title">Perfil</h1>
+            <h1 class="navbar-title">Ano Letivo</h1>
             <nav class="navbar-menu">
                 <button type="button" class="buttonNavBar buttonHover">Home</button>
                 <button type="button" class="buttonNavBar buttonHover" href="#">Incrição</button>
@@ -81,9 +60,9 @@
                 <div class="btn-group">
                     <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ano Escolar</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="anoLetivo.php">Ano Letivo</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#">Ano Letivo</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Nível</a>
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="turma.php">Turma</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Turma</a>
                     </div>
                 </div>
                 <div class="btn-group">
@@ -96,22 +75,22 @@
                 </div>
                 <div class="btn-group dropdownBotaoPerfil active">
                     <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img id="parametroUtilizadorUrlFotoPerfil" class="fotoPerfilNavBar" src=<?php echo "./imagens/perfil/".$_SESSION['utilizador_urlFotografia'];?> alt="fotoPerfil">
+                        <img src="imagens/Pessoas.png" alt="fotoPerfil">
                         <a id="parametroUtilizadorPerfil" name="txtParametroUtilizadorPerfil"><?php echo $_SESSION['utilizador_nomePerfil'];?></a>
                     </button>
                     <div class="dropdown-menu dropdownBotao1">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="perfil.php"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-language iconBotao"></i>Idioma</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="terminaSessao.php"><i class="fa fa-sign-out iconBotao"></i>Terminar Sessão</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-sign-out iconBotao"></i>Terminar Sessão</a>
                     </div>
                 </div>  
             </nav>
         </nav>
     </header>
     <main>
-        <section class="sectionUnica">
-            <h4>Editar Perfil</h4>
+        <section>
+            <h4>Criar registo</h4>
             <form name="formPerfil" id= "formPerfil" method="post" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:none;">
@@ -120,92 +99,110 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <p style="margin-bottom: 0.5rem; visibility: hidden;">Fotografia</p>
-                        <p><label style="text-align: center; display: block;" for="fotografia"><img id="myImg" src=<?php echo "./imagens/perfil/".$_SESSION['utilizador_urlFotografia'];?> alt="example placeholder" class="imagemPerfilUpload"/></label></p>
-                        <p><input type="file" id="fotografia" name="txtFotografia" accept=".jpg,.jpeg,.png" class="form-control d-none"/></p>
-                    </div>
-                    <div class="form-group col-md-9">
-                        <label for="observacao">Observações</label>
-                        <textarea type="textarea" id="observacao"  name="txtObservacao" rows="8" class="form-control" autocomplete="off"></textarea>
-                    </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="txtEmail" class="form-control" autocomplete="off" maxlength="50" required>
+                        <label for="descritivo">Descrição</label>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="nomePerfil">Nome Perfil</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o" style="font-size:16px"></i></span>
-                            </div>
-                            <input type="text" id="nomePerfil" name="txtNomePerfil" class="form-control" value="<?php echo $_SESSION['utilizador_nomePerfil'];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="20" required>
-                        </div>
+                        <label for="dataInicio">Data de Início</label>
+                        <input type="date" id="dataInicio" name="txtDataInicio" class="form-control" required>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="password">Password</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend" onclick="mostrarPassword()">
-                                <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
-                            </div>
-                            <input type="password" id="password" name="txtPassword" class="form-control" value="<?php echo $_SESSION["acesso_password"];?>" aria-describedby="inputGroupPrepend" autocomplete="off" maxlength="50" required>
-                        </div>
+                        <label for="dataFim">Data de Fim</label>
+                        <input type="date" id="dataFim" name="txtDataFim" class="form-control" required>
+                    </div>
+                </div>
+                <hr/>
+                <h5>Período</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="descritivoPeriodo">Descrição</label>
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" autocomplete="off" maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataInicioPeriodo">Data de Início</label>
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataFimPeriodo">Data de Fim</label>
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome"  name="txtNome" class="form-control" autocomplete="off" maxlength="50" required>
+                    <div class="form-group col-md-6">                       
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="cc">Cartão de Cidadão (CC)</label>
-                        <input type="text" id="cc" name="txtCC" class="form-control" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataNascimento">Data Nascimento</label>
-                        <input type="date" id="dataNascimento" name="txtDataNascimento" class="form-control" autocomplete="off" required>
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="acesso">Tipo de Acesso</label>
-                        <input type="text" id="acesso" name="txtAcesso" class="form-control" autocomplete="off" readonly required>
-                    </div>
-                </div>             
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="pais">País</label>
-                        <input type="text" id="pais" name="txtPais" class="form-control" autocomplete="off" maxlength="50" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="distrito">Distrito</label>
-                        <input type="text" id="distrito" name="txtDistrito" class="form-control" autocomplete="off" maxlength="50" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="concelho">Concelho</label>
-                        <input type="text" id="concelho" name="txtConcelho" class="form-control" autocomplete="off" maxlength="50" required>
-                    </div>
-                </div>             
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="morada">Morada</label>
-                        <input type="text" id="morada" name="txtMorada" class="form-control" autocomplete="off" maxlength="50" required>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="nif">Identificação Fiscal (NIF)</label>
-                        <input type="text" id="nif" name="txtNif" class="form-control" autocomplete="off" maxlength="50" required>
-                    </div>
-                    <div class="form-group col-md-2">
-                    <label for="codigoPostal">Código-Postal</label>
-                    <input type="text" id="codigoPostal" name="txtCodigoPostal" class="form-control" autocomplete="off" maxlength="50" required>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="telemovel">Telemóvel</label>
-                        <input type="tel" id="telemovel" name="txtTelemovel" class="form-control" autocomplete="off" maxlength="9" required>
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" autocomplete="off" maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                    </div>
+                </div>
+                
+                <hr/>             
                 <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar<i class="fa fa-edit"></i></button>
             </form>
+        </section>
+        <section class="sectionSeguintes">
+            <h4>Consultar registo</h4>
+            <div class="tabelaFiltrosDiv">
+                <div class="filtrosNav">
+                    <div class="divRadioGroup">                              
+                        <button type="button" class="btn btn-success"  title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
+                    </div>
+                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
+                        <div class="divRadioGroup">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
+                                <label class="btn btn-secondary active" >
+                                    <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc" checked> Asc
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
+                                </label>
+                            </div>
+                        </div>
+                        <div class="divRadioGroup">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked> Top10
+                                </label>
+                                    <label class="btn btn-secondary">
+                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
+                                </label>
+                            </div> 
+                        </div>
+                        <div class="divRadioGroup form-group col-md-4">
+                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                        </div>
+                    </form>
+                </div>
+                <div class="tabelaEncolheX">
+                    <div class="tabelaEncolheY">
+                        <div id="tabelaTipoInscricao"></div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

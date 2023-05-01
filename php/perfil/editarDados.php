@@ -14,6 +14,7 @@ $txtObservacao = rawurldecode($_REQUEST["observacao"]);
 $txtEmail = rawurldecode($_REQUEST["email"]);
 $txtPassword = rawurldecode($_REQUEST["password"]);
 $txtNomeCompleto = rawurldecode($_REQUEST["nomeCompleto"]);
+$txtNomePerfil = rawurldecode($_REQUEST["nomePerfil"]);
 $txtCC = rawurldecode($_REQUEST["cc"]);
 $txtDataNascimento = rawurldecode($_REQUEST["dataNascimento"]);
 $txtPais = rawurldecode($_REQUEST["pais"]);
@@ -25,11 +26,13 @@ $txtCodigoPostal = rawurldecode($_REQUEST["codigoPostal"]);
 $txtTelemovel = rawurldecode($_REQUEST["telemovel"]);
 $txUtilizador = rawurldecode($_SESSION["utilizador_id"]);
 
+
+
 require_once "../Conexao.php";
 try{
    $Conexao = Conexao::getConnection();
 
-   $stringQuery = "exec editaPerfil @id = '".$txtId."', @observacao = '".$txtObservacao."', @email = '".$txtEmail."' , @password = '".$txtPassword."', @nomeCompleto = '".$txtNomeCompleto."', @cc = '".$txtCC."', @dataNascimento = '".$txtDataNascimento."', @pais = '".$txtPais."', @distrito = '".$txtDistrito."', @concelho = '".$txtConcelho."', @morada = '".$txtMorada."', @nif = '".$txtNif."', @codigoPostal = '".$txtCodigoPostal."', @telemovel = '".$txtTelemovel."',  @utilizador = '".$txUtilizador."'";
+   $stringQuery = "exec editaPerfil @id = '".$txtId."', @observacao = '".$txtObservacao."', @email = '".$txtEmail."' , @password = '".$txtPassword."', @nomeCompleto = '".$txtNomeCompleto."', @nomePerfil = '".$txtNomePerfil."', @cc = '".$txtCC."', @dataNascimento = '".$txtDataNascimento."', @pais = '".$txtPais."', @distrito = '".$txtDistrito."', @concelho = '".$txtConcelho."', @morada = '".$txtMorada."', @nif = '".$txtNif."', @codigoPostal = '".$txtCodigoPostal."', @telemovel = '".$txtTelemovel."',  @utilizador = '".$txUtilizador."'";
    
    $query = $Conexao->query($stringQuery);
    $dados = $query->fetchAll();
@@ -43,15 +46,23 @@ try{
    $myJSON = json_encode($myArr);
   
    if (!empty($myArr[1])) {
-      $_SESSION['utilizador_perfil'] = $myArr[1];
+      $_SESSION['utilizador_nomePerfil'] = $myArr[1];
    }
    if (!empty($myArr[2])) {
       $_SESSION['acesso_password'] = $myArr[2];
+   } 
+   if (!empty($myArr[3])) {
+      $_SESSION['utilizador_urlFotografia'] = $myArr[3];
    }  
-   if (!isset($_SESSION["utilizador_perfil"]) and !isset($_SESSION["utilizador_perfil"])){
-      header("Location: ./index.php");
-  }
 
+
+
+
+
+   if (!isset($_SESSION["utilizador_nomePerfil"]) and !isset($_SESSION["acesso_password"]) and !isset($_SESSION["utilizador_urlFotografia"])){
+      header("Location: ./index.php");
+   }
+ 
   echo $myJSON;
 
 

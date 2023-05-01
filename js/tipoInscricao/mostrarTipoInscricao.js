@@ -44,7 +44,7 @@ function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, p
         }
     }
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/mostraDados.php?numeroRegistos="+encodeURIComponent(numeroRegistos)+"&ordenacaoRegistos="+encodeURIComponent(ordenacaoRegistos)+"&pesquisaDescritivo="+encodeURIComponent(pesquisaDescritivo), true);
+    xhttp.open("POST", "php/tipoInscricao/mostraDados.php?numeroRegistos="+encodeURIComponent(numeroRegistos)+"&ordenacaoRegistos="+encodeURIComponent(ordenacaoRegistos)+"&pesquisaDescritivo="+encodeURIComponent(pesquisaDescritivo), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

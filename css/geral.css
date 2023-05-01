@@ -425,3 +425,7 @@ footer > div > a > img{
     visibility: none;
     color: red;
 }
+
+.fotoPerfilNavBar{
+  border-radius: 50%;
+}

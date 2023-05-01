@@ -57,7 +57,7 @@ function mostraDados_registarTipoInscricao(descritivo, valorInscricao, valorLivr
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/mostraDadosRegistar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("POST", "php/tipoInscricao/mostraDadosRegistar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
@@ -91,7 +91,7 @@ function registar_registarTipoInscricao(descritivo, valorInscricao, valorLivro, 
         }
     };
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/registarDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("POST", "php/tipoInscricao/registarDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();   
 }

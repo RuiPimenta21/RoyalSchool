@@ -1,104 +1,37 @@
 function validaFotografia_editarPerfil(){
-
-    var fileToUpload = document.getElementById("fotografia").value;
-    var idxDot = fileToUpload.lastIndexOf(".") + 1;
-    var extFile = fileToUpload.substr(idxDot, fileToUpload.length).toLowerCase();
-    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
-        //mensagem
-        return true;
-    }else{
-        Swal.fire({
-            icon: 'error',
-            title: 'Fotografia',
-            text: 'Somente arquivos jpg, jpeg e png são permitidos!',
-        })
-        return false;
-    }   
-}
-
-function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
+    let validacaoFotografia = false;
+    let id = document.forms["formPerfil"]["txtId"].value;
+    
     var arquivo = document.getElementById("fotografia").files[0];
     var xhr = new XMLHttpRequest();
     var formData = new FormData();
 
     formData.append("fotografia", arquivo);
 
-    xhr.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), true);
+    xhr.open("POST", "php/perfil/validaFotografia.php?id="+encodeURIComponent(id), false);
     
     xhr.onreadystatechange = function() {
+        
         if (xhr.readyState === 4 && xhr.status === 200) {
-
             // Lógica de manipulação da resposta do servidor aqui
-            console.log(xhr.responseText);
             const mensagem = JSON.parse(xhr.responseText);
-            mensagem[0]
+            if (mensagem[0] === 1 &&  mensagem[1] === ""){
+                validacaoFotografia = true;
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Fotografia',
+                    text: mensagem[1],
+                });
+                validacaoFotografia =  false;
+            }
         
         }
     };
     xhr.send(formData);
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    
 
-
-    xhttp = new XMLHttpRequest();
-
-        var arquivo = document.getElementById("fotografia").files[0];
-        var formData = new FormData();
-        formData.append("fotografia", arquivo);
-
-        xhttp.onload = function() {
-
-            document.getElementById("txtErro").style.display = "none";
-            document.getElementById("txtErro").style.visibility = "none";
-            document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
-        
-            this.readyState
-            this.status
-            this.responseText
-
-            const mensagem = JSON.parse(this.responseText);
-            //console.log(myObj);
-
-            //operacao está CONCLUIDA e resposta está OK
-            if (this.readyState == 4 && this.status == 200 && mensagem[0] == 1) {
-
-                //carrega imagem do utilizador na barra de navegacao
-                /*document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
-                document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
-                document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
-                return true;
-
-            }
-            else if(mensagem[0] == 0){
-                //não passou na validação da imagem
-                mostraTipoAlertaFotografia_editarPerfil(mensagem[1]);
-                return false;
-            }
-            else{
-                //erro que não vem do pedido
-                mostraTipoAlerta_editarPerfil(false, 0);
-                document.getElementById("txtErro").style.display = "block";
-                document.getElementById("txtErro").style.visibility = "visible";
-                document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
-                return false;
-            }
-        };
-    //Encoding
-    xhttp.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), true);
-    xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    xhttp.send(formData);
-    */
+    return validacaoFotografia;
 }
 
 function validaFormulario_editarPerfil() {
@@ -108,6 +41,7 @@ function validaFormulario_editarPerfil() {
     let email = document.forms["formPerfil"]["txtEmail"].value;
     let password = document.forms["formPerfil"]["txtPassword"].value;
     let nomeCompleto = document.forms["formPerfil"]["txtNome"].value;
+    let nomePerfil = document.forms["formPerfil"]["txtNomePerfil"].value;
     let cc = document.forms["formPerfil"]["txtCC"].value;
     let dataNascimento = document.forms["formPerfil"]["txtDataNascimento"].value;
     let pais = document.forms["formPerfil"]["txtPais"].value;
@@ -132,6 +66,11 @@ function validaFormulario_editarPerfil() {
     else if(nomeCompleto == "") {
         faltaCampo_editarPerfil("Nome Completo");
         document.forms["formPerfil"]["txtNome"].focus();
+        return;
+    }
+    else if(nomePerfil == "") {
+        faltaCampo_editarPerfil("Nome Perfil");
+        document.forms["formPerfil"]["txtNomePerfil"].focus();
         return;
     }
     else if(cc == "") {
@@ -171,7 +110,7 @@ function validaFormulario_editarPerfil() {
         document.forms["formPerfil"]["txtTelemovel"].focus();
     }
     else{
-        confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+        confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
     }  
 }
 
@@ -183,8 +122,8 @@ function faltaCampo_editarPerfil(campo){
     })
 }
 
-function confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){
-    mostraDados_editarPerfil(id,fotografia,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+function confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){
+    mostraDados_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
     Swal.fire({
         title: 'Pretende editar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
@@ -196,32 +135,63 @@ function confirmaDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc
     }).then((result) => {
         if (result.isConfirmed) {
             // se imagem standard salta processo de guardar imagem
-            if (imagemFezUpload == 1){
+            if (imagemFezUpload == true){
                 //Se a imagem tiver upload, espera resultado para guardar restantes dados
-                if(editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) == true){
-                    editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
-                    imagemFezUpload == 0;
+                if(editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) == true){
+                    editar_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+                    imagemFezUpload == false;
                 };
             }
             else{
-                editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
+                editar_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel);
             }  
         }
     })
 }
 
-function mostraDados_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) {
+function mostraDados_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("POST", "php/perfil/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
+    xhttp.open("POST", "php/perfil/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&nomePerfil="+encodeURIComponent(nomePerfil)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-function editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
+function editaFotografia_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
+    let fotografiaGuardadaBD = false;
+    var arquivo = document.getElementById("fotografia").files[0];
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData();
+
+    formData.append("fotografia", arquivo);
+
+    xhr.open("POST", "php/perfil/editarFotografia.php?id="+encodeURIComponent(id), false);
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+
+            // Lógica de manipulação da resposta do servidor aqui
+            const mensagem = JSON.parse(xhr.responseText);
+            if (mensagem[0] == 1){
+                fotografiaGuardadaBD = true
+            }else{  
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Fotografia',
+                    text: "Imagem sem utilizador associado. Não foi possível guardar a imagem.",
+                });
+                validacaoFotografia =  false;   
+            }
+        }
+    };
+    xhr.send(formData);
+    return fotografiaGuardadaBD;
+}
+
+function editar_editarPerfil(id,observacao,email,password,nomeCompleto,nomePerfil,cc,dataNascimento,pais,distrito,concelho,morada,nif,codigoPostal,telemovel){ 
     xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 
@@ -240,12 +210,6 @@ function editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNa
         if (this.readyState == 4 && this.status == 200 && mensagem[0] == 1) {
             mostraTipoAlerta_editarPerfil(true, 1);
 
-            //carrega nome de utilizador na barra de navegacao
-            document.getElementById('parametroUtilizadorPerfil').innerHTML = mensagem[1];
-            document.forms["formPerfil"]["txtNomePerfil"].innerHTML = mensagem[1];
-            document.forms["formPerfil"]["txtPassword"].innerHTML = mensagem[2];
-
-           
            //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
             carregaDados_mostarPerfil();
@@ -266,7 +230,7 @@ function editar_editarPerfil(id,observacao,email,password,nomeCompleto,cc,dataNa
         }
     };
     //Encoding
-    xhttp.open("POST", "php/perfil/editarDados.php?id="+encodeURIComponent(id)+"&fotografia="+encodeURIComponent(fotografia)+"&observacao="+encodeURIComponent(observacao)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), true);
+    xhttp.open("POST", "php/perfil/editarDados.php?id="+encodeURIComponent(id)+"&fotografia="+encodeURIComponent(fotografia)+"&observacao="+encodeURIComponent(observacao)+"&email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password)+"&nomeCompleto="+encodeURIComponent(nomeCompleto)+"&nomePerfil="+encodeURIComponent(nomePerfil)+"&cc="+encodeURIComponent(cc)+"&dataNascimento="+encodeURIComponent(dataNascimento)+"&pais="+encodeURIComponent(pais)+"&distrito="+encodeURIComponent(distrito)+"&concelho="+encodeURIComponent(concelho)+"&morada="+encodeURIComponent(morada)+"&nif="+encodeURIComponent(nif)+"&codigoPostal="+encodeURIComponent(codigoPostal)+"&telemovel="+encodeURIComponent(telemovel), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

@@ -55,7 +55,7 @@ function mostraDados_eliminarTipoInscricao(id, descritivo, valorInscricao, valor
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/mostraDadosEliminar.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("POST", "php/tipoInscricao/mostraDadosEliminar.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
@@ -114,7 +114,7 @@ function eliminar_eliminarTipoInscricao(id, descritivo, valorInscricao, valorLiv
         }
     };
     //Encoding
-    xhttp.open("GET", "php/tipoInscricao/eliminarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("POST", "php/tipoInscricao/eliminarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

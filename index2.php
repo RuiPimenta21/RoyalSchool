@@ -6,7 +6,7 @@
     }
 
     if (!empty($_POST['fname'])) {
-        $_SESSION['utilizador_perfil'] = $_POST['fname'];
+        $_SESSION['utilizador_nomePerfil'] = $_POST['fname'];
     }
 ?>
 
@@ -21,7 +21,7 @@
 <body>
     
     <?php
-        echo "Olá " . $_SESSION["utilizador_perfil"] . ".<br>";
+        echo "Olá " . $_SESSION["utilizador_nomePerfil"] . ".<br>";
     ?>
 
 

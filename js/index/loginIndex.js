@@ -22,7 +22,6 @@ function validaEmailExterno(email) {
     return res.test(String(email).toLowerCase());
 }
 
-
 function validaEmailInterno(email, password){
     xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -47,7 +46,7 @@ function validaEmailInterno(email, password){
                 dadosInternosErrados_loginIndex()
             }
             else if (mensagemLogin[0] == 3){
-                console.log("Login com sucesso")
+                //console.log("Login com sucesso")
                 //console.log("utilizador_id" + mensagemLogin[1])
                 //console.log("utilizador_nome" + mensagemLogin[2])
                 
@@ -65,7 +64,7 @@ function validaEmailInterno(email, password){
         }
     };
     //Encoding
-    xhttp.open("GET", "php/index/loginIndex.php?email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password), true);
+    xhttp.open("POST", "php/index/loginIndex.php?email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

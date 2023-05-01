@@ -27,6 +27,7 @@ $txtId = rawurldecode($_REQUEST["id"]);
 $txtEmail = rawurldecode($_REQUEST["email"]);
 $txtPassword = rawurldecode($_REQUEST["password"]);
 $txtNomeCompleto= rawurldecode($_REQUEST["nomeCompleto"]);
+$txtNomePerfil= rawurldecode($_REQUEST["nomePerfil"]);
 $txtCC = rawurldecode($_REQUEST["cc"]);
 $txtDataNascimento= rawurldecode($_REQUEST["dataNascimento"]);
 $txtPais = rawurldecode($_REQUEST["pais"]);
@@ -58,6 +59,11 @@ echo "</tr>";
 echo "<tr>";
 echo "<td class=\"td_titulo\">Nome Completo:</td>";
 echo "<td class=\"td_descritivo\">" . $txtNomeCompleto. "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td class=\"td_titulo\">Nome Perfil:</td>";
+echo "<td class=\"td_descritivo\">" . $txtNomePerfil. "</td>";
 echo "</tr>";
 
 echo "<tr>";
