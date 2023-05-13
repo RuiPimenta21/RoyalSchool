@@ -5,11 +5,9 @@ function validaFormulario_Index() {
  
     if(validaEmailExterno(email) == false){
         faltaCampoEmail_loginIndex();
-        document.forms["formIndex"]["email"].focus();
     }
     else if (password == ""){
         faltaCampoPassword_loginIndex();
-        document.forms["formIndex"]["password"].focus();
     }
     else{
         //valida validaEmailInterno agora
@@ -69,11 +67,40 @@ function validaEmailInterno(email, password){
     xhttp.send();
 }
 
+function perdeFocus(){
+    let email = document.forms["formIndex"]["email"];
+    let password = document.forms["formIndex"]["password"];
+
+    email.addEventListener('keypress', function(event) {
+        if (event.keyCode === 13) {
+            
+            email.blur();
+            password.blur();
+
+            validaFormulario_Index()
+        }
+    });
+    password.addEventListener('keypress', function(event) {
+        if (event.keyCode === 13) {
+
+            email.blur();
+            password.blur();
+
+            validaFormulario_Index()
+        }
+    });
+}
+
 function faltaCampoEmail_loginIndex(){
     Swal.fire({
         icon: 'error',
         title: "Email",
         text: 'Por favor introduza uma email válido.',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.forms["formIndex"]["email"].focus();
+        }
     })
 }
 
@@ -82,6 +109,11 @@ function faltaCampoPassword_loginIndex(){
         icon: 'error',
         title: "Password",
         text: 'Por favor introduza uma password válida.',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.forms["formIndex"]["password"].focus();
+        }
     })
 }
 

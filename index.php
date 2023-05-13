@@ -38,7 +38,7 @@
                 <form name="formIndex" id="formIndex" method="post">
                     <div class="form-group">
                         <label for="email" class="txt1">Email</label>
-                        <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" maxlength="50" required>
+                        <input type="email" id="email"  name="email" class="form-control" aria-describedby="emailHelp" placeholder="abc@gmail.com" autocomplete="on" maxlength="50" onkeypress="perdeFocus()" required>
                     </div>
                     <div class="form-group">
                         <label for="password" class="txt1">Password</label>
@@ -46,7 +46,7 @@
                             <div class="input-group-prepend" onclick="mostrarPassword()">
                             <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-eye" style="font-size:16px"></i></span>
                             </div>
-                            <input type="password" id="password" name="password" class="form-control" aria-describedby="inputGroupPrepend" placeholder="Password" autocomplete="off" maxlength="50" required>
+                            <input type="password" id="password" name="password" class="form-control" aria-describedby="inputGroupPrepend" placeholder="Password" autocomplete="off" maxlength="50" onkeypress="perdeFocus()" required>
                         </div>
                     </div>
                     <div class="bottaoEntrar"></div>
