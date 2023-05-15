@@ -71,7 +71,7 @@ function perdeFocus(){
     let email = document.forms["formIndex"]["email"];
     let password = document.forms["formIndex"]["password"];
 
-    email.addEventListener('keypress', function(event) {
+    email.addEventListener('keyup', function(event) {
         if (event.keyCode === 13) {
             
             email.blur();
@@ -80,7 +80,7 @@ function perdeFocus(){
             validaFormulario_Index()
         }
     });
-    password.addEventListener('keypress', function(event) {
+    password.addEventListener('keyup', function(event) {
         if (event.keyCode === 13) {
 
             email.blur();

@@ -119,7 +119,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     </div>
                     <div class="form-group col-md-2">
                         <label for="descritivoPeriodo">Descrição</label>
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="1º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataInicioPeriodo">Data de Início</label>
@@ -134,7 +134,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     <div class="form-group col-md-6">                       
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="2º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
@@ -147,7 +147,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     <div class="form-group col-md-6">                       
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="3º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
                         <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
@@ -156,8 +156,63 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                         <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
                     </div>
                 </div>
-                
-                <hr/>             
+                <hr/> 
+                <h5>Pausa</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="descritivoPeriodo">Descrição</label>
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Natal" readonly autocomplete="off" maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataInicioPeriodo">Data de Início</label>
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataFimPeriodo">Data de Fim</label>
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Carnaval" readonly autocomplete="off" maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Páscoa" readonly autocomplete="off" maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Verão" readonly autocomplete="off" maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                    </div>
+                </div>              
                 <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar<i class="fa fa-edit"></i></button>
             </form>
         </section>
