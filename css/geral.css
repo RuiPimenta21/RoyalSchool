@@ -245,16 +245,19 @@ section {
 #botaoGravar{
   float:right;
   position: relative;
+  margin: 2px;
 }
 #botaoEditar{
   margin-left: 10px;
   float:right;
   position: relative;
+  margin: 2px;
 }
 #botaoEliminar{
   margin-left: 10px;
   float:right;
   position: relative;
+  margin: 2px;
 }
 .filtrosNav {
   overflow: hidden;
