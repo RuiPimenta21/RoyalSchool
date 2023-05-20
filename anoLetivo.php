@@ -113,7 +113,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     </div>
                 </div>
                 <hr/>
-                <h5>Período</h5>
+                <h5>Período Letivo</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">                       
                     </div>
@@ -157,7 +157,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     </div>
                 </div>
                 <hr/> 
-                <h5>Pausa</h5>
+                <h5>Pausa Letiva</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">                       
                     </div>
@@ -199,20 +199,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     <div class="form-group col-md-2">
                         <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">                       
-                    </div>
-                    <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Verão" readonly autocomplete="off" maxlength="50" required>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
-                    </div>
-                </div>              
+                </div>        
                 <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar<i class="fa fa-edit"></i></button>
             </form>
         </section>
