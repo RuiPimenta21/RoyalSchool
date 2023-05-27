@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Royal School</title>
+    <!-- ********************************************  Ico  ********************************************  -->
+    <link rel="shortcut icon" href="imagens/logo.ico" type="image/x-icon">
+
+    <!-- ********************************************  Style  ********************************************  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
+    <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
+    
+    <!-- ********************************************  Icons  ********************************************  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Icons -->
+    
+    <!-- ********************************************  JavaScript  ********************************************  -->
+    <script src="js/geral.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Icons -->
+    <script type="text/javascript">
+        //Permitir introdução de apenas valores com duas casas decimais
+        $(document).ready(function () {
+            $(".floatNumberField").change(function() {
+                $(this).val(parseFloat($(this).val()).toFixed(2));
+            });
+        });
+    </script>
+    <style>
+    .btn-group-justified {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: separate; 
+    }
+    .btn-group-justified .btn,
+    .btn-group-justified .btn-group {
+        float: none;
+        display: table-cell;
+        width: 1%; }
+    .btn-group-justified .btn .btn,
+    .btn-group-justified .btn-group .btn {
+        width: 100%; }
+    .btn-group-justified .btn .dropdown-menu,
+    .btn-group-justified .btn-group .dropdown-menu {
+        left: auto; 
+    }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+            <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
+                <span class="material-icons">menu</span>
+            </button>
+            <h1 class="navbar-title">Tipo Inscrição</h1>
+            <nav class="navbar-menu">
+                <button type="button" class="buttonNavBar buttonHover">Home</button>
+                <button type="button" class="buttonNavBar buttonHover" href="#">Incrição</button>
+                <div class="btn-group">
+                    <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilizadores</button>
+                    <div class="dropdown-menu dropdownBotao">
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Professor</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Aluno</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Enc. Educação</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Funcionário</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ano Escolar</button>
+                    <div class="dropdown-menu dropdownBotao">
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Ano Letivo</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Nível</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Turma</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="dropdown-toggle buttonNavBar active" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
+                    <div class="dropdown-menu dropdownBotao">
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#">Tipo Incrição</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Mensalidade</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Desconto</a>
+                    </div>
+                </div>
+                <div class="btn-group dropdownBotaoPerfil">
+                    <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="imagens/Pessoas.png" alt="fotoPerfil">
+                        Rui Pimenta</button>
+                    <div class="dropdown-menu dropdownBotao1">
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-language iconBotao"></i>Idioma</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-sign-out iconBotao"></i>Terminar Sessão</a>
+                    </div>
+                </div>  
+            </nav>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h4>Criar registo</h4>
+            <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="display:none;">
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="txtId" class="form-control" placeholder="Id"  required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="descritivo">Descrição</label>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  autocomplete="off" required>
+                    </div>
+                </div>
+                <hr/>
+                <h5>Valores</h5>    
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <p><u>Taxa de IVA não aplicada</u> nos valores apresentados.</p>                       
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="valorInscricao">Inscrição</label>
+                        <input type="number" id="valorInscricao" name="txtValorInscricao" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="valorLivro">Livro</label>
+                        <input type="number" id="valorLivro" name="txtValorLivro" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="valorMensalidade">Mensalidade</label>
+                        <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row"></div>    
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-lg-4"><button type="button" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger btn-block" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button></div>
+                            <div class="col-lg-4"><button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning btn-block" id="botaoEditar">Editar <i class="fa fa-edit"></i></button></div>
+                            <div class="col-lg-4"><button type="button" value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary btn-block" id="botaoGravar">Registar <i class="fa fa-save"></i></button></div>
+                        </div>    
+                    </div>
+                </div> 
+            </form>
+        </section>
+        <section class="sectionSeguintes">
+            <h4>Consultar registo</h4>
+            <div class="tabelaFiltrosDiv">
+                <div class="filtrosNav">
+                <div class="row">
+                    <div class="form-group col-lg-5" style="background-color: #ACACAC">
+                           <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                     </div>
+                    <div class="form-group col-lg-7" style="background-color: #ACACAC">
+                       <div class="row">
+                          <div class="form-group col-lg-6">
+                             <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                <a class="btn btn-primary" role="button" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked>Top 10</a>
+                                <a class="btn btn-primary" role="button" id="numRegistos20" name="txtNumeroRegistos" value="top 20">Top 20</a>
+                                <a class="btn btn-primary" role="button" id="numRegistosTodos" name="txtNumeroRegistos" value="">Todos</a>
+                             </div>
+                          </div>
+                          <div class="form-group col-lg-3">
+                             <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                <a class="btn btn-primary" role="radio" type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc">Asc</a>
+                                <a class="btn btn-primary" role="radio" type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc">Desc</a>
+                             </div>
+                          </div>
+                          <div class="form-group col-lg-3">
+                             <button type="button" class="btn btn-primary btn-block">Button 1</button>
+                          </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="tabelaEncolheX">
+                    <div class="tabelaEncolheY">
+                        <div id="tabelaTipoInscricao"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <p>RoyalSchool | 2022</p>
+        </div>
+        <div>
+            <a href="https://www.facebook.com/RoyalCollegeVizela" target="_blank" rel="extern"><i class="fa fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/royalcollegevizela/" target="_blank" rel="extern"><i class="fa fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=351915809197" target="_blank" rel="extern"><i class="fa fa-whatsapp"></i></a>
+        </div>
+        <div>
+            <a href="https://royalcollege.pt/"><img src="imagens/logoFooter.png" alt="Royal School Rodapé"></a>
+        </div>
+    </footer>
+    <div id="txtErro"></div>
+
+    <!--JavaScript para BootStrap-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--Por página-->
+    <script src="js/tipoInscricao/mostrarTipoInscricao.js"></script>
+    <script src="js/tipoInscricao/registarTipoInscricao.js"></script>
+    <script src="js/tipoInscricao/editarTipoInscricao.js"></script>
+    <script src="js/tipoInscricao/eliminarTipoInscricao.js"></script>
+    
+</body>
+</html>
+
