@@ -34,9 +34,9 @@
             <th style="display:none;" scope="col">Id</th>
             <th scope="col">Nº</th>
             <th scope="col">Descrição</th>
-            <th scope="col">Valor Inscrição Sem Iva</th>
-            <th scope="col">Valor Livro Sem Iva</th>
-            <th scope="col">Valor Mensalidade Sem Iva</th>
+            <th scope="col">Valor Inscrição</th>
+            <th scope="col">Valor Livro</th>
+            <th scope="col">Valor Mensalidade</th>
          </tr>
       </thead>
       <tbody>

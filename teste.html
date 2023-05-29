@@ -135,15 +135,15 @@
                         <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row"  style="display: flex; align-items: center; margin-left: auto; margin-right: auto;">
                     <div class="col-lg-7">
                         <div class="row"></div>    
                     </div>
                     <div class="col-lg-5">
                         <div class="row">
-                            <div class="col-lg-4"><button type="button" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger btn-block" id="botaoEliminar">Eliminar <i class="fa fa-trash-o"></i></button></div>
-                            <div class="col-lg-4"><button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning btn-block" id="botaoEditar">Editar <i class="fa fa-edit"></i></button></div>
-                            <div class="col-lg-4"><button type="button" value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary btn-block" id="botaoGravar">Registar <i class="fa fa-save"></i></button></div>
+                            <div class="form-group col-lg-4" style="display: flex; align-items: center;"><button  type="button" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger btn-block" id="botaoEliminar" style="margin: auto;">Eliminar <i class="fa fa-trash-o"></i></button></div>
+                            <div class="form-group col-lg-4" style="display: flex; align-items: center;"><button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning btn-block" id="botaoEditar" style="margin: auto;" >Editar <i class="fa fa-edit"></i></button></div>
+                            <div class="form-group col-lg-4" style="display: flex; align-items: center;"><button type="button" value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary btn-block" id="botaoGravar" style="margin: auto;">Registar <i class="fa fa-save"></i></button></div>
                         </div>    
                     </div>
                 </div> 
@@ -153,34 +153,35 @@
             <h4>Consultar registo</h4>
             <div class="tabelaFiltrosDiv">
                 <div class="filtrosNav">
-                <div class="row">
-                    <div class="form-group col-lg-5" style="background-color: #ACACAC">
-                           <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
-                     </div>
-                    <div class="form-group col-lg-7" style="background-color: #ACACAC">
-                       <div class="row">
-                          <div class="form-group col-lg-6">
-                             <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                <a class="btn btn-primary" role="button" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked>Top 10</a>
-                                <a class="btn btn-primary" role="button" id="numRegistos20" name="txtNumeroRegistos" value="top 20">Top 20</a>
-                                <a class="btn btn-primary" role="button" id="numRegistosTodos" name="txtNumeroRegistos" value="">Todos</a>
-                             </div>
-                          </div>
-                          <div class="form-group col-lg-3">
-                             <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                <a class="btn btn-primary" role="radio" type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc">Asc</a>
-                                <a class="btn btn-primary" role="radio" type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc">Desc</a>
-                             </div>
-                          </div>
-                          <div class="form-group col-lg-3">
-                             <button type="button" class="btn btn-primary btn-block">Button 1</button>
-                          </div>
-                       </div>
+                    <div class="row filtrosTabela1">
+                        <div class="form-group col-lg-5 filtrosTabelaDivisoria1">
+                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                        </div>
+                        <div class="form-group col-lg-7 filtrosTabelaDivisoria1">
+                            <div class="row filtrosTabela2">
+                                <div class="form-group col-lg-6 filtrosTabelaDivisoria2">
+                                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                        <a class="btn btn-secondary" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked>Top 10</a>
+                                        <a class="btn btn-secondary" id="numRegistos20" name="txtNumeroRegistos" value="top 20">Top 20</a>
+                                        <a class="btn btn-secondary" id="numRegistosTodos" name="txtNumeroRegistos" value="">Todos</a>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-3 filtrosTabelaDivisoria2">
+                                    <div class="btn-group-justified" role="group" aria-label="Justified button group">
+                                        <a class="btn btn-secondary" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc">Asc</a>
+                                        <a class="btn btn-secondary" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc">Desc</a>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-3 filtrosTabelaDivisoria2">
+                                    <button type="button" value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="tabelaEncolheX">
-                    <div class="tabelaEncolheY">
-                        <div id="tabelaTipoInscricao"></div>
+                    <div class="tabelaEncolheX">
+                        <div class="tabelaEncolheY">
+                            <div id="tabelaTipoInscricao"></div>
+                        </div>
                     </div>
                 </div>
             </div>
