@@ -452,7 +452,13 @@ footer > div > a > img{
 .filtrosTabelaDivisoria1{
   margin: auto;
 }
-.filtrosTabelaDivisoria2{
+.filtrosTabelaDivisoria2_1{
+  margin: auto;
+}
+.filtrosTabelaDivisoria2_2{
+  margin: auto;
+}
+.filtrosTabelaDivisoria2_3{
   margin: auto;
 }
 
@@ -468,5 +474,14 @@ footer > div > a > img{
   }
   .btn-secondary{
     max-width: 50px;
+  }
+  .filtrosTabelaDivisoria2_1{
+    max-width: 300px;
+  }
+  .filtrosTabelaDivisoria2_2{
+    max-width: 200px;
+  }
+  .filtrosTabelaDivisoria2_3{
+    max-width: 200px;
   }
 }
