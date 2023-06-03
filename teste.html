@@ -151,40 +151,42 @@
         </section>
         <section class="sectionSeguintes">
             <h4>Consultar registo</h4>
-            <div class="tabelaFiltrosDiv">
-                <div class="filtrosNav">
-                    <div class="row filtrosTabela1">
-                        <div class="form-group col-lg-5 filtrosTabelaDivisoria1">
-                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
-                        </div>
-                        <div class="form-group col-lg-7 filtrosTabelaDivisoria1">
-                            <div class="row filtrosTabela2">
-                                <div class="form-group col-lg-6 filtrosTabelaDivisoria2_1">
-                                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                        <a class="btn btnFiltrosTabela" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked>Top 10</a>
-                                        <a class="btn btnFiltrosTabela" id="numRegistos20" name="txtNumeroRegistos" value="top 20">Top 20</a>
-                                        <a class="btn btnFiltrosTabela" id="numRegistosTodos" name="txtNumeroRegistos" value="">Todos</a>
+            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
+                <div class="tabelaFiltrosDiv">
+                    <div class="filtrosNav">
+                        <div class="row filtrosTabela1">
+                            <div class="form-group col-lg-5 filtrosTabelaDivisoria1">
+                                <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                            </div>
+                            <div class="form-group col-lg-7 filtrosTabelaDivisoria1">
+                                <div class="row filtrosTabela2">
+                                    <div class="form-group col-lg-6 filtrosTabelaDivisoria2_1">
+                                        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                            <a href="javascript:recebeFiltrosTabela_mostrarTipoInscricao(1);" class="btn btnFiltrosTabela" id="numRegistos10" name="txtNumeroRegistos" value="top 10">Top 10</a>
+                                            <a href="javascript:recebeFiltrosTabela_mostrarTipoInscricao(1);" class="btn btnFiltrosTabela" id="numRegistos20" name="txtNumeroRegistos" value="top 20">Top 20</a>
+                                            <a href="javascript:recebeFiltrosTabela_mostrarTipoInscricao(1);" class="btn btnFiltrosTabela" id="numRegistosTodos" name="txtNumeroRegistos" value="">Todos</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group col-lg-3 filtrosTabelaDivisoria2_2">
-                                    <div class="btn-group-justified" role="group" aria-label="Justified button group">
-                                        <a class="btn btnFiltrosTabela" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc">Asc</a>
-                                        <a class="btn btnFiltrosTabela" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc">Desc</a>
+                                    <div class="form-group col-lg-3 filtrosTabelaDivisoria2_2">
+                                        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                            <a href="javascript:recebeFiltrosTabela_mostrarTipoInscricao(1);" check class="btn btnFiltrosTabela" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc">Asc</a>
+                                            <a href="javascript:recebeFiltrosTabela_mostrarTipoInscricao(1);" class="btn btnFiltrosTabela" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc">Desc</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group col-lg-3 filtrosTabelaDivisoria2_3">
-                                    <button type="button" value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
+                                    </form>
+                                    <div class="form-group col-lg-3 filtrosTabelaDivisoria2_3">
+                                        <button type="button" value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tabelaEncolheX">
-                        <div class="tabelaEncolheY">
-                            <div id="tabelaTipoInscricao"></div>
+                        <div class="tabelaEncolheX">
+                            <div class="tabelaEncolheY">
+                                <div id="tabelaTipoInscricao"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </main>
     <footer>

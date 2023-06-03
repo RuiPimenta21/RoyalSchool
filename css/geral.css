@@ -435,6 +435,9 @@ footer > div > a > img{
 }
 
 
+
+
+
 .filtrosTabela1{
   display: flex;
   align-items: center;
@@ -462,6 +465,91 @@ footer > div > a > img{
   margin: auto;
 }
 
+
+
+
+/*Botoes filtros*/
+
+#numRegistos10{
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #4e555b;
+}
+#numRegistos10:disabled{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+#numRegistos10:disabled:hover{
+  background-color: #5C636A
+}
+#numRegistos10:hover{
+  background-color: #9c2632
+}
+#numRegistos20{
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #4e555b;
+}
+#numRegistos20:disabled{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+#numRegistos20:disabled:hover{
+  background-color: #5C636A
+}
+#numRegistos20:hover{
+  background-color: #9c2632
+}
+#numRegistosTodos{
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #4e555b;
+}
+#numRegistosTodos:disabled{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+#numRegistosTodos:disabled:hover{
+  background-color: #5C636A
+}
+#numRegistosTodos:hover{
+  background-color: #9c2632
+}
+#ordeAsc{
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #4e555b;
+}
+#ordeAsc:disabled{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+#ordeAsc:disabled:hover{
+  background-color: #5C636A
+}
+#ordeAsc:hover{
+  background-color: #9c2632
+}
+#ordeDesc{
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #4e555b;
+}
+#ordeDesc:disabled{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+#ordeDesc:disabled:hover{
+  background-color: #5C636A
+}
+#ordeDesc:hover{
+  background-color: #9c2632
+}
 
 
 @media only screen and (max-width: 992px) {
