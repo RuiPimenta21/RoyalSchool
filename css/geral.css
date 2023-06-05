@@ -227,7 +227,7 @@ main {
   min-width: 245px; /*tamanho minimo de alguns telemoveis 320, mas eu ja dou padding , logo 300*/
   max-width: 1680px;
   margin: auto;  /*centra o main*/
-  min-height: calc(100vh - 64px - 40px);   /*->recente*/
+  min-height: calc(100vh - 64px - 40px);
 }
 section {
   background-color: white;
@@ -242,7 +242,7 @@ section {
 }
 
  /*  ********************************************  Componentes dentro do Main  ********************************************  */
-#botaoGravar{
+ #botaoGravar{
   float:right;
   position: relative;
   margin: 2px;
@@ -258,6 +258,17 @@ section {
   float:right;
   position: relative;
   margin: 2px;
+}
+@media only screen and (max-width: 992px) {
+  #botaoGravar{
+    max-width: 150px;
+  }
+  #botaoEditar{
+    max-width: 150px;
+  }
+  #botaoEliminar{
+    max-width: 150px;
+  }
 }
 .filtrosNav {
   overflow: hidden;
@@ -351,6 +362,151 @@ td { cursor: pointer;}
 
 
 
+/*Botoes gravar editar eliminar*/
+.botoesTabela1{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.botoesTabela2{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.botoesTabelaDivisoria1{
+  margin: auto;
+}
+.botoesTabelaDivisoria2_1{
+  margin: auto;
+}
+.botoesTabelaDivisoria2_2{
+  margin: auto;
+}
+.botoesTabelaDivisoria2_3{
+  margin: auto;
+}
+
+#eliminar{
+  max-width: 150px;
+  color: rgba(255, 255, 255, 0.884);
+}
+#editar{
+  max-width: 150px;
+  color: rgba(70, 70, 70, 0.678);
+}
+#registar{
+  max-width: 150px;
+  color: rgba(255, 255, 255, 0.925);
+}
+
+/*Botoes gravar editar eliminar*/
+@media only screen and (max-width: 992px) {
+  .botoesTabelaDivisoria2_1{
+    max-width: 200px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .botoesTabelaDivisoria2_2{
+    max-width: 200px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .botoesTabelaDivisoria2_3{
+    max-width: 200px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #eliminar{
+    max-width: 150px;
+  }
+  #editar{
+    max-width: 150px;
+  }
+  #registar{
+    max-width: 150px;
+  }
+}
+
+/*Botoes Filtros*/
+.filtrosTabela1{
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.filtrosTabela2{
+  display: flex;
+  align-items: center;
+}
+.filtrosTabelaDivisoria1{
+  margin: auto;
+  text-align: center;
+}
+.filtrosTabelaDivisoria2_1{
+  margin: auto;
+  text-align: center;
+}
+.filtrosTabelaDivisoria2_2{
+  margin: auto;
+  text-align: center;
+}
+.filtrosTabelaDivisoria2_3{
+  margin: auto;
+  text-align: center;
+}
+#imprimir{
+  color: rgba(255, 255, 255, 0.925);
+}
+
+/*Botoes filtros*/
+@media only screen and (max-width: 992px) {
+  .filtrosTabelaDivisoria2_1{
+    max-width: 300px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .filtrosTabelaDivisoria2_2{
+    max-width: 200px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .filtrosTabelaDivisoria2_3{
+    max-width: 200px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #numRegistos10{
+    min-width: 43px;
+  }
+  #numRegistos20{
+    min-width: 43px;
+  }
+  #numRegistosTodos{
+    min-width: 43px;
+  }
+  #imprimir{
+    max-width: 150px;
+  }
+}
 
 
  /*  ********************************************  Footer  ********************************************  */
@@ -417,12 +573,6 @@ footer > div > a > img{
     margin-right: 5px;
   }
 }
-
-#tabelaTipoInscricao{
-  display:none;
-  visibility: none;
-}
-
 #txtErro{
     display:none;
     visibility: none;
@@ -438,143 +588,3 @@ footer > div > a > img{
 
 
 
-.filtrosTabela1{
-  display: flex;
-  align-items: center;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-.filtrosTabela2{
-  display: flex;
-  align-items: center;
-}
-
-.filtrosTabelaDivisoria1{
-  margin: auto;
-}
-.filtrosTabelaDivisoria2_1{
-  margin: auto;
-}
-.filtrosTabelaDivisoria2_2{
-  margin: auto;
-}
-.filtrosTabelaDivisoria2_3{
-  margin: auto;
-}
-
-
-
-
-/*Botoes filtros*/
-
-#numRegistos10{
-  color: #fff;
-  background-color: #DC3545;
-  border-color: #4e555b;
-}
-#numRegistos10:disabled{
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-#numRegistos10:disabled:hover{
-  background-color: #5C636A
-}
-#numRegistos10:hover{
-  background-color: #9c2632
-}
-#numRegistos20{
-  color: #fff;
-  background-color: #DC3545;
-  border-color: #4e555b;
-}
-#numRegistos20:disabled{
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-#numRegistos20:disabled:hover{
-  background-color: #5C636A
-}
-#numRegistos20:hover{
-  background-color: #9c2632
-}
-#numRegistosTodos{
-  color: #fff;
-  background-color: #DC3545;
-  border-color: #4e555b;
-}
-#numRegistosTodos:disabled{
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-#numRegistosTodos:disabled:hover{
-  background-color: #5C636A
-}
-#numRegistosTodos:hover{
-  background-color: #9c2632
-}
-#ordeAsc{
-  color: #fff;
-  background-color: #DC3545;
-  border-color: #4e555b;
-}
-#ordeAsc:disabled{
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-#ordeAsc:disabled:hover{
-  background-color: #5C636A
-}
-#ordeAsc:hover{
-  background-color: #9c2632
-}
-#ordeDesc{
-  color: #fff;
-  background-color: #DC3545;
-  border-color: #4e555b;
-}
-#ordeDesc:disabled{
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-#ordeDesc:disabled:hover{
-  background-color: #5C636A
-}
-#ordeDesc:hover{
-  background-color: #9c2632
-}
-
-
-@media only screen and (max-width: 992px) {
-  .btn-danger{
-    max-width: 200px;
-  }
-  .btn-warning{
-    max-width: 200px;
-  }
-  .btn-primary{
-    max-width: 200px;
-  }
-  .btn-secondary{
-    max-width: 50px;
-  }
-  .filtrosTabelaDivisoria2_1{
-    max-width: 300px;
-    margin-top: 5px;
-  }
-  .filtrosTabelaDivisoria2_2{
-    max-width: 200px;
-    margin-top: 5px;
-  }
-  .filtrosTabelaDivisoria2_3{
-    max-width: 200px;
-    margin-top: 5px;
-  }
-}
