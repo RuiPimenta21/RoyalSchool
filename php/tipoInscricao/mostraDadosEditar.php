@@ -30,6 +30,9 @@ $txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
 $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
 $txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
 $txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
+$txtIvaInscricao = rawurldecode($_REQUEST["valorInscricao"]);
+$txtIvaLivro = rawurldecode($_REQUEST["valorLivro"]);
+$txtIvaMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
 
 echo "<table class=\"tableInfo\">";
 /*
