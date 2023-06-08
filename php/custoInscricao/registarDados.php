@@ -22,7 +22,7 @@ require_once "../Conexao.php";
 try{
    $Conexao = Conexao::getConnection();
 
-   $stringQuery = "exec criaTipoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."', @aplicarIvaTodos = '".$txtAplicarIvaTodos."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @utilizador = '".$txUtilizador."'";
+   $stringQuery = "exec criaCustoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."', @aplicarIvaTodos = '".$txtAplicarIvaTodos."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @utilizador = '".$txUtilizador."'";
    //echo $stringQuery . " \n" ;
    $query = $Conexao->query($stringQuery);
    echo "Carregou query!";

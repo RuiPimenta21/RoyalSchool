@@ -18,7 +18,7 @@
     <!-- ********************************************  Style  ********************************************  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
     <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
-    <link rel="stylesheet" href="css/tipoInscricao.css"><!-- CSS Perfil-->
+    <link rel="stylesheet" href="css/custoInscricao.css"><!-- CSS Perfil-->
     
     <!-- ********************************************  Icons  ********************************************  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
@@ -44,7 +44,7 @@
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
                 <span class="material-icons">menu</span>
             </button>
-            <h1 class="navbar-title">Tipo Inscrição</h1>
+            <h1 class="navbar-title">Custo Inscrição</h1>
             <nav class="navbar-menu">
                 <button type="button" class="buttonNavBar buttonHover">Home</button>
                 <button type="button" class="buttonNavBar buttonHover" href="#">Incrição</button>
@@ -68,7 +68,7 @@
                 <div class="btn-group">
                     <button class="dropdown-toggle buttonNavBar active" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="tipoInscricao.php">Tipo Incrição</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="custoInscricao.php">Custo Incrição</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Mensalidade</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Desconto</a>
                     </div>
@@ -91,7 +91,7 @@
     <main>
         <section>
             <h4>Criar registo</h4>
-            <form name="formTipoInscricao" id= "formTipoInscricao" method="post">
+            <form name="formCustoInscricao" id= "formCustoInscricao" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:none;">
                         <label for="id">Id</label>
@@ -101,7 +101,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc" autocomplete="off" title= "Descrição do Tipo de Inscrição" required>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" title= "Descrição do Custo de Inscrição" required>
                     </div>
                 </div>
                 <hr/>
@@ -137,9 +137,9 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <p><u>Percentagem de IVA aplicada</u> nos valores apresentados.</p>
-                        <div class="form-check" title= "Aplicar a taxa de IVA a todos os Tipos de Inscrições">
+                        <div class="form-check" title= "Aplicar a taxa de IVA a todos os Custos de Inscrições">
                             <input class="form-check-input" type="checkbox" id="aplicarIvaTodos" name=txtAplicarIvaTodos>
-                            <label class="form-check-label" for="aplicarIvaTodos">Aplicar IVA's a outros Tipos de Inscrições</label>
+                            <label class="form-check-label" for="aplicarIvaTodos">Aplicar IVA's a outros Custos de Inscrições</label>
                         </div>                       
                     </div>
                     <div class="form-group col-md-2">
@@ -171,14 +171,14 @@
                     <div class="form-group col-lg-5 botoesTabelaDivisoria1">
                         <div class="row ">
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
-                                <button  type="button" id="eliminar" name="eliminar" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger btn-block">Eliminar <i class="fa fa-trash-o"></i></button>
+                                <button  type="button" id="eliminar" name="eliminar" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarCustoInscricao()" class="btn btn-danger btn-block">Eliminar <i class="fa fa-trash-o"></i></button>
                             </div>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
-                                <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning btn-block">Editar <i class="fa fa-edit"></i></button>
+                                <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarCustoInscricao()" class="btn btn-warning btn-block">Editar <i class="fa fa-edit"></i></button>
                             </div>
                             </form>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                <button type="button" id="registar" name="registar"  value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary btn-block">Registar <i class="fa fa-save"></i></button>
+                                <button type="button" id="registar" name="registar"  value="Gravar" title= "Registar" onclick="validaFormulario_registarCustoInscricao()" class="btn btn-primary btn-block">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
         </section>
         <section class="sectionSeguintes">
             <h4>Consultar registo</h4>
-            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
+            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
                 <div class="tabelaFiltrosDiv">
                     <div class="filtrosNav">
                         <div class="row filtrosTabela1">
@@ -199,7 +199,7 @@
                                     <div class="form-group col-lg-5 filtrosTabelaDivisoria2_1">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
                                             <label class="btn btn-secondary active" for="btnradio1">
-                                                <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
+                                                <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10"> Top10
                                             </label>
                                             <label class="btn btn-secondary" for="btnradio2">
                                                 <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
@@ -221,14 +221,14 @@
                                     </div>
                                     </form>
                                     <div class="form-group col-lg-3 filtrosTabelaDivisoria2_3">
-                                        <button type="button" id="imprimir" name="imprimir"  value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
+                                        <button type="button" id="imprimir" name="imprimir"  value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarCustoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tabelaEncolheX">
                             <div class="tabelaEncolheY">
-                                <div id="tabelaTipoInscricao"></div>
+                                <div id="tabelaCustoInscricao"></div>
                             </div>
                         </div>
                     </div>
@@ -256,10 +256,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
-    <script src="js/tipoInscricao/mostrarTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/registarTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/editarTipoInscricao.js"></script>
-    <script src="js/tipoInscricao/eliminarTipoInscricao.js"></script>
+    <script src="js/custoInscricao/mostrarCustoInscricao.js"></script>
+    <script src="js/custoInscricao/registarCustoInscricao.js"></script>
+    <script src="js/custoInscricao/editarCustoInscricao.js"></script>
+    <script src="js/custoInscricao/eliminarCustoInscricao.js"></script>
     
 </body>
 </html>

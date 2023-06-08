@@ -20,7 +20,7 @@
       $Conexao = Conexao::getConnection();
 
       $stringQuery="";
-      $stringQuery = "exec eliminaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @valorMensalidade = '".$txtValorMensalidade."'";
+      $stringQuery = "exec eliminaCustoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @valorMensalidade = '".$txtValorMensalidade."'";
       //echo $stringQuery . " \n" ;
 
       $query = $Conexao->query($stringQuery);

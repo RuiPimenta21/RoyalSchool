@@ -102,15 +102,15 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" maxlength="50" placeholder="50h Privado Adultos" required>
                     </div>
                     <div class="dropdown col-md-2">
                         <label for="inputState">Ano Letivo</label>
                         <select id="inputState" class="form-control">
                             <option selected></option>
-                            <option>Adultos 2020</option>
-                            <option>Crianças 2021</option>
-                            <option>Adolescentes 2022</option>
+                            <option>Ano Letivo 2020-2021</option>
+                            <option>Ano Letivo 2021-2022</option>
+                            <option>Ano Letivo 2022-2023</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">

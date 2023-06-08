@@ -3,24 +3,24 @@ let DefaultNumeroRegistos = "top 10";
 let DefaultOrdenacaoRegistos = "order by 2 asc";
 
 //carrega a tabela com os 10 primeiros dados e ordenado asc ao abrir a pagina
-carregaTabela_mostrarTipoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
+carregaTabela_mostrarCustoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);
 //console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
 
-function recebeFiltrosTabela_mostrarTipoInscricao(opcao){
+function recebeFiltrosTabela_mostrarCustoInscricao(opcao){
     let pesquisaDescritivo = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
     let numeroRegistos = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
     let ordenacaoRegistos = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
 
     if(opcao == 1){
-        carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+        carregaTabela_mostrarCustoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
     }
     else if(opcao == 2){
-        imprimeReportViwer_mostarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
+        imprimeReportViwer_mostarCustoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)
     }  
 }
 
 //funcao que carrega query para ir buscar os dados
-function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
+function carregaTabela_mostrarCustoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 
@@ -34,9 +34,9 @@ function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, p
       
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("tabelaTipoInscricao").style.display = "inline";
-            document.getElementById("tabelaTipoInscricao").style.visibility = "visible";
-            document.getElementById("tabelaTipoInscricao").innerHTML = this.responseText;
+            document.getElementById("tabelaCustoInscricao").style.display = "inline";
+            document.getElementById("tabelaCustoInscricao").style.visibility = "visible";
+            document.getElementById("tabelaCustoInscricao").innerHTML = this.responseText;
         }else{          
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
@@ -44,13 +44,13 @@ function carregaTabela_mostrarTipoInscricao(numeroRegistos, ordenacaoRegistos, p
         }
     }
     //Encoding
-    xhttp.open("POST", "php/tipoInscricao/mostraDados.php?numeroRegistos="+encodeURIComponent(numeroRegistos)+"&ordenacaoRegistos="+encodeURIComponent(ordenacaoRegistos)+"&pesquisaDescritivo="+encodeURIComponent(pesquisaDescritivo), false);
+    xhttp.open("POST", "php/custoInscricao/mostraDados.php?numeroRegistos="+encodeURIComponent(numeroRegistos)+"&ordenacaoRegistos="+encodeURIComponent(ordenacaoRegistos)+"&pesquisaDescritivo="+encodeURIComponent(pesquisaDescritivo), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-function imprimeReportViwer_mostarTipoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
-    let reportUrl = "http://fixo/ReportServer?%2frpt_mostraTipoInscricao"
+function imprimeReportViwer_mostarCustoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
+    let reportUrl = "http://fixo/ReportServer?%2frpt_mostraCustoInscricao"
     // Para o numero de registos
     if(numeroRegistos != ""){
         reportUrl = reportUrl + "&numeroRegistos=" + numeroRegistos

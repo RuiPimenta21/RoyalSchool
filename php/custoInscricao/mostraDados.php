@@ -15,7 +15,7 @@
       $Conexao = Conexao::getConnection();
 
       $stringQuery="";
-      $stringQuery = "exec rpt_mostraTipoInscricao @numeroRegistos = '".$txtNumeroRegistos."',  @pesquisaDescritivo = '".$txtPesquisaDescritivo."', @ordenacaoRegistos = '".$txtOrdenacaoRegistos."'";
+      $stringQuery = "exec rpt_mostraCustoInscricao @numeroRegistos = '".$txtNumeroRegistos."',  @pesquisaDescritivo = '".$txtPesquisaDescritivo."', @ordenacaoRegistos = '".$txtOrdenacaoRegistos."'";
       //echo $stringQuery . " \n" ;
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
@@ -28,7 +28,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-   <table id="tblTipoInscricao" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
+   <table id="tblCustoInscricao" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
       <thead class="tabelaCabecalho ">
          <tr>
             <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Id</th>
@@ -42,6 +42,7 @@
             <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Mensalidade %</th>
             <th scope="col" style=" text-align: center; vertical-align: middle;">Inscrição c/iva</th>
             <th scope="col" style=" text-align: center; vertical-align: middle;">Livro c/iva</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle;">Mensalidade s/iva</th>
             <th scope="col" style=" text-align: center; vertical-align: middle;">Mensalidade c/iva</th>
          </tr>
       </thead>
@@ -50,19 +51,20 @@
          foreach($dados as $dado) {
             $linha++;
          ?>
-         <tr onclick="selecionaLinha_TipoInscricao(<?php echo(json_encode($linha));?>)">
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_id'];?></td>
+         <tr onclick="selecionaLinha_CustoInscricao(<?php echo(json_encode($linha));?>)">
+            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['custoInscricao_id'];?></td>
             <td scope="row"><?php echo $linha;?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['tipoInscricao_descricao'];?></td>
-            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoSemIva'];?></td>
-            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroSemIva'];?></td>
-            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorMensalidadeSemIva'];?></td>
-            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_percentagemIvaIscricao'];?></td>
-            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_percentagemIvaLivro'];?></td>
-            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_percentagemIvaMensalidade'];?></td>
-            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorIscricaoComIva'];?></td>
-            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorLivroComIva'];?></td>
-            <td class="tabelaDadosNumeros"><?php echo $dado['tipoInscricao_valorMensalidadeComIva'];?></td>
+            <td class="tabelaDadosTexto" ><?php echo $dado['custoInscricao_descricao'];?></td>
+            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorIscricaoSemIva'];?></td>
+            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorLivroSemIva'];?></td>
+            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorMensalidadeSemIva'];?></td>
+            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_percentagemIvaIscricao'];?></td>
+            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_percentagemIvaLivro'];?></td>
+            <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_percentagemIvaMensalidade'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorIscricaoComIva'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorLivroComIva'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorMensalidadeSemIva'];?></td>
+            <td class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorMensalidadeComIva'];?></td>
          </tr>
          <?php
          }

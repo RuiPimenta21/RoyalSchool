@@ -101,7 +101,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" maxlength="50" placeholder="Ano Letivo 2020-2021" required>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="dataInicio">Data de Início</label>
