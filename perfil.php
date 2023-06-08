@@ -89,7 +89,7 @@
                 <div class="btn-group">
                     <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="criaTipoInscricao.php">Tipo Incrição</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="custoInscricao.php">Custo Incrição</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Mensalidade</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Desconto</a>
                     </div>

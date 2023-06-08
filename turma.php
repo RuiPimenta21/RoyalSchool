@@ -68,7 +68,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                 <div class="btn-group">
                     <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Tipo Incrição</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="custoInscricao.php">Custo Incrição</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Mensalidade</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Desconto</a>
                     </div>
@@ -275,7 +275,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     <div class="form-group col-md-6">
                         <div class="tabelaFiltrosDiv50Perc">
                             <div class="filtrosNav">
-                                <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
+                                <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
                                     <div class="divRadioGroup">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
                                             <label class="btn btn-secondary active" >
@@ -306,7 +306,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                             </div>
                             <div class="tabelaEncolheX">
                                 <div class="tabelaEncolheY">
-                                    <div id="tabelaTipoInscricao"></div>
+                                    <div id="tabelaCustoInscricao"></div>
                                 </div>
                             </div>
                         </div>
@@ -314,7 +314,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                     <div class="form-group col-md-6">
                         <div class="tabelaFiltrosDiv50Perc">
                             <div class="filtrosNav">
-                                <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
+                                <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
                                     <div class="divRadioGroup">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
                                             <label class="btn btn-secondary active" >
@@ -345,7 +345,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                             </div>
                             <div class="tabelaEncolheX">
                                 <div class="tabelaEncolheY">
-                                    <div id="tabelaTipoInscricao"></div>
+                                    <div id="tabelaCustoInscricao"></div>
                                 </div>
                             </div>
                         </div>
@@ -359,9 +359,9 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
             <div class="tabelaFiltrosDiv">
                 <div class="filtrosNav">
                     <div class="divRadioGroup">                              
-                        <button type="button" class="btn btn-success"  title= "Imprimir" onclick="recebeFiltrosTabela_mostrarTipoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
+                        <button type="button" class="btn btn-success"  title= "Imprimir" onclick="recebeFiltrosTabela_mostrarCustoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
                     </div>
-                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarTipoInscricao(1)">
+                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
                         <div class="divRadioGroup">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
                                 <label class="btn btn-secondary active" >
@@ -392,7 +392,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                 </div>
                 <div class="tabelaEncolheX">
                     <div class="tabelaEncolheY">
-                        <div id="tabelaTipoInscricao"></div>
+                        <div id="tabelaCustoInscricao"></div>
                     </div>
                 </div>
             </div>
