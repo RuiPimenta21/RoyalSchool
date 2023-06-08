@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <hr/>
-                <h5>Valores</h5>    
+                <h5>Valor s/IVA</h5>    
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <p><u>Taxa de IVA não aplicada</u> nos valores apresentados.</p>                       
@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <hr/>
-                <h5>IVA</h5>    
+                <h5>IVA %</h5>    
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <p><u>Percentagem de IVA aplicada</u> nos valores apresentados.</p>

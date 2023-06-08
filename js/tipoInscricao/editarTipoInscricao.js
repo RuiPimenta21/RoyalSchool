@@ -75,6 +75,9 @@ function getDados_editarTipoInscricao(linhaPintada){
             $(document.forms["formTipoInscricao"]["txtValorInscricao"]).val(parseFloat(arrayLinhaTabela[3]).toFixed(2));
             $(document.forms["formTipoInscricao"]["txtValorLivro"]).val(parseFloat(arrayLinhaTabela[4]).toFixed(2));
             $(document.forms["formTipoInscricao"]["txtValorMensalidade"]).val(parseFloat(arrayLinhaTabela[5]).toFixed(2));
+            $(document.forms["formTipoInscricao"]["txtIvaInscricao"]).val(parseFloat(arrayLinhaTabela[6]).toFixed(2));
+            $(document.forms["formTipoInscricao"]["txtIvaLivro"]).val(parseFloat(arrayLinhaTabela[7]).toFixed(2));
+            $(document.forms["formTipoInscricao"]["txtIvaMensalidade"]).val(parseFloat(arrayLinhaTabela[8]).toFixed(2));
         }else{
             limpaDados_editarTipoIncricao()
         }
@@ -89,6 +92,10 @@ function validaFormulario_editarTipoInscricao() {
         let valorInscricao = document.forms["formTipoInscricao"]["txtValorInscricao"].value;
         let valorLivro = document.forms["formTipoInscricao"]["txtValorLivro"].value;
         let valorMensalidade = document.forms["formTipoInscricao"]["txtValorMensalidade"].value;
+        let aplicarIvaTodos = document.forms["formTipoInscricao"]["txtAplicarIvaTodos"];
+        let ivaInscricao = document.forms["formTipoInscricao"]["txtIvaInscricao"].value;
+        let ivaLivro = document.forms["formTipoInscricao"]["txtIvaLivro"].value;
+        let ivaMensalidade = document.forms["formTipoInscricao"]["txtIvaMensalidade"].value;
 
         if (descritivo == "") {
             faltaCampo_editarTipoInscricao("Descritivo");
@@ -106,8 +113,26 @@ function validaFormulario_editarTipoInscricao() {
             faltaCampo_editarTipoInscricao("Valor Mensalidade");
             document.forms["formTipoInscricao"]["txtValorMensalidade"].focus();
         }
+        else if(ivaInscricao == "") {
+            faltaCampo_registarTipoInscricao("IVA Incrição");
+            document.forms["formTipoInscricao"]["txtIvaInscricao"].focus();
+        }
+        else if(ivaLivro == "") {
+            faltaCampo_registarTipoInscricao("IVA Livro");
+            document.forms["formTipoInscricao"]["txtIvaLivro"].focus();
+        }
+        else if(ivaMensalidade == "") {
+            faltaCampo_registarTipoInscricao("IVA Mensalidade");
+            document.forms["formTipoInscricao"]["txtIvaMensalidade"].focus();
+        }
         else{
-            confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
+            if(aplicarIvaTodos.checked == true){
+                aplicarIvaTodos = "Sim"
+            }
+            else{
+                aplicarIvaTodos = "Não"
+            }
+            confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
         }  
     }
     else{
@@ -115,8 +140,10 @@ function validaFormulario_editarTipoInscricao() {
     }
 }
 
-function confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade){
-    mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
+function confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade){
+    
+    mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
+    
     Swal.fire({
         title: 'Pretende editar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
@@ -127,18 +154,18 @@ function confirmaDados_editarTipoInscricao(id, descritivo, valorInscricao, valor
         confirmButtonText: 'Sim, editar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade);
+            editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
         }
     })
 }
 
-function mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade) {
+function mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("POST", "php/tipoInscricao/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), true);
+    xhttp.open("POST", "php/tipoInscricao/mostraDadosEditar.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade)+"&aplicarIvaTodos="+encodeURIComponent(aplicarIvaTodos)+"&ivaInscricao="+encodeURIComponent(ivaInscricao)+"&ivaLivro="+encodeURIComponent(ivaLivro)+"&ivaMensalidade="+encodeURIComponent(ivaMensalidade), true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

@@ -58,7 +58,9 @@ function faltaCampo_registarTipoInscricao(campo){
 }
 
 function confirmaDados_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade){
+    
     mostraDados_registarTipoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
+    
     Swal.fire({
         title: 'Pretende gravar?',
         html: '<div id="txtTabela">Este texto vai ser substituido pela tabela</div>',
