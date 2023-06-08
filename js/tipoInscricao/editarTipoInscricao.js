@@ -170,7 +170,7 @@ function mostraDados_editarTipoInscricao(id, descritivo, valorInscricao, valorLi
     xhttp.send();
 }
 
-function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade){ 
+function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade){ 
     xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
 
@@ -211,7 +211,7 @@ function editar_editarTipoInscricao(id, descritivo, valorInscricao, valorLivro, 
         }
     };
     //Encoding
-    xhttp.open("POST", "php/tipoInscricao/editarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade), false);
+    xhttp.open("POST", "php/tipoInscricao/editarDados.php?id="+encodeURIComponent(id)+"&descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade)+"&aplicarIvaTodos="+encodeURIComponent(aplicarIvaTodos)+"&ivaInscricao="+encodeURIComponent(ivaInscricao)+"&ivaLivro="+encodeURIComponent(ivaLivro)+"&ivaMensalidade="+encodeURIComponent(ivaMensalidade), false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }

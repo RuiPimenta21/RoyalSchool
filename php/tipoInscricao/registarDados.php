@@ -23,6 +23,7 @@ try{
    $Conexao = Conexao::getConnection();
 
    $stringQuery = "exec criaTipoInscricao @descritivo = '".$txtDescritivo."' , @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."', @aplicarIvaTodos = '".$txtAplicarIvaTodos."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @utilizador = '".$txUtilizador."'";
+   //echo $stringQuery . " \n" ;
    $query = $Conexao->query($stringQuery);
    echo "Carregou query!";
 }catch(Exception $e){

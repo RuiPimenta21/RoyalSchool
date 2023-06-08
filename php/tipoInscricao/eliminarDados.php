@@ -11,14 +11,18 @@
    $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
    $txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
    $txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
+   $txtIvaInscricao = rawurldecode($_REQUEST["ivaInscricao"]);
+   $txtIvaLivro = rawurldecode($_REQUEST["ivaLivro"]);
+   $txtIvaMensalidade = rawurldecode($_REQUEST["ivaMensalidade"]);
 
    require_once "../Conexao.php";
    try{
       $Conexao = Conexao::getConnection();
 
       $stringQuery="";
-      $stringQuery = "exec eliminaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."'";
-      
+      $stringQuery = "exec eliminaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @valorMensalidade = '".$txtValorMensalidade."'";
+      //echo $stringQuery . " \n" ;
+
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
 

@@ -30,6 +30,9 @@ $txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
 $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
 $txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
 $txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
+$txtIvaInscricao = rawurldecode($_REQUEST["ivaInscricao"]);
+$txtIvaLivro = rawurldecode($_REQUEST["ivaLivro"]);
+$txtIvaMensalidade = rawurldecode($_REQUEST["ivaMensalidade"]);
 
 echo "<table class=\"tableInfo\">";
 /*
@@ -56,6 +59,21 @@ echo "</tr>";
 echo "<tr>";
 echo "<td class=\"td_titulo\">Valor Mensalidade:</td>";
 echo "<td class=\"td_quantidade\">" . $txtValorMensalidade . "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td class=\"td_titulo\">IVA Inscrição:</td>";
+echo "<td class=\"td_quantidade\">" . $txtIvaInscricao . "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td class=\"td_titulo\">IVA Livro:</td>";
+echo "<td class=\"td_quantidade\">" . $txtIvaLivro . "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td class=\"td_titulo\">IVA Mensalidade:</td>";
+echo "<td class=\"td_quantidade\">" . $txtIvaMensalidade . "</td>";
 echo "</tr>";
 
 echo "</table>";

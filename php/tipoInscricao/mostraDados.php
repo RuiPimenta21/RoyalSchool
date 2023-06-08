@@ -16,7 +16,7 @@
 
       $stringQuery="";
       $stringQuery = "exec rpt_mostraTipoInscricao @numeroRegistos = '".$txtNumeroRegistos."',  @pesquisaDescritivo = '".$txtPesquisaDescritivo."', @ordenacaoRegistos = '".$txtOrdenacaoRegistos."'";
-     
+      //echo $stringQuery . " \n" ;
       $query = $Conexao->query($stringQuery);
       $dados = $query->fetchAll();
    }catch(Exception $e){

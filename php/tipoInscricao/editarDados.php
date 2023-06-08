@@ -14,13 +14,18 @@ $txtDescritivo = rawurldecode($_REQUEST["descritivo"]);
 $txtValorInscricao = rawurldecode($_REQUEST["valorInscricao"]);
 $txtValorLivro = rawurldecode($_REQUEST["valorLivro"]);
 $txtValorMensalidade = rawurldecode($_REQUEST["valorMensalidade"]);
+$txtAplicarIvaTodos = rawurldecode($_REQUEST["aplicarIvaTodos"]);
+$txtIvaInscricao = rawurldecode($_REQUEST["ivaInscricao"]);
+$txtIvaLivro = rawurldecode($_REQUEST["ivaLivro"]);
+$txtIvaMensalidade = rawurldecode($_REQUEST["ivaMensalidade"]);
 $txUtilizador = rawurldecode($_SESSION["utilizador_id"]);
 
 require_once "../Conexao.php";
 try{
    $Conexao = Conexao::getConnection();
 
-   $stringQuery = "exec editaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."', @utilizador = '".$txUtilizador."'";;
+   $stringQuery = "exec editaTipoInscricao @id = '".$txtId."',  @descritivo = '".$txtDescritivo."', @valorInscricao = '".$txtValorInscricao."', @valorLivro = '".$txtValorLivro."' , @valorMensalidade = '".$txtValorMensalidade."', @aplicarIvaTodos = '".$txtAplicarIvaTodos."', @ivaInscricao = '".$txtIvaInscricao."', @ivaLivro = '".$txtIvaLivro."', @ivaMensalidade = '".$txtIvaMensalidade."', @utilizador = '".$txUtilizador."'";;
+   //echo $stringQuery . " \n" ;
    
    $query = $Conexao->query($stringQuery);
    $dados = $query->fetchAll();
