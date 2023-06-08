@@ -208,6 +208,7 @@ body.open .navbar-menu {
     margin-left: 100px;
   }
 }
+
 .dropdown-menu > .dropdownSubBotao > .iconBotao{
   margin-right: 5px;
 }
@@ -217,6 +218,12 @@ body.open .navbar-menu {
 }
 .dropdownBotaoPerfil > .iconDropDown::after{
   transform: rotateX(180deg);
+}
+
+
+.fotoPerfilNavBar{
+  border: 0.5px solid #696969; 
+  border-radius: 8px;
 }
 
  /*  ********************************************  Main  ********************************************  */
@@ -242,31 +249,47 @@ section {
 }
 
  /*  ********************************************  Componentes dentro do Main  ********************************************  */
- #botaoGravar{
+
+.btn:focus{
+  box-shadow: 0 0 0 0;
+}
+button:focus {
+  outline: 0px dotted; 
+}
+#registar{
   float:right;
   position: relative;
   margin: 2px;
+  margin: auto;
+  max-width: 150px;
+  color: rgba(255, 255, 255, 0.925);
 }
-#botaoEditar{
+#editar{
   margin-left: 10px;
   float:right;
   position: relative;
   margin: 2px;
+  margin: auto;
+  max-width: 150px;
+  color: rgba(255, 255, 255, 0.925);
 }
-#botaoEliminar{
+#eliminar{
   margin-left: 10px;
   float:right;
   position: relative;
   margin: 2px;
+  margin: auto;
+  max-width: 150px;
+  color: rgba(255, 255, 255, 0.884);
 }
 @media only screen and (max-width: 992px) {
-  #botaoGravar{
+  #registar{
     max-width: 150px;
   }
-  #botaoEditar{
+  #editar{
     max-width: 150px;
   }
-  #botaoEliminar{
+  #eliminar{
     max-width: 150px;
   }
 }
@@ -389,20 +412,6 @@ td { cursor: pointer;}
 .botoesTabelaDivisoria2_3{
   margin: auto;
 }
-
-#eliminar{
-  max-width: 150px;
-  color: rgba(255, 255, 255, 0.884);
-}
-#editar{
-  max-width: 150px;
-  color: rgba(255, 255, 255, 0.925);
-}
-#registar{
-  max-width: 150px;
-  color: rgba(255, 255, 255, 0.925);
-}
-
 /*Botoes gravar editar eliminar*/
 @media only screen and (max-width: 992px) {
   .botoesTabelaDivisoria2_1{
@@ -428,9 +437,11 @@ td { cursor: pointer;}
   }
   #eliminar{
     max-width: 150px;
+    box-shadow: 0 0 0 0;
   }
   #editar{
     max-width: 150px;
+    box-shadow: 0 0 0 0;
   }
   #registar{
     max-width: 150px;
@@ -508,6 +519,11 @@ td { cursor: pointer;}
   }
 }
 
+.simboloTextBox{
+  border-radius: 0px 5px 5px 0px;
+  padding-left: 0.55rem;
+  padding-right: 0.55rem;
+}
 
  /*  ********************************************  Footer  ********************************************  */
 footer {
@@ -579,10 +595,8 @@ footer > div > a > img{
     color: red;
 }
 
-.fotoPerfilNavBar{
-  border: 0.5px solid #696969; 
-  border-radius: 8px;
-}
+
+
 
 
 

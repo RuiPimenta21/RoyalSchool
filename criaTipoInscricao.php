@@ -101,7 +101,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc"  autocomplete="off" required>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" placeholder="Abc" autocomplete="off" title= "Descrição do Tipo de Inscrição" required>
                     </div>
                 </div>
                 <hr/>
@@ -112,15 +112,24 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="valorInscricao">Inscrição</label>
-                        <input type="number" id="valorInscricao" name="txtValorInscricao" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" id="valorInscricao" name="txtValorInscricao" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" title= "Valor da Incrição sem IVA" required>
+                            <span class="input-group-text simboloTextBox">€</span>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="valorLivro">Livro</label>
-                        <input type="number" id="valorLivro" name="txtValorLivro" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" id="valorLivro" name="txtValorLivro" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" title= "Valor do Livro sem IVA" required>
+                            <span class="input-group-text simboloTextBox">€</span>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="valorMensalidade">Mensalidade</label>
-                        <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" id="valorMensalidade" name="txtValorMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" title= "Valor da Mensalidade sem IVA" required>
+                            <span class="input-group-text simboloTextBox">€</span>
+                        </div>
                     </div>
                 </div>
                 <hr/>
@@ -128,40 +137,48 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <p><u>Percentagem de IVA aplicada</u> nos valores apresentados.</p>
-                        <div class="form-check">
+                        <div class="form-check" title= "Aplicar a taxa de IVA a todos os Tipos de Inscrições">
                             <input class="form-check-input" type="checkbox" id="aplicarIvaTodos" name=txtAplicarIvaTodos>
-                            <label class="form-check-label" for="aplicarIvaTodos">Aplicar taxa de IVA a todos os tipos de inscrições</label>
+                            <label class="form-check-label" for="aplicarIvaTodos">Aplicar IVA's a outros Tipos de Inscrições</label>
                         </div>                       
                     </div>
                     <div class="form-group col-md-2">
                         <label for="ivaInscricao">Inscrição</label>
-                        <input type="number" id="ivaInscricao" name="txtIvaInscricao" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" id="ivaInscricao" name="txtIvaInscricao" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" title= "Percentagem(%) de IVA sobre a Inscrição" required>
+                            <span class="input-group-text simboloTextBox">%</span>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="ivaLivro">Livro</label>
-                        <input type="number" id="ivaLivro" name="txtIvaLivro" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" id="ivaLivro" name="txtIvaLivro" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" title= "Percentagem(%) de IVA sobre o Livro" required>
+                            <span class="input-group-text simboloTextBox">%</span>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="ivaMensalidade">Mensalidade</label>
-                        <input type="number" id="ivaMensalidade" name="txtIvaMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" id="ivaMensalidade" name="txtIvaMensalidade" min="0.00" step="0.01" class="floatNumberField form-control" placeholder="0" autocomplete="off" title= "Percentagem(%) de IVA sobre a Mensalidade"  required>
+                            <span class="input-group-text simboloTextBox">%</span>
+                        </div>
                     </div>
                 </div>
-                    <div class="row botoesTabela1">
-                        <div class="form-group col-lg-7 botoesTabelaDivisoria1">
-                            <div class="row"></div> 
-                        </div>
-                        <div class="form-group col-lg-5 botoesTabelaDivisoria1">
-                            <div class="row ">
-                                <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
-                                    <button  type="button" id="eliminar" name="eliminar" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger btn-block" id="botaoEliminar" style="margin: auto;">Eliminar <i class="fa fa-trash-o"></i></button>
-                                </div>
-                                <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
-                                    <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning btn-block" id="botaoEditar" style="margin: auto;" >Editar <i class="fa fa-edit"></i></button>
-                                </div>
-                                </form>
-                                <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                    <button type="button" id="registar" name="registar"  value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary btn-block" id="botaoGravar" style="margin: auto;">Registar <i class="fa fa-save"></i></button>
-                                </div>
+                <div class="row botoesTabela1">
+                    <div class="form-group col-lg-7 botoesTabelaDivisoria1">
+                        <div class="row"></div> 
+                    </div>
+                    <div class="form-group col-lg-5 botoesTabelaDivisoria1">
+                        <div class="row ">
+                            <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
+                                <button  type="button" id="eliminar" name="eliminar" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarTipoInscricao()" class="btn btn-danger btn-block">Eliminar <i class="fa fa-trash-o"></i></button>
+                            </div>
+                            <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
+                                <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarTipoInscricao()" class="btn btn-warning btn-block">Editar <i class="fa fa-edit"></i></button>
+                            </div>
+                            </form>
+                            <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
+                                <button type="button" id="registar" name="registar"  value="Gravar" title= "Registar" onclick="validaFormulario_registarTipoInscricao()" class="btn btn-primary btn-block">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </div>
