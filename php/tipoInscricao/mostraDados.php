@@ -31,18 +31,18 @@
    <table id="tblTipoInscricao" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
       <thead class="tabelaCabecalho ">
          <tr>
-            <th style="display:none;" scope="col">Id</th>
-            <th scope="col">Nº</th>
-            <th scope="col">Descrição</th>
-            <th style="display:none;" scope="col">Inscrição s/iva</th>
-            <th style="display:none;" scope="col">Livro s/iva</th>
-            <th style="display:none;" scope="col">Mensalidade s/iva</th>
-            <th style="display:none;" scope="col">Inscrição %</th>
-            <th style="display:none;" scope="col">Livro %</th>
-            <th style="display:none;" scope="col">Mensalidade %</th>
-            <th scope="col">Inscrição c/iva</th>
-            <th scope="col">Livro c/iva</th>
-            <th scope="col">Mensalidade c/iva</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Id</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle;">Nº</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle;">Descrição</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Inscrição s/iva</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Livro s/iva</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Mensalidade s/iva</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Inscrição %</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Livro %</th>
+            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Mensalidade %</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle;">Inscrição c/iva</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle;">Livro c/iva</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle;">Mensalidade c/iva</th>
          </tr>
       </thead>
       <tbody>
