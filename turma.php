@@ -146,6 +146,16 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                             <option>Portugês</option>
                         </select>
                     </div>
+                    <div class="dropdown col-md-2">
+                        <label for="inputState">Custo Inscrição</label>
+                        <select id="inputState" class="form-control">
+                            <option selected></option>
+                            <option>50h Privado</option>
+                            <option>60h Turma</option>
+                            <option>50h Privado</option>
+                            <option>60h Turma</option>
+                        </select>
+                    </div>
                 </div>
                 <hr/>
                 <h5>Horário</h5>
