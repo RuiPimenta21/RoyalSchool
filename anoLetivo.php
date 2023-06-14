@@ -1,24 +1,16 @@
 <?php
-$_SESSION['utilizador_nomePerfil'] = "rui";
-/*
     session_start();
     
     if (!isset($_SESSION["utilizador_id"])){
         header("Location: ./index.php");
     }
-
-    if (!empty($_POST['fname'])) {
-        $_SESSION['utilizador_nomePerfil'] = $_POST['fname'];
-    }
-*/    
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Royal School</title>
     <!-- ********************************************  Ico  ********************************************  -->
     <link rel="shortcut icon" href="imagens/logo.ico" type="image/x-icon">
@@ -26,7 +18,7 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
     <!-- ********************************************  Style  ********************************************  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
     <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
-    <link rel="stylesheet" href="css/anoLetivo.css"><!-- CSS Ano Letivo-->
+    <link rel="stylesheet" href="css/anoLetivo.css"><!-- CSS Perfil-->
     
     <!-- ********************************************  Icons  ********************************************  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
@@ -36,15 +28,23 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
     <script src="js/geral.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Icons -->
+    <script type="text/javascript">
+        //Permitir introdução de apenas valores com duas casas decimais
+        $(document).ready(function () {
+            $(".floatNumberField").change(function() {
+                $(this).val(parseFloat($(this).val()).toFixed(2));
+            });
+        });
+    </script>
 </head>
 <body>
-    <header>
+<header>
         <nav class="navbar">
             <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
                 <span class="material-icons">menu</span>
             </button>
-            <h1 class="navbar-title">Ano Letivo</h1>
+            <h1 class="navbar-title">Custo Inscrição</h1>
             <nav class="navbar-menu">
                 <button type="button" class="buttonNavBar buttonHover">Home</button>
                 <button type="button" class="buttonNavBar buttonHover" href="#">Incrição</button>
@@ -60,29 +60,29 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                 <div class="btn-group">
                     <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ano Escolar</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="#">Ano Letivo</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao selecionado" href="anoLetivo.php">Ano Letivo</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Nível</a>
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Turma</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="turma.php">Turma</a>
                     </div>
                 </div>
                 <div class="btn-group">
-                    <button class="dropdown-toggle buttonNavBar" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
+                    <button class="dropdown-toggle buttonNavBar active" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tesouraria</button>
                     <div class="dropdown-menu dropdownBotao">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Custo Incrição</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="custoInscricao.php">Custo Incrição</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Mensalidade</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#">Desconto</a>
                     </div>
                 </div>
-                <div class="btn-group dropdownBotaoPerfil active">
+                <div class="btn-group dropdownBotaoPerfil">
                     <button class="dropdown-toggle buttonNavBar iconDropDown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="imagens/Pessoas.png" alt="fotoPerfil">
+                        <img id="parametroUtilizadorUrlFotoPerfil" class="fotoPerfilNavBar" src=<?php echo "./imagens/perfil/".$_SESSION['utilizador_urlFotografia'];?> alt="fotoPerfil">
                         <a id="parametroUtilizadorPerfil" name="txtParametroUtilizadorPerfil"><?php echo $_SESSION['utilizador_nomePerfil'];?></a>
                     </button>
                     <div class="dropdown-menu dropdownBotao1">
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="perfil.php"><i class="fa fa-solid fa-user iconBotao"></i>Perfil</a>
                         <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-solid fa-language iconBotao"></i>Idioma</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="#"><i class="fa fa-sign-out iconBotao"></i>Terminar Sessão</a>
+                        <a class="dropdown-item buttonNavBarDropdown dropdownSubBotao" href="terminaSessao.php"><i class="fa fa-sign-out iconBotao"></i>Terminar Sessão</a>
                     </div>
                 </div>  
             </nav>
@@ -91,162 +91,209 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
     <main>
         <section>
             <h4>Criar registo</h4>
-            <form name="formPerfil" id= "formPerfil" method="post" enctype="multipart/form-data">
+            <form name="formAnoLetivo" id="formAnoLetivo" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:none;">
                         <label for="id">Id</label>
-                        <input type="text" id="id" name="txtId" class="form-control" value="<?php echo $_SESSION['utilizador_id'];?>" autocomplete="off" readonly required>
+                        <input type="text" id="id" name="txtId" class="form-control" readonly autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" maxlength="50" placeholder="Ano Letivo 2020-2021" required>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" title= "Descrição do Ano Letivo" placeholder="Ano Letivo 2000-2001" autocomplete="off" maxlength="50" required>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="form-group col-md-3">
                         <label for="dataInicio">Data de Início</label>
-                        <input type="date" id="dataInicio" name="txtDataInicio" class="form-control" required>
+                        <input type="date" id="dataInicio" name="txtDataInicio" class="form-control" autocomplete="off" title= "Data de Início do Ano Letivo" readonly autocomplete="off" required>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="form-group col-md-3">
                         <label for="dataFim">Data de Fim</label>
-                        <input type="date" id="dataFim" name="txtDataFim" class="form-control" required>
+                        <input type="date" id="dataFim" name="txtDataFim" class="form-control" autocomplete="off" title= "Data de Fim do Ano Letivo" readonly autocomplete="off" required>
                     </div>
                 </div>
                 <hr/>
                 <h5>Período Letivo</h5>
                 <div class="form-row">
-                    <div class="form-group col-md-6">                       
+                    <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="descritivoPeriodo">Descrição</label>
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="1º Período" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo1Periodo">Descrição</label>
+                        <input type="text" id="descritivo1Periodo" name="txtDescritivo1Periodo" class="form-control" autocomplete="off" title= "Descrição do 1º Período" value="1º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicioPeriodo">Data de Início</label>
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                        <label for="dataInicio1Perido">Data de Início</label>
+                        <input type="date" id="dataInicio1Perido" name="txtDataInicio1Perido" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFimPeriodo">Data de Fim</label>
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                        <label for="dataFim1Perido">Data de Fim</label>
+                        <input type="date" id="dataFim1Perido" name="txtDataFim1Perido" class="form-control" autocomplete="off" title= "Data de Fim do 1º Período" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">                       
+                    <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="2º Período" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo2Periodo">Descrição</label>
+                        <input type="text" id="descritivo2Periodo" name="txtDescritivo2Periodo" class="form-control" autocomplete="off" title= "Descrição do 2º Período" value="2º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                        <label for="dataInicio2Perido">Data de Início</label>
+                        <input type="date" id="dataInicio2Perido" name="txtDataInicio2Perido" class="form-control" autocomplete="off" title= "Data de Início do 2º Período" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                        <label for="dataFim2Perido">Data de Fim</label>
+                        <input type="date" id="dataFim2Perido" name="txtDataFim2Perido" class="form-control" autocomplete="off" title= "Data de Fim do 2º Período" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">                       
+                    <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="3º Período" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo3Periodo">Descrição</label>
+                        <input type="text" id="descritivo3Periodo" name="txtDescritivo3Periodo" class="form-control" autocomplete="off" title= "Descrição do 3º Período" value="3º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                        <label for="dataInicio2Perido">Data de Início</label>
+                        <input type="date" id="dataInicio3Perido" name="txtDataInicio3Perido" class="form-control" autocomplete="off" title= "Data de Início do 3º Período" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                        <label for="dataFim2Perido">Data de Fim</label>
+                        <input type="date" id="dataFim3Perido" name="txtDataFim3Perido" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required>
                     </div>
                 </div>
-                <hr/> 
+
+
+                <hr/>
                 <h5>Pausa Letiva</h5>
                 <div class="form-row">
-                    <div class="form-group col-md-6">                       
+                    <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="descritivoPeriodo">Descrição</label>
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Natal" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo1PausaLetiva">Descrição</label>
+                        <input type="text" id="descritivo1PausaLetiva" name="txtDescritivo1PausaLetiva" class="form-control" autocomplete="off" title= "Descrição da 1º Pausa Letiva" value="Natal" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicioPeriodo">Data de Início</label>
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                        <label for="dataInicio1PausaLetiva">Data de Início</label>
+                        <input type="date" id="dataInicio1PausaLetiva" name="txtDataInicio1PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 1º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFimPeriodo">Data de Fim</label>
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                        <label for="dataFim1PausaLetiva">Data de Fim</label>
+                        <input type="date" id="dataFim1PausaLetiva" name="txtDataFim1PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 1º Pausa Letiva" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">                       
+                    <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Carnaval" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo2PausaLetiva">Descrição</label>
+                        <input type="text" id="descritivo2PausaLetiva" name="txtDescritivo2PausaLetiva" class="form-control" autocomplete="off" title= "Descrição da 2º Pausa Letiva" value="Carnaval" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                        <label for="dataInicio2PausaLetiva">Data de Início</label>
+                        <input type="date" id="dataInicio2PausaLetiva" name="txtDataInicio2PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 2º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                        <label for="dataFim1PausaLetiva">Data de Fim</label>
+                        <input type="date" id="dataFim2PausaLetiva" name="txtDataFim2PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 2º Pausa Letiva" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">                       
+                    <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="text" id="descritivoPeriodo" name="txtDescritivoPeriodo" class="form-control" value="Páscoa" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo3PausaLetiva">Descrição</label>
+                        <input type="text" id="descritivo3PausaLetiva" name="txtDescritivo3PausaLetiva" class="form-control" autocomplete="off" title= "Descrição da 3º Pausa Letiva" value="Páscoa" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataInicioPeriodo" name="txtDataInicioPeriodo" class="form-control" required>
+                        <label for="dataInicio3PausaLetiva">Data de Início</label>
+                        <input type="date" id="dataInicio3PausaLetiva" name="txtDataInicio3PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 3º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <input type="date" id="dataFimPeriodo" name="txtDataFimPeriodo" class="form-control" required>
+                        <label for="dataFim3PausaLetiva">Data de Fim</label>
+                        <input type="date" id="dataFim3PausaLetiva" name="txtDataFim3PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 3º Pausa Letiva" autocomplete="off" required>
                     </div>
-                </div>        
-                <button type="button" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning" id="botaoEditar" name="submit">Editar<i class="fa fa-edit"></i></button>
-            </form>
-        </section>
-        <section class="sectionSeguintes">
-            <h4>Consultar registo</h4>
-            <div class="tabelaFiltrosDiv">
-                <div class="filtrosNav">
-                    <div class="divRadioGroup">                              
-                        <button type="button" class="btn btn-success"  title= "Imprimir" onclick="recebeFiltrosTabela_mostrarCustoInscricao(2)">ReportViwer <i class="fa fa-print"></i></button>
+                </div>
+                <div class="row botoesTabela1">
+                    <div class="form-group col-lg-7 botoesTabelaDivisoria1">
+                        <div class="row"></div> 
                     </div>
-                    <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
-                        <div class="divRadioGroup">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
-                                <label class="btn btn-secondary active" >
-                                    <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc" checked> Asc
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
-                                </label>
+                    <div class="form-group col-lg-5 botoesTabelaDivisoria1">
+                        <div class="row ">
+                            <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
+                                <button  type="button" id="eliminar" name="eliminar" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarCustoInscricao()" class="btn btn-danger btn-block">Eliminar <i class="fa fa-trash-o"></i></button>
+                            </div>
+                            <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
+                                <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarCustoInscricao()" class="btn btn-warning btn-block">Editar <i class="fa fa-edit"></i></button>
+                            </div>
+                            </form>
+                            <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
+                                <button type="button" id="registar" name="registar"  value="Gravar" title= "Registar" onclick="validaFormulario_registarCustoInscricao()" class="btn btn-primary btn-block">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
-                        <div class="divRadioGroup">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
-                                <label class="btn btn-secondary active">
-                                    <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10" checked> Top10
-                                </label>
-                                    <label class="btn btn-secondary">
-                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
-                                </label>
-                            </div> 
+                    </div>
+                </div> 
+            </form>
+        </section>
+
+
+
+
+<!--
+        <section class="sectionSeguintes">
+            <h4>Consultar registo</h4>
+            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
+                <div class="tabelaFiltrosDiv">
+                    <div class="filtrosNav">
+                        <div class="row filtrosTabela1">
+                            <div class="form-group col-lg-5 filtrosTabelaDivisoria1">
+                                <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                            </div>
+                            <div class="form-group col-lg-7 filtrosTabelaDivisoria1">
+                                <div class="row filtrosTabela2">
+                                    <div class="form-group col-lg-5 filtrosTabelaDivisoria2_1">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
+                                            <label class="btn btn-secondary active" for="btnradio1">
+                                                <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10"> Top10
+                                            </label>
+                                            <label class="btn btn-secondary" for="btnradio2">
+                                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
+                                            </label>
+                                            <label class="btn btn-secondary" for="btnradio3">
+                                                <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4 filtrosTabelaDivisoria2_2">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
+                                            <label class="btn btn-secondary active" for="btnradio1">
+                                                <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc" checked> Asc
+                                            </label>
+                                            <label class="btn btn-secondary" for="btnradio2">
+                                                <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
+                                            </label>      
+                                        </div>
+                                    </div>
+                                    </form>
+                                    <div class="form-group col-lg-3 filtrosTabelaDivisoria2_3">
+                                        <button type="button" id="imprimir" name="imprimir"  value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarCustoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="divRadioGroup form-group col-md-4">
-                            <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                        <div class="tabelaEncolheX">
+                            <div class="tabelaEncolheY">
+                                <div id="tabelaCustoInscricao"></div>
+                            </div>
                         </div>
-                    </form>
-                </div>
-                <div class="tabelaEncolheX">
-                    <div class="tabelaEncolheY">
-                        <div id="tabelaCustoInscricao"></div>
                     </div>
                 </div>
-            </div>
         </section>
-    </main>
+
+    -->
+
+        
+        </main>
     <footer>
         <div>
             <p>RoyalSchool | 2022</p>
@@ -268,7 +315,10 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
-    <script src="js/perfil/mostrarPerfil.js"></script>
-    <script src="js/perfil/editarPerfil.js"></script>
+    <script src="js/anoLetivo/mostrarAnoLetivo.js"></script>
+    <script src="js/anoLetivo/registarAnoLetivo.js"></script>
+    <script src="js/anoLetivo/editarAnoLetivo.js"></script>
+    <script src="js/anoLetivo/eliminarAnoLetivo.js"></script>
+    
 </body>
 </html>

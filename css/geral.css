@@ -213,8 +213,9 @@ body.open .navbar-menu {
   margin-right: 5px;
 }
 .buttonNavBar > img{
-  width: 30px;
-  height: 30px; 
+  width: 35px;
+  height: 35px; 
+  transform: translate(-10%, -12%);
 }
 .dropdownBotaoPerfil > .iconDropDown::after{
   transform: rotateX(180deg);
@@ -223,7 +224,7 @@ body.open .navbar-menu {
 
 .fotoPerfilNavBar{
   border: 0.5px solid #696969; 
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
  /*  ********************************************  Main  ********************************************  */

@@ -217,7 +217,7 @@
                             </div>
                             </form>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                <button type="button" id="botaoEditar" name="botaoEditar"  value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning btn-block" >Editar <i class="fa fa-edit"></i></button>
+                                <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarPerfil()" class="btn btn-warning btn-block" >Editar <i class="fa fa-edit"></i></button>
                             </div>
                         </div>
                     </div>
