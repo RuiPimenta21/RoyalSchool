@@ -44,7 +44,7 @@
             <button type="button" class="buttonNavBar navbar-burger" onclick="toggleMenuOpen()">
                 <span class="material-icons">menu</span>
             </button>
-            <h1 class="navbar-title">Custo Inscrição</h1>
+            <h1 class="navbar-title">Ano Letivo</h1>
             <nav class="navbar-menu">
                 <button type="button" class="buttonNavBar buttonHover">Home</button>
                 <button type="button" class="buttonNavBar buttonHover" href="#">Incrição</button>
@@ -221,14 +221,14 @@
                     <div class="form-group col-lg-5 botoesTabelaDivisoria1">
                         <div class="row ">
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
-                                <button  type="button" id="eliminar" name="eliminar" value="Eliminar" title= "Eliminar" onclick="validaFormulario_eliminarCustoInscricao()" class="btn btn-danger btn-block">Eliminar <i class="fa fa-trash-o"></i></button>
+                                <button type="button" id="eliminar" name="eliminar" class="btn btn-danger btn-block" title= "Eliminar" value="Eliminar" onclick="validaFormulario_eliminarCustoInscricao()">Eliminar <i class="fa fa-trash-o"></i></button>
                             </div>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
-                                <button type="button" id="editar" name="editar" value="Editar" title= "Editar" onclick="validaFormulario_editarCustoInscricao()" class="btn btn-warning btn-block">Editar <i class="fa fa-edit"></i></button>
+                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar" onclick="validaFormulario_editarCustoInscricao()()">Editar <i class="fa fa-edit"></i></button>
                             </div>
                             </form>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                <button type="button" id="registar" name="registar"  value="Gravar" title= "Registar" onclick="validaFormulario_registarCustoInscricao()" class="btn btn-primary btn-block">Registar <i class="fa fa-save"></i></button>
+                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_registarCustoInscricao()">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </div>
@@ -236,38 +236,34 @@
             </form>
         </section>
 
-
-
-
-<!--
         <section class="sectionSeguintes">
             <h4>Consultar registo</h4>
-            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
+            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarAnoLetivo(1)">
                 <div class="tabelaFiltrosDiv">
                     <div class="filtrosNav">
                         <div class="row filtrosTabela1">
                             <div class="form-group col-lg-5 filtrosTabelaDivisoria1">
-                                <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
+                                <input type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" class="form-control" autocomplete="off" title= "Filtrar Descritivo"  placeholder="Procurar descritivo.." autocomplete="off" maxlength="50">
                             </div>
                             <div class="form-group col-lg-7 filtrosTabelaDivisoria1">
                                 <div class="row filtrosTabela2">
                                     <div class="form-group col-lg-5 filtrosTabelaDivisoria2_1">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesNumeroRegistosAlinhamento" title="Número de Registos">
                                             <label class="btn btn-secondary active" for="btnradio1">
-                                                <input type="radio" id="numRegistos10" name="txtNumeroRegistos" value="top 10"> Top10
+                                                <input type="radio" id="numRegistos10" name="txtNumeroRegistos" title= "10 Primeiros Registos" value="top 10"> Top10
                                             </label>
                                             <label class="btn btn-secondary" for="btnradio2">
-                                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" value="top 20" > Top20
+                                                <input type="radio" id="numRegistos20" name="txtNumeroRegistos" title= "20 Primeiros Registos" value="top 20"> Top20
                                             </label>
                                             <label class="btn btn-secondary" for="btnradio3">
-                                                <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" value=""> Todos
+                                                <input type="radio" id="numRegistosTodos" name="txtNumeroRegistos" title= "Todos os Registos" value=""> Todos
                                             </label>
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-4 filtrosTabelaDivisoria2_2">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="botoesOrdenacaoAlinhamento" title="Ordenação do Descritivo">
                                             <label class="btn btn-secondary active" for="btnradio1">
-                                                <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc" checked> Asc
+                                                <input type="radio" id="ordeAsc" name="txtOrdenacaoRegistos" value="order by 2 asc"> Asc
                                             </label>
                                             <label class="btn btn-secondary" for="btnradio2">
                                                 <input type="radio" id="ordeDesc" name="txtOrdenacaoRegistos" value="order by 2 desc"> Desc
@@ -276,23 +272,19 @@
                                     </div>
                                     </form>
                                     <div class="form-group col-lg-3 filtrosTabelaDivisoria2_3">
-                                        <button type="button" id="imprimir" name="imprimir"  value="Gravar" title= "Imprimir" onclick="recebeFiltrosTabela_mostrarCustoInscricao(2)" class="btn btn-success btn-block" id="botaoImprimir">Imprimir <i class="fa fa-print"></i></button>
+                                        <button type="button" id="imprimir" name="imprimir" class="btn btn-success btn-block" title= "Imprimir" value="Gravar" onclick="recebeFiltrosTabela_mostrarAnoLetivo(2)">Imprimir <i class="fa fa-print"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tabelaEncolheX">
                             <div class="tabelaEncolheY">
-                                <div id="tabelaCustoInscricao"></div>
+                                <div id="tabelaAnoLetivo"></div>
                             </div>
                         </div>
                     </div>
                 </div>
         </section>
-
-    -->
-
-        
         </main>
     <footer>
         <div>
