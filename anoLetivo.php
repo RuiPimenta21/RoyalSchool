@@ -18,7 +18,7 @@
     <!-- ********************************************  Style  ********************************************  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
     <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
-    <link rel="stylesheet" href="css/anoLetivo.css"><!-- CSS Perfil-->
+    <link rel="stylesheet" href="css/anoLetivo.css"><!-- CSS Ano Letivo-->
     
     <!-- ********************************************  Icons  ********************************************  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Icons -->
@@ -110,6 +110,12 @@
                     <div class="form-group col-md-3">
                         <label for="dataFim">Data de Fim</label>
                         <input type="date" id="dataFim" name="txtDataFim" class="form-control" autocomplete="off" title= "Data de Fim do Ano Letivo" readonly autocomplete="off" required>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <img src="imagens/anoLetivo.png" alt="Organização do Ano Letivo" class="imagemAnoLetivo" width="100%" height="auto">
                     </div>
                 </div>
                 <hr/>
