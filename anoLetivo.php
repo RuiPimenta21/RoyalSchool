@@ -113,11 +113,54 @@
                     </div>
                 </div>
                 <hr/>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
+                <div>
+                    <div class="form-row">
                         <img src="imagens/anoLetivo.png" alt="Organização do Ano Letivo" class="imagemAnoLetivo" width="100%" height="auto">
                     </div>
                 </div>
+
+
+
+
+                <div class="form-row" style="display: flex; justify-content: center; align-items: center; background-color: #E9ECEF;">
+                    <div style="display:block; justify-content: center; align-items: center; width: 70%; margin-top: 30px; margin-bottom: 30px;" >
+
+                        <div class="row" style="height: 30px; width: 100%;">
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
+
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;">Natal</p>
+                       
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 6.25%;"></p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;">Carnaval</p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 6.25%;"></p>
+
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;">Páscoa</p>
+
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
+
+                        </div>
+                        <div class="row" style="height: 30px; width: 100%;">
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 25%;">1 periodo</p>
+                            <p class="form-group" style="text-align:center; width: 12.5%;"> </p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 25%;">2 periodo</p>
+                            <p class="form-group" style="text-align:center; width: 12.5%;"> </p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 25%;">3 periodo</p>
+                        </div>
+                        <div class="row" style="height: 30px; width: 100%;">
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:#C7EFCF; width: 50%; text-align: left;">Início Ano Letivo</p>
+                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:#C7EFCF; width: 50%; text-align: right;">Fim Ano Letivo</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
                 <hr/>
                 <h5>Período Letivo</h5>
                 <div class="form-row">

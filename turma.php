@@ -314,6 +314,9 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                                     </div>
                                 </form>
                             </div>
+                            <div>
+                                <h4 style="text-align: center;">24</h4>
+                            </div>
                             <div class="tabelaEncolheX">
                                 <div class="tabelaEncolheY">
                                     <div id="tabelaCustoInscricao"></div>
@@ -352,6 +355,9 @@ $_SESSION['utilizador_nomePerfil'] = "rui";
                                         <input class="form-control" type="text" id="pesquisaDescritivo" name="txtPesquisaDescritivo" placeholder="Procurar descritivo.." title= "Filtrar Descritivo">
                                     </div>
                                 </form>
+                            </div>
+                            <div>
+                                <h4 style="text-align: center;">3</h4>
                             </div>
                             <div class="tabelaEncolheX">
                                 <div class="tabelaEncolheY">
