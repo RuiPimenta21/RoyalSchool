@@ -8,6 +8,39 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Bootrap -->
         <link rel="stylesheet" href="css/geral.css"><!-- CSS Geral-->
         <link rel="stylesheet" href="css/anoLetivo.css"><!-- CSS Ano Letivo-->
+        <style>
+            .div1LinhaTemporal{
+                display: flex; 
+                align-items: center; 
+                text-align: center; 
+                background-color: #ACACAC; 
+                height: 50px;
+            }
+            .div11LinhaTemporal{
+                display:flex; 
+                width: 70%; 
+                height: 30px; 
+                margin-right: auto; 
+                margin-left: auto;
+            }
+            .divLinhaTemporalPeriodoLetivo{
+                height: 30px; 
+                width: 0%; 
+                border-radius: 20px 20px 20px 20px; 
+                border: 2px solid #4e555b; 
+                background-color:#DC3545; 
+                color:#fff;
+            }
+            .divLinhaTemporalPausaLetiva{
+                height: 30px; 
+                width: 0%; 
+                border-radius: 20px 20px 20px 20px; 
+                border: 2px solid #4e555b; 
+                background-color:#4e555b; 
+                color:#fff;
+                visibility: hidden;
+            }
+        </style>
 </head>
 <body>
     <main>
@@ -61,15 +94,15 @@
                 <input type="text" id="ftxtTotal" name="txtTotal" value="0"><input type="text" id="ftxtTotalPerc" name="txtTotalPerc" value="0"><br>
             </div>
 
-            <div class="form-row" style=" display: flex; align-items: center; text-align: center; background-color: #ACACAC; height: 50px;">
-                <div class="row" style="display:flex; width: 70%; height: 30px; margin-right: auto; margin-left: auto;">
-                    <div class="form-group" id="div1periodo" style="height: 30px; width: 0%; border-radius: 20px 0px 0px 20px; border: 2px solid #4e555b; background-color:#DC3545; color:#fff;">1 Perido</div>
-                    <div class="form-group" id="div1ferias" style="height: 30px; width: 0%; border: 2px solid #4e555b; background-color:#4e555b; color:#fff;"></div>
-                    <div class="form-group" id="div2periodo1" style="height: 30px; width: 0%; border: 2px solid #4e555b; background-color:#DC3545; color:#fff;">2 Perido</div>
-                    <div class="form-group" id="div2ferias" style="height: 30px; width: 0%; border-radius: 0px 0px 0px 0px; border: 2px solid #4e555b; background-color:#4e555b; color:#fff;"></div>
-                    <div class="form-group" id="div2periodo2" style="height: 30px; width: 0%; border: 2px solid #4e555b; background-color:#DC3545; color:#fff;">2 Perido</div>
-                    <div class="form-group" id="div3ferias" style="height: 30px; width:0%; border: 2px solid #4e555b; background-color:#4e555b; color:#fff;"></div>
-                    <div class="form-group" id="div3periodo" style="height: 30px; width: 0%; border-radius: 0px 20px 20px 0px; border: 2px solid #4e555b; background-color:#DC3545; color: #fff;">3 Perido</div>
+            <div class="form-row div1LinhaTemporal">
+                <div class="row div11LinhaTemporal" id="divTotal">
+                    <div class="form-group divLinhaTemporalPeriodoLetivo" id="div1periodo" style="display: none; visibility:hidden">1º</div>
+                    <div class="form-group divLinhaTemporalPausaLetiva" id="div1ferias" style="display: none; visibility:hidden">1º</div>
+                    <div class="form-group divLinhaTemporalPeriodoLetivo" id="div2periodo1" style="display: none; visibility:hidden">2º</div>
+                    <div class="form-group divLinhaTemporalPausaLetiva" id="div2ferias" style="display: none; visibility:hidden">2º</div>
+                    <div class="form-group divLinhaTemporalPeriodoLetivo" id="div2periodo2" style="display: none; visibility:hidden">2º</div>
+                    <div class="form-group divLinhaTemporalPausaLetiva" id="div3ferias" style="display: none; visibility:hidden">2º</div>
+                    <div class="form-group divLinhaTemporalPeriodoLetivo" id="div3periodo" style="display: none; visibility:hidden">3º</div>
                 </div>
             </div>
 
@@ -78,195 +111,6 @@
        
     </main>
 </body>
-<script>
+<script src="aaaaaa.js"></script>
 
-    function totalizadorDias(){
-        let totalizadorDias1Periodo = 0
-        let totalizadorDias1Ferias = 0
-        let percentagemDias1Periodo = 0
-        let percentagemDias1Ferias = 0
-
-        let totalizadorDias2Periodo = 0
-        let totalizadorDias2Ferias = 0
-        let percentagemDias2Periodo = 0
-        let percentagemDias2Ferias = 0
-
-        let totalizadorDias3Periodo = 0
-        let totalizadorDias3Ferias = 0
-        let percentagemDias3Periodo = 0
-        let percentagemDias3Ferias = 0
-
-        let totalizadorDiasTotalPeriodo = 0
-        let totalizadorPercentagemTotalPeriodo = 0
-
-  /*      
-        let dataIncio1 = document.forms["form1"]["inicio1"].value;
-        let dataFim1 = document.forms["form1"]["fim1"].value;
-        let dataIncio1Ferias = document.forms["form1"]["inicio1ferias"].value;
-        let dataFim1Ferias = document.forms["form1"]["fim1ferias"].value;
-      
-
-        let dataIncio2 = document.forms["form1"]["inicio2"].value;
-        let dataFim2 = document.forms["form1"]["fim2"].value;
-        let dataIncio2Ferias = document.forms["form1"]["inicio2ferias"].value;
-        let dataFim2Ferias = document.forms["form1"]["fim2ferias"].value;
-
-        let dataIncio3 = document.forms["form1"]["inicio3"].value;
-        let dataFim3 = document.forms["form1"]["fim3"].value;
-        let dataIncio3Ferias = document.forms["form1"]["inicio3ferias"].value;
-        let dataFim3Ferias = document.forms["form1"]["fim3ferias"].value;
-        
-*/
-        let dataIncio1 = "2023-09-15";
-        let dataFim1 = "2023-12-15";
-        let dataIncio1Ferias = "2023-12-18";
-        let dataFim1Ferias = "2024-01-02";
-      
-
-        let dataIncio2 = "2024-01-03";
-        let dataFim2 = "2024-03-22";
-        let dataIncio2Ferias = "2024-02-12";
-        let dataFim2Ferias = "2024-02-14";
-
-        let dataIncio3 = "2024-04-08";
-        let dataFim3 = "2024-07-14";
-        let dataIncio3Ferias = "2024-03-25";
-        let dataFim3Ferias = "2024-04-05";
-
-
-
-        if (dataIncio1 != "" && dataFim1 != "") {
-            totalizadorDias1Periodo = calcularNumeroDias(dataIncio1, dataFim1)
-        }
-        else{
-            totalizadorDias1Periodo = 0
-        }
-        if (dataIncio1Ferias != "" && dataFim1Ferias != "") {
-            totalizadorDias1Ferias = calcularNumeroDias(dataIncio1Ferias, dataFim1Ferias)
-        }
-        else{
-            totalizadorDias1Ferias = 0
-        }
-
-
-        if (dataIncio2 != "" && dataFim2 != "") {
-            totalizadorDias2Periodo = calcularNumeroDias(dataIncio2, dataFim2)
-        }
-        else{
-            totalizadorDias2Periodo = 0
-        }
-        if (dataIncio2Ferias != "" && dataFim2Ferias != "") {
-            totalizadorDias2Ferias = calcularNumeroDias(dataIncio2Ferias, dataFim2Ferias)
-        }
-        else{
-            totalizadorDias2Ferias = 0
-        }
-
-
-        if (dataIncio3 != "" && dataFim3 != "") {
-            totalizadorDias3Periodo = calcularNumeroDias(dataIncio3, dataFim3)
-        }
-        else{
-            totalizadorDias3Periodo = 0
-        }
-        if (dataIncio3Ferias != "" && dataFim3Ferias != "") {
-            totalizadorDias3Ferias = calcularNumeroDias(dataIncio3Ferias, dataFim3Ferias)
-        }
-        else{
-            totalizadorDias3Ferias = 0
-        }
-
-
-        totalizadorDias2Periodo = (totalizadorDias2Periodo-totalizadorDias2Ferias)/2
-
-        totalizadorDiasTotalPeriodo = totalizadorDias1Periodo + totalizadorDias1Ferias + totalizadorDias2Periodo + totalizadorDias2Ferias + totalizadorDias2Periodo + totalizadorDias3Ferias + totalizadorDias3Periodo;
-
-        
-        percentagemDias1Periodo = (totalizadorDias1Periodo * 100 ) / totalizadorDiasTotalPeriodo
-        percentagemDias1Ferias = (totalizadorDias1Ferias * 100 ) / totalizadorDiasTotalPeriodo
-        percentagemDias2Periodo = (totalizadorDias2Periodo * 100 ) / totalizadorDiasTotalPeriodo
-        percentagemDias2Ferias = (totalizadorDias2Ferias * 100 ) / totalizadorDiasTotalPeriodo
-        percentagemDias3Periodo = (totalizadorDias3Periodo * 100 ) / totalizadorDiasTotalPeriodo
-        percentagemDias3Ferias = (totalizadorDias3Ferias * 100 ) / totalizadorDiasTotalPeriodo
-    
-       
-
-        totalizadorPercentagemTotalPeriodo = percentagemDias1Periodo + percentagemDias1Ferias + percentagemDias2Periodo + percentagemDias2Ferias + percentagemDias2Periodo +  percentagemDias3Periodo + percentagemDias3Ferias;
-
-        
-        percentagemDias1Periodo = percentagemDias1Periodo + "%"
-        percentagemDias1Ferias = percentagemDias1Ferias + "%"
-        percentagemDias2Periodo = percentagemDias2Periodo + "%"
-        percentagemDias2Ferias = percentagemDias2Ferias + "%"
-        percentagemDias3Periodo = percentagemDias3Periodo + "%"
-        percentagemDias3Ferias = percentagemDias3Ferias + "%"
-
-        totalizadorPercentagemTotalPeriodo = totalizadorPercentagemTotalPeriodo + "%"
-        
-        
-        document.getElementById("ftxt1").value = totalizadorDias1Periodo;
-        document.getElementById("ftxt1Perc").value = percentagemDias1Periodo;
-        document.getElementById("ftxt1ferias").value = totalizadorDias1Ferias;
-        document.getElementById("ftxt1PercFerias").value = percentagemDias1Ferias;
-
-
-        document.getElementById("ftxt2").value = totalizadorDias2Periodo;
-        document.getElementById("ftxt2Perc").value = percentagemDias2Periodo;
-        document.getElementById("ftxt2ferias").value = totalizadorDias2Ferias;
-        document.getElementById("ftxt2PercFerias").value = percentagemDias2Ferias;
-
-
-        document.getElementById("ftxt3").value = totalizadorDias3Periodo;
-        document.getElementById("ftxt3Perc").value = percentagemDias3Periodo;
-        document.getElementById("ftxt3ferias").value = totalizadorDias3Ferias;
-        document.getElementById("ftxt3PercFerias").value = percentagemDias3Ferias;
-
-
-        
-        
-
-        document.getElementById("ftxtTotal").value = totalizadorDiasTotalPeriodo
-        document.getElementById("ftxtTotalPerc").value = totalizadorPercentagemTotalPeriodo
-
-
-
-
-
-        //css
-        
-        document.getElementById("div1periodo").style.width = percentagemDias1Periodo;
-        document.getElementById("div1ferias").style.width = percentagemDias1Ferias
-        document.getElementById("div2periodo1").style.width = percentagemDias2Periodo;
-        document.getElementById("div2ferias").style.width = percentagemDias2Ferias
-        document.getElementById("div2periodo2").style.width = percentagemDias2Periodo;
-        document.getElementById("div3periodo").style.width = percentagemDias3Periodo;
-        document.getElementById("div3ferias").style.width = percentagemDias3Ferias
-        document.getElementById("divTotal").style.width = totalizadorPercentagemTotalPeriodo;
-        
-
-        //12.5%;
-        
-    }
-
-    function calcularNumeroDias(dataInicial, dataFinal) {
-        let inicio = null;
-        let fim = null;
-
-        inicio = new Date(dataInicial);
-        fim = new Date(dataFinal);
-
-        var diferenca = fim.getTime() - inicio.getTime();
-        var dias = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
-
-        return dias+1;
-    }
-
-    function limpar(){
-        document.getElementById("ftxt1").value = 0;
-        document.getElementById("ftxt2").value = 0;
-        document.getElementById("ftxt3").value = 0;
-        document.getElementById("ftxtTotal").value = 0;
-    }
-
-</script>
 </html>

@@ -91,7 +91,7 @@
     <main>
         <section>
             <h4>Criar registo</h4>
-            <form name="formAnoLetivo" id="formAnoLetivo" method="post">
+            <form name="formAnoLetivo" id="formAnoLetivo" method="post" onchange="validaEspacoTemporal_registarAnoLetivo()">
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:none;">
                         <label for="id">Id</label>
@@ -113,55 +113,20 @@
                     </div>
                 </div>
                 <hr/>
-                <div>
-                    <div class="form-row">
-                        <img src="imagens/anoLetivo.png" alt="Organização do Ano Letivo" class="imagemAnoLetivo" width="100%" height="auto">
+
+                <div class="form-row div1LinhaTemporal">
+                    <div class="row div11LinhaTemporal" id="divTotal">
+                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div1periodo" style="display: none; visibility:hidden">1º Período</div>
+                        <div class="form-group divLinhaTemporalPausaLetiva" id="div1ferias" style="display: none; visibility:hidden">Natal</div>
+                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div2periodo1" style="display: none; visibility:hidden">2º Período</div>
+                        <div class="form-group divLinhaTemporalPausaLetiva" id="div2ferias" style="display: none; visibility:hidden">Carnaval</div>
+                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div2periodo2" style="display: none; visibility:hidden">2º Período</div>
+                        <div class="form-group divLinhaTemporalPausaLetiva" id="div3ferias" style="display: none; visibility:hidden">Páscoa</div>
+                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div3periodo" style="display: none; visibility:hidden">3º Período</div>
                     </div>
                 </div>
-
-
-
-
-                <div class="form-row" style="display: flex; justify-content: center; align-items: center; background-color: #E9ECEF;">
-                    <div style="display:block; justify-content: center; align-items: center; width: 70%; margin-top: 30px; margin-bottom: 30px;" >
-
-                        <div class="row" style="height: 30px; width: 100%;">
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
-
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;">Natal</p>
-                       
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 6.25%;"></p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;">Carnaval</p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 6.25%;"></p>
-
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;">Páscoa</p>
-
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 12.5%;"></p>
-
-                        </div>
-                        <div class="row" style="height: 30px; width: 100%;">
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 25%;">1 periodo</p>
-                            <p class="form-group" style="text-align:center; width: 12.5%;"> </p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 25%;">2 periodo</p>
-                            <p class="form-group" style="text-align:center; width: 12.5%;"> </p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:yellow; width: 25%;">3 periodo</p>
-                        </div>
-                        <div class="row" style="height: 30px; width: 100%;">
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:#C7EFCF; width: 50%; text-align: left;">Início Ano Letivo</p>
-                            <p class="form-group" style="text-align:center; border: 2px solid black; background-color:#C7EFCF; width: 50%; text-align: right;">Fim Ano Letivo</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
                 <hr/>
+
                 <h5>Período Letivo</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -273,11 +238,11 @@
                                 <button type="button" id="eliminar" name="eliminar" class="btn btn-danger btn-block" title= "Eliminar" value="Eliminar" onclick="validaFormulario_eliminarCustoInscricao()">Eliminar <i class="fa fa-trash-o"></i></button>
                             </div>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
-                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar" onclick="validaFormulario_editarCustoInscricao()()">Editar <i class="fa fa-edit"></i></button>
+                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar" onclick="validaFormulario_editarCustoInscricao()">Editar <i class="fa fa-edit"></i></button>
                             </div>
                             </form>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_registarCustoInscricao()">Registar <i class="fa fa-save"></i></button>
+                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_registarCustoInscricao(1)">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </div>
