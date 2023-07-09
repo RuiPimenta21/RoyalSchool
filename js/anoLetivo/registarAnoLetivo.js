@@ -121,8 +121,7 @@ function validaFormulario_registarAnoLetivo() {
     else{
         intervaloDatasValidado =  validaIntervaloDatas_registarAnoLetivo(dataInicio1Periodo,dataFim1Periodo,dataInicio2Periodo,dataFim2Periodo,dataInicio3Periodo,dataFim3Periodo,dataInicio1PausaLetiva,dataFim1PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva)
         if(intervaloDatasValidado == true){
-            console.log("qqqqqq")
-            //confirmaDados_registarCustoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
+            confirmaDados_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva);
         }
     }  
 }
@@ -131,44 +130,52 @@ function validaIntervaloDatas_registarAnoLetivo(dataInicio1Periodo,dataFim1Perio
 
     //Periodo
     if(dataInicio1Periodo > dataFim1Periodo){
-        dataInvalida_registarAnoLetivo("Data de Início 1º Período superior a Data de Fim 1º Período.");
+        dataInvalida_registarAnoLetivo("A Data de Início do 1º Período não pode ser superior a Data de Fim do 1º Período.");
         return false;
     }
     else if(dataInicio2Periodo > dataFim2Periodo){
-        dataInvalida_registarAnoLetivo("Data de Início 2º Período superior a Data de Fim 2º Período.");
+        dataInvalida_registarAnoLetivo("A Data de Início do 2º Período não pode ser superior a Data de Fim do 2º Período.");
         return false;
     }
     else if(dataInicio3Periodo > dataFim3Periodo){
-        dataInvalida_registarAnoLetivo("Data de Início 3º Período superior a Data de Fim 3º Período.");
+        dataInvalida_registarAnoLetivo("A Data de Início do 3º Período não pode ser superior a Data de Fim do 3º Período.");
         return false;
     }
     else if(dataFim1Periodo >= dataInicio2Periodo){
-        dataInvalida_registarAnoLetivo("Data de Fim 1º Período superior ou igual a Data de Início 2º Período.");
+        dataInvalida_registarAnoLetivo("A Data de Fim do 1º Período não pode ser igual ou superior a Data de Início do 2º Período.");
         return false;
     }
     else if(dataFim2Periodo >= dataInicio3Periodo){
-        dataInvalida_registarAnoLetivo("Data de Fim 2º Período superior ou igual a Data de Início 3º Período.");
+        dataInvalida_registarAnoLetivo("A Data de Fim do 2º Período não pode ser igual ou superior a Data de Início do 3º Período.");
         return false;
     }
     //Pausa Letiva
     else if(dataInicio1PausaLetiva > dataFim1PausaLetiva){
-        dataInvalida_registarAnoLetivo("Data de Início 1º Pausa superior a Data de Fim 1º Pausa.");
+        dataInvalida_registarAnoLetivo("A Data de Início da 1º Pausa não pode ser superior a Data de Fim da 1º Pausa.");
         return false;
     }
     else if(dataInicio2PausaLetiva > dataFim2PausaLetiva){
-        dataInvalida_registarAnoLetivo("Data de Início 2º Pausa superior a Data de Fim 2º Pausa.");
+        dataInvalida_registarAnoLetivo("A Data de Início da 2º Pausa não pode ser superior a Data de Fim da 2º Pausa.");
         return false;
     }
     else if(dataInicio3PausaLetiva > dataFim3PausaLetiva){
-        dataInvalida_registarAnoLetivo("Data de Início 3º Pausa superior a Data de Fim 3º Pausa.");
+        dataInvalida_registarAnoLetivo("A Data de Início da 3º Pausa não pode ser superior a Data de Fim da 3º Pausa.");
         return false;
     }
     else if(dataFim1PausaLetiva >= dataInicio2PausaLetiva){
-        dataInvalida_registarAnoLetivo("Data de Fim 1º Pausa superior ou igual a Data de Início 2º Pausa.");
+        dataInvalida_registarAnoLetivo("A Data de Fim da 1º Pausa não pode ser igual ou superior a Data de Início 2º Pausa.");
         return false;
     }
     else if(dataFim2PausaLetiva >= dataInicio3PausaLetiva){
-        dataInvalida_registarAnoLetivo("Data de Fim 2º Pausa superior ou igual a Data de Início 3º Pausa.");
+        dataInvalida_registarAnoLetivo("A Data de Fim da 2º Pausa não pode ser igual ou superior a Data de Início 3º Pausa.");
+        return false;
+    }
+    else if(dataInicio1Periodo >= dataInicio1PausaLetiva){
+        dataInvalida_registarAnoLetivo("A Data de Início do 1º Período não pode ser igual ou superior a Data de Início da 1º Pausa.");
+        return false;
+    }
+    else if(dataFim3PausaLetiva >= dataFim3Periodo){
+        dataInvalida_registarAnoLetivo("A Data de Fim da 3º Pausa não pode ser igual ou superior Data de Fim do 3º Período.");
         return false;
     }
     else{
@@ -192,17 +199,9 @@ function dataInvalida_registarAnoLetivo(campo){
     })
 }
 
-
-
-
-
-
-
-/*
-
-function confirmaDados_registarCustoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade){
+function confirmaDados_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva){
     
-    mostraDados_registarCustoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
+    mostraDados_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva);
     
     Swal.fire({
         title: 'Pretende gravar?',
@@ -214,23 +213,43 @@ function confirmaDados_registarCustoInscricao(descritivo, valorInscricao, valorL
         confirmButtonText: 'Sim, gravar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            registar_registarCustoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade);
+            //registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva);
         }
     })
 }
 
-function mostraDados_registarCustoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade) {
+function mostraDados_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         document.getElementById("txtTabela").innerHTML = this.responseText;
     }
     //Encoding
-    xhttp.open("POST", "php/custoInscricao/mostraDadosRegistar.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade)+"&aplicarIvaTodos="+encodeURIComponent(aplicarIvaTodos)+"&ivaInscricao="+encodeURIComponent(ivaInscricao)+"&ivaLivro="+encodeURIComponent(ivaLivro)+"&ivaMensalidade="+encodeURIComponent(ivaMensalidade), true);
+    xhttp.open("POST", "php/anoLetivo/mostraDadosRegistar.php?descritivo="+encodeURIComponent(descritivo)+
+        "&descritivo1Periodo="+encodeURIComponent(descritivo1Periodo)+
+        "&dataInicio1Periodo="+encodeURIComponent(dataInicio1Periodo)+
+        "&dataFim1Periodo="+encodeURIComponent(dataFim1Periodo)+
+        "&descritivo2Periodo="+encodeURIComponent(descritivo2Periodo)+
+        "&dataInicio2Periodo="+encodeURIComponent(dataInicio2Periodo)+
+        "&dataFim2Periodo="+encodeURIComponent(dataFim2Periodo)+
+        "&descritivo3Periodo="+encodeURIComponent(descritivo3Periodo)+
+        "&dataInicio3Periodo="+encodeURIComponent(dataInicio3Periodo)+
+        "&dataFim3Periodo="+encodeURIComponent(dataFim3Periodo)+
+        "&descritivo1PausaLetiva="+encodeURIComponent(descritivo1PausaLetiva)+
+        "&dataInicio1PausaLetiva="+encodeURIComponent(dataInicio1PausaLetiva)+
+        "&dataFim1PausaLetiva="+encodeURIComponent(dataFim1PausaLetiva)+
+        "&descritivo2PausaLetiva="+encodeURIComponent(descritivo2PausaLetiva)+
+        "&dataInicio2PausaLetiva="+encodeURIComponent(dataInicio2PausaLetiva)+
+        "&dataFim2PausaLetiva="+encodeURIComponent(dataFim2PausaLetiva)+
+        "&descritivo3PausaLetiva="+encodeURIComponent(descritivo3PausaLetiva)+
+        "&dataInicio3PausaLetiva="+encodeURIComponent(dataInicio3PausaLetiva)+
+        "&dataFim3PausaLetiva="+encodeURIComponent(dataFim3PausaLetiva), 
+    true);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();
 }
 
-function registar_registarCustoInscricao(descritivo, valorInscricao, valorLivro, valorMensalidade, aplicarIvaTodos, ivaInscricao, ivaLivro, ivaMensalidade){ 
+
+function registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva){ 
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 
@@ -244,27 +263,49 @@ function registar_registarCustoInscricao(descritivo, valorInscricao, valorLivro,
 
         //operacao está CONCLUIDA e resposta está OK
         if (this.readyState == 4 && this.status == 200 && this.responseText == "Carregou query!") {
-            mostraTipoAlerta_registarCustoInscricao(true);
+            mostraTipoAlerta_registarAnoLetivo(true);
 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
-            carregaTabela_mostrarCustoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
-            linhaPintada = false;
+        //    carregaTabela_mostrarCustoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
+        //    linhaPintada = false;
+            console.log("gravou")
         }
         else{
-            mostraTipoAlerta_registarCustoInscricao(false);
+            mostraTipoAlerta_registarAnoLetivo(false);
             document.getElementById("txtErro").style.display = "block";
             document.getElementById("txtErro").style.visibility = "visible";
             document.getElementById("txtErro").innerHTML = "ReadyState do pedido: " + this.readyState + ";  Status da resposta: " + this.status + "; Erro: " + this.responseText + ";";
         }
     };
     //Encoding
-    xhttp.open("POST", "php/custoInscricao/registarDados.php?descritivo="+encodeURIComponent(descritivo)+"&valorInscricao="+encodeURIComponent(valorInscricao)+"&valorLivro="+encodeURIComponent(valorLivro)+"&valorMensalidade="+encodeURIComponent(valorMensalidade)+"&aplicarIvaTodos="+encodeURIComponent(aplicarIvaTodos)+"&ivaInscricao="+encodeURIComponent(ivaInscricao)+"&ivaLivro="+encodeURIComponent(ivaLivro)+"&ivaMensalidade="+encodeURIComponent(ivaMensalidade), false);
+    xhttp.open("POST", "php/anoLetivo/registarDados.php?descritivo="+encodeURIComponent(descritivo)+
+        "&descritivo1Periodo="+encodeURIComponent(descritivo1Periodo)+
+        "&dataInicio1Periodo="+encodeURIComponent(dataInicio1Periodo)+
+        "&dataFim1Periodo="+encodeURIComponent(dataFim1Periodo)+
+        "&descritivo2Periodo="+encodeURIComponent(descritivo2Periodo)+
+        "&dataInicio2Periodo="+encodeURIComponent(dataInicio2Periodo)+
+        "&dataFim2Periodo="+encodeURIComponent(dataFim2Periodo)+
+        "&descritivo3Periodo="+encodeURIComponent(descritivo3Periodo)+
+        "&dataInicio3Periodo="+encodeURIComponent(dataInicio3Periodo)+
+        "&dataFim3Periodo="+encodeURIComponent(dataFim3Periodo)+
+        "&descritivo1PausaLetiva="+encodeURIComponent(descritivo1PausaLetiva)+
+        "&dataInicio1PausaLetiva="+encodeURIComponent(dataInicio1PausaLetiva)+
+        "&dataFim1PausaLetiva="+encodeURIComponent(dataFim1PausaLetiva)+
+        "&descritivo2PausaLetiva="+encodeURIComponent(descritivo2PausaLetiva)+
+        "&dataInicio2PausaLetiva="+encodeURIComponent(dataInicio2PausaLetiva)+
+        "&dataFim2PausaLetiva="+encodeURIComponent(dataFim2PausaLetiva)+
+        "&descritivo3PausaLetiva="+encodeURIComponent(descritivo3PausaLetiva)+
+        "&dataInicio3PausaLetiva="+encodeURIComponent(dataInicio3PausaLetiva)+
+        "&dataFim3PausaLetiva="+encodeURIComponent(dataFim3PausaLetiva), 
+    false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();   
 }
 
-function mostraTipoAlerta_registarCustoInscricao(tipoAlerta){
+
+
+function mostraTipoAlerta_registarAnoLetivo(tipoAlerta){
     if (tipoAlerta == true){
         //gravado
         Swal.fire(
@@ -272,7 +313,7 @@ function mostraTipoAlerta_registarCustoInscricao(tipoAlerta){
             'O seu registo foi gravado com sucesso!',
             'success'
         )
-        limpaDados_registarCustoInscricao();    
+        limpaDados_registarAnoLetivo();    
     }
     else{
         //nao gravado
@@ -284,7 +325,6 @@ function mostraTipoAlerta_registarCustoInscricao(tipoAlerta){
     }
 }
 
-function limpaDados_registarCustoInscricao(){
-    document.getElementById("formCustoInscricao").reset();
+function limpaDados_registarAnoLetivo(){
+    document.getElementById("formAnoLetivo").reset();
 }
-*/

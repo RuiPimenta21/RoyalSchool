@@ -112,18 +112,6 @@
                         <input type="date" id="dataFim" name="txtDataFim" class="form-control" autocomplete="off" title= "Data de Fim do Ano Letivo" readonly autocomplete="off" required>
                     </div>
                 </div>
-                <!--
-                <div class="form-row div1LinhaTemporal">
-                    <div class="row div11LinhaTemporal" id="divTotal">
-                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div1periodo" style="display: none; visibility:hidden">1º Período</div>
-                        <div class="form-group divLinhaTemporalPausaLetiva" id="div1ferias" style="display: none; visibility:hidden">Natal</div>
-                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div2periodo1" style="display: none; visibility:hidden">2º Período</div>
-                        <div class="form-group divLinhaTemporalPausaLetiva" id="div2ferias" style="display: none; visibility:hidden">Carnaval</div>
-                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div2periodo2" style="display: none; visibility:hidden">2º Período</div>
-                        <div class="form-group divLinhaTemporalPausaLetiva" id="div3ferias" style="display: none; visibility:hidden">Páscoa</div>
-                        <div class="form-group divLinhaTemporalPeriodoLetivo" id="div3periodo" style="display: none; visibility:hidden">3º Período</div>
-                    </div>
-                </div>-->
                 <h5>Período Letivo</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -134,7 +122,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataInicio1Perido">Data de Início</label>
-                        <input type="date" id="dataInicio1Perido" name="txtDataInicio1Perido" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required>
+                        <input type="date" id="dataInicio1Perido" name="txtDataInicio1Perido" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required onchange="atribuidataInicio_editarAnoLetivo()">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataFim1Perido">Data de Fim</label>
@@ -165,12 +153,12 @@
                         <input type="text" id="descritivo3Periodo" name="txtDescritivo3Periodo" class="form-control" autocomplete="off" title= "Descrição do 3º Período" value="3º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio2Perido">Data de Início</label>
+                        <label for="dataInicio3Perido">Data de Início</label>
                         <input type="date" id="dataInicio3Perido" name="txtDataInicio3Perido" class="form-control" autocomplete="off" title= "Data de Início do 3º Período" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim2Perido">Data de Fim</label>
-                        <input type="date" id="dataFim3Perido" name="txtDataFim3Perido" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required>
+                        <label for="dataFim3Perido">Data de Fim</label>
+                        <input type="date" id="dataFim3Perido" name="txtDataFim3Perido" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required onchange="atribuidataFim_editarAnoLetivo()">
                     </div>
                 </div>
                 <hr/>
@@ -203,7 +191,7 @@
                         <input type="date" id="dataInicio2PausaLetiva" name="txtDataInicio2PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 2º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim1PausaLetiva">Data de Fim</label>
+                        <label for="dataFim2PausaLetiva">Data de Fim</label>
                         <input type="date" id="dataFim2PausaLetiva" name="txtDataFim2PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 2º Pausa Letiva" autocomplete="off" required>
                     </div>
                 </div>
