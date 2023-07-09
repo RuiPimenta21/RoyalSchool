@@ -91,7 +91,7 @@
     <main>
         <section>
             <h4>Criar registo</h4>
-            <form name="formAnoLetivo" id="formAnoLetivo" method="post" onchange="validaEspacoTemporal_registarAnoLetivo()">
+            <form name="formAnoLetivo" id="formAnoLetivo" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-12" style="display:none;">
                         <label for="id">Id</label>
@@ -112,8 +112,7 @@
                         <input type="date" id="dataFim" name="txtDataFim" class="form-control" autocomplete="off" title= "Data de Fim do Ano Letivo" readonly autocomplete="off" required>
                     </div>
                 </div>
-                <hr/>
-
+                <!--
                 <div class="form-row div1LinhaTemporal">
                     <div class="row div11LinhaTemporal" id="divTotal">
                         <div class="form-group divLinhaTemporalPeriodoLetivo" id="div1periodo" style="display: none; visibility:hidden">1º Período</div>
@@ -124,9 +123,7 @@
                         <div class="form-group divLinhaTemporalPausaLetiva" id="div3ferias" style="display: none; visibility:hidden">Páscoa</div>
                         <div class="form-group divLinhaTemporalPeriodoLetivo" id="div3periodo" style="display: none; visibility:hidden">3º Período</div>
                     </div>
-                </div>
-                <hr/>
-
+                </div>-->
                 <h5>Período Letivo</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -176,8 +173,6 @@
                         <input type="date" id="dataFim3Perido" name="txtDataFim3Perido" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required>
                     </div>
                 </div>
-
-
                 <hr/>
                 <h5>Pausa Letiva</h5>
                 <div class="form-row">
@@ -235,24 +230,23 @@
                     <div class="form-group col-lg-5 botoesTabelaDivisoria1">
                         <div class="row ">
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
-                                <button type="button" id="eliminar" name="eliminar" class="btn btn-danger btn-block" title= "Eliminar" value="Eliminar" onclick="validaFormulario_eliminarCustoInscricao()">Eliminar <i class="fa fa-trash-o"></i></button>
+                                <button type="button" id="eliminar" name="eliminar" class="btn btn-danger btn-block" title= "Eliminar" value="Eliminar">Eliminar <i class="fa fa-trash-o"></i></button>
                             </div>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
-                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar" onclick="validaFormulario_editarCustoInscricao()">Editar <i class="fa fa-edit"></i></button>
+                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar">Editar <i class="fa fa-edit"></i></button>
                             </div>
                             </form>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_registarCustoInscricao(1)">Registar <i class="fa fa-save"></i></button>
+                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_registarAnoLetivo()">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </div>
                 </div> 
             </form>
         </section>
-
         <section class="sectionSeguintes">
             <h4>Consultar registo</h4>
-            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarAnoLetivo(1)">
+            <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarAnoLetivo(1)">
                 <div class="tabelaFiltrosDiv">
                     <div class="filtrosNav">
                         <div class="row filtrosTabela1">
