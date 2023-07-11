@@ -7,9 +7,9 @@ let linhaPintada = false;
 
 
 function selecionaLinha_CustoInscricao(linhaSelecionada){
-    descritivoSelecionado = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
-    numeroRegistosSelecionado = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
-    ordenacaoRegistosSelecionado = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
+    descritivoSelecionado = document.forms["formCustoInscricaoMostraRegistos"]["txtPesquisaDescritivo"].value;
+    numeroRegistosSelecionado = document.forms["formCustoInscricaoMostraRegistos"]["txtNumeroRegistos"].value;
+    ordenacaoRegistosSelecionado = document.forms["formCustoInscricaoMostraRegistos"]["txtOrdenacaoRegistos"].value;
 
     //se filtros mantiveram
     if(descritivoSelecionado == DefaultPesquisaDescritivo & numeroRegistosSelecionado == DefaultNumeroRegistos & ordenacaoRegistosSelecionado == DefaultOrdenacaoRegistos){

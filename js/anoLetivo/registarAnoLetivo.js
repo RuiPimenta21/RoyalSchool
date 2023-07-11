@@ -213,7 +213,7 @@ function confirmaDados_registarAnoLetivo(descritivo,descritivo1Periodo,dataInici
         confirmButtonText: 'Sim, gravar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            //registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva);
+            registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva);
         }
     })
 }
@@ -248,7 +248,6 @@ function mostraDados_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1
     xhttp.send();
 }
 
-
 function registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva){ 
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -267,9 +266,8 @@ function registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Per
 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
             //funcao em outro ficheiro
-        //    carregaTabela_mostrarCustoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
-        //    linhaPintada = false;
-            console.log("gravou")
+            carregaTabela_mostrarAnoLetivo(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
+            linhaPintada = false;
         }
         else{
             mostraTipoAlerta_registarAnoLetivo(false);
@@ -302,8 +300,6 @@ function registar_registarAnoLetivo(descritivo,descritivo1Periodo,dataInicio1Per
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();   
 }
-
-
 
 function mostraTipoAlerta_registarAnoLetivo(tipoAlerta){
     if (tipoAlerta == true){

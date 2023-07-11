@@ -234,7 +234,7 @@
         </section>
         <section class="sectionSeguintes">
             <h4>Consultar registo</h4>
-            <form name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarAnoLetivo(1)">
+            <form name="formAnoLetivoMostraRegistos" id= "formAnoLetivoMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarAnoLetivo(1)">
                 <div class="tabelaFiltrosDiv">
                     <div class="filtrosNav">
                         <div class="row filtrosTabela1">

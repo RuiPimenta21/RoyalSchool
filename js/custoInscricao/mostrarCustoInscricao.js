@@ -7,9 +7,9 @@ carregaTabela_mostrarCustoInscricao(DefaultNumeroRegistos, DefaultOrdenacaoRegis
 //console.log (DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo)
 
 function recebeFiltrosTabela_mostrarCustoInscricao(opcao){
-    let pesquisaDescritivo = document.forms["formMostraRegistos"]["txtPesquisaDescritivo"].value;
-    let numeroRegistos = document.forms["formMostraRegistos"]["txtNumeroRegistos"].value;
-    let ordenacaoRegistos = document.forms["formMostraRegistos"]["txtOrdenacaoRegistos"].value;
+    let pesquisaDescritivo = document.forms["formCustoInscricaoMostraRegistos"]["txtPesquisaDescritivo"].value;
+    let numeroRegistos = document.forms["formCustoInscricaoMostraRegistos"]["txtNumeroRegistos"].value;
+    let ordenacaoRegistos = document.forms["formCustoInscricaoMostraRegistos"]["txtOrdenacaoRegistos"].value;
 
     if(opcao == 1){
         carregaTabela_mostrarCustoInscricao(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo)

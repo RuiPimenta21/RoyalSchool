@@ -54,7 +54,7 @@
          <tr onclick="selecionaLinha_CustoInscricao(<?php echo(json_encode($linha));?>)">
             <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['custoInscricao_id'];?></td>
             <td scope="row"><?php echo $linha;?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['custoInscricao_descricao'];?></td>
+            <td class="tabelaDadosTexto" ><?php echo $dado['custoInscricao_descritivo'];?></td>
             <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorIscricaoSemIva'];?></td>
             <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorLivroSemIva'];?></td>
             <td style="display:none;" class="tabelaDadosNumeros"><?php echo $dado['custoInscricao_valorMensalidadeSemIva'];?></td>

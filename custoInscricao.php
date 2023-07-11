@@ -187,7 +187,7 @@
         </section>
         <section class="sectionSeguintes">
             <h4>Consultar registo</h4>
-            <form  name="formMostraRegistos" id= "formMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
+            <form  name="formCustoInscricaoMostraRegistos" id= "formCustoInscricaoMostraRegistos" method="post" onchange="recebeFiltrosTabela_mostrarCustoInscricao(1)">
                 <div class="tabelaFiltrosDiv">
                     <div class="filtrosNav">
                         <div class="row filtrosTabela1">
