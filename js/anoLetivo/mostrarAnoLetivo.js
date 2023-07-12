@@ -51,7 +51,7 @@ function carregaTabela_mostrarAnoLetivo(numeroRegistos, ordenacaoRegistos, pesqu
 }
 
 function imprimeReportViwer_mostarAnoLetivo(numeroRegistos, ordenacaoRegistos, pesquisaDescritivo){
-    let reportUrl = "http://fixo/ReportServer?%2frpt_mostraAnoLetivo"
+    let reportUrl = "http://fixo/ReportServer?%2frpt_mostraAnoLetivo_mostraperiodoLetivo_mostraPausaLetiva"
     // Para o numero de registos
     if(numeroRegistos != ""){
         reportUrl = reportUrl + "&numeroRegistos=" + numeroRegistos
