@@ -57,55 +57,158 @@
             <th scope="col" style=" text-align: center; vertical-align: middle;">Data de Fim</th>
          </tr>
       </thead>
-      <tbody>
-         <?php $linha=0;
+      
+    <tbody>
+         <?php 
+         
+         $linha=0;
+
+         $linha1=0;
+         $corLinha1="";
+         $linh2=0;
+         $corLinha2="";
+         $linh3=0;
+         $corLinha3="";
+
+
          foreach($dados as $dado) {
             $linha++;
+            
+            $linha1 = $linha * 1;
+            $linha2 = $linha * 2;
+            $linha3 = $linha * 3;
+
+            echo $linha." - ".$linha1;
+            echo $linha." - ".$linha2;
+            echo $linha." - ".$linha3;
+
+            
+
+            if ($linha1 % 2 == 0) {
+               $corLinha1 = "border:0px;background-color:#FFFFFF;";
+            } else {
+               $corLinha1 = "border:0px;background-color:#F2F2F2;";
+            }
+            if ($linha2 % 2 == 0) {
+               $corLinha2 = "border:0px;background-color:#FFFFFF;";
+            } else {
+               $corLinha2 = "border:0px;background-color:#F2F2F2;";
+            }
+            if ($linha3 % 2 == 0) {
+               $corLinha3 = "border:0px;background-color:#FFFFFF;";
+            } else {
+               $corLinha3 = "border:0px;background-color:#F2F2F2;";
+            } 
+               
+              
+           
          ?>
-         <tr style="vertical-align: middle;" onclick="selecionaLinha_CustoInscricao(<?php echo(json_encode($linha));?>)">
-            <tr>
-               <td scope="row" style="vertical-align: middle;" rowspan="3"><?php echo $linha;?></td>
-               <td style="display:none;" class="tabelaDadosTexto" rowspan="3"><?php echo $dado['idAnoLetivo'];?></td>
-               <td class="tabelaDadosTexto" style="vertical-align: middle;" rowspan="3"><?php echo $dado['descritivoAnoLetivo'];?></td>
-               <td class="tabelaDadosDatas" style="vertical-align: middle;" rowspan="3"><?php echo $dado['dataInicioAnoLetivo'];?></td>
-               <td class="tabelaDadosDatas" style="vertical-align: middle;" rowspan="3"><?php echo $dado['dataFimAnoLetivo'];?></td>
+         <tr onclick="selecionaLinha_AnoLetivo(<?php echo(json_encode($linha));?>)">
+            <td scope="row"><?php echo $linha;?></td>
+            <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['idAnoLetivo'];?></td>
+            <td class="tabelaDadosTexto" ><?php echo $dado['descritivoAnoLetivo'];?></td>
+            <td class="tabelaDadosDatas"><?php echo $dado['dataInicioAnoLetivo'];?></td>
+            <td class="tabelaDadosDatas"><?php echo $dado['dataFimAnoLetivo'];?></td>
+            <td class="tabelaDadosDatas" style="padding: 0px;">
+               <table style="width: 100%;">
+                  <tbody>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha1;?>><?php echo $dado['descritivo1Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha2;?>><?php echo $dado['descritivo2Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha3;?>><?php echo $dado['descritivo3Periodo'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="tabelaDadosTexto" style="padding: 0px;">
+               <table style="width: 100%;">
+               <tbody>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha1;?>><?php echo $dado['dataInicio1Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha2;?>><?php echo $dado['dataInicio2Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha3;?>><?php echo $dado['dataInicio3Periodo'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="tabelaDadosTexto" style="padding: 0px;">
+               <table style="width: 100%;">
+               <tbody>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha1;?>><?php echo $dado['dataFim1Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha2;?>><?php echo $dado['dataFim2Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha3;?>><?php echo $dado['dataFim3Periodo'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
 
 
-               <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['id1Periodo'];?></td>
-               <td class="tabelaDadosTexto"><?php echo $dado['descritivo1Periodo'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataInicio1Periodo'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataFim1Periodo'];?></td>
-               <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['id1Pausa'];?></td>
-               <td class="tabelaDadosTexto"><?php echo $dado['descritivo1Pausa'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataInicio1Pausa'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataFim1Pausa'];?></td>
-            </tr>
-            <tr>
-               <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['id2Periodo'];?></td>
-               <td class="tabelaDadosTexto"><?php echo $dado['descritivo2Periodo'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataInicio2Periodo'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataFim2Periodo'];?></td>
-               <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['id2Pausa'];?></td>
-               <td class="tabelaDadosTexto"><?php echo $dado['descritivo2Pausa'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataInicio2Pausa'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataFim2Pausa'];?></td>
-            </tr>
-            <tr>
-               <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['id3Periodo'];?></td>
-               <td class="tabelaDadosTexto"><?php echo $dado['descritivo3Periodo'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataInicio3Periodo'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataFim3Periodo'];?></td>
-               <td style="display:none;" class="tabelaDadosTexto"><?php echo $dado['id3Pausa'];?></td>
-               <td class="tabelaDadosTexto"><?php echo $dado['descritivo3Pausa'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataInicio3Pausa'];?></td>
-               <td class="tabelaDadosDatas"><?php echo $dado['dataFim3Pausa'];?></td>
-            </tr>
-         </tr>
+
+            <td class="tabelaDadosDatas" style="padding: 0px;">
+               <table style="width: 100%;">
+                  <tbody>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha1;?>><?php echo $dado['descritivo1Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha2;?>><?php echo $dado['descritivo2Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha3;?>><?php echo $dado['descritivo3Pausa'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="tabelaDadosTexto" style="padding: 0px;">
+               <table style="width: 100%;">
+               <tbody>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha1;?>><?php echo $dado['dataInicio1Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha2;?>><?php echo $dado['dataInicio2Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha3;?>><?php echo $dado['dataInicio3Pausa'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="tabelaDadosTexto" style="padding: 0px;">
+               <table style="width: 100%;">
+               <tbody>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha1;?>><?php echo $dado['dataFim1Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha2;?>><?php echo $dado['dataFim2Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosDatas" style=<?php echo $corLinha3;?>><?php echo $dado['dataFim3Pausa'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
          <?php
          }
          ?>
       </tbody>
     </table>
+
+
 
 
 
