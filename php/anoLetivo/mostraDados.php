@@ -63,26 +63,16 @@
          
          $linha=0;
 
-         $linha1=0;
+         $linha1=1;
          $corLinha1="";
-         $linh2=0;
+         $linha2=2;
          $corLinha2="";
-         $linh3=0;
+         $linha3=3;
          $corLinha3="";
 
 
          foreach($dados as $dado) {
             $linha++;
-            
-            $linha1 = $linha * 1;
-            $linha2 = $linha * 2;
-            $linha3 = $linha * 3;
-
-            echo $linha." - ".$linha1;
-            echo $linha." - ".$linha2;
-            echo $linha." - ".$linha3;
-
-            
 
             if ($linha1 % 2 == 0) {
                $corLinha1 = "border:0px;background-color:#FFFFFF;";
@@ -99,7 +89,11 @@
             } else {
                $corLinha3 = "border:0px;background-color:#F2F2F2;";
             } 
-               
+         
+            
+            $linha1 = $linha1 + 3;
+            $linha2 = $linha2 + 3;
+            $linha3 = $linha3 + 3;
               
            
          ?>
@@ -154,9 +148,6 @@
                   </tbody>
                </table>
             </td>
-
-
-
             <td class="tabelaDadosDatas" style="padding: 0px;">
                <table style="width: 100%;">
                   <tbody>
@@ -207,85 +198,3 @@
          ?>
       </tbody>
     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-   <table id="tblAnoLetivo" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
-      <thead class="tabelaCabecalho ">
-         <tr>
-            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Id AnoLetivo</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Nº</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Descrição</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Início</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Fim</th>
-            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Id Período</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Descrição</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Início</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Fim</th>
-            <th style="display:none;" scope="col" style=" text-align: center; vertical-align: middle;">Id Pausa</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Descrição</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Início</th>
-            <th scope="col" style=" text-align: center; vertical-align: middle;">Fim</th>
-         </tr>
-      </thead>
-      <tbody>
-         <?php $linha=0;
-         foreach($dados as $dado) {
-            $linha++;
-         ?>
-         <tr onclick="selecionaLinha_AnoLetivo(<?php echo(json_encode($linha));?>)">
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['idAnoLetivo'];?></td>
-            <td scope="row"><?php echo $linha;?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['DescriçãoAnoLetivo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicioAnoLetivo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFimAnoLetivo'];?></td>
-
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['id1Periodo'];?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['Descrição1Periodo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicio1Periodo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFim1Periodo'];?></td>
-
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['id2Periodo'];?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['Descrição2Periodo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicio2Periodo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFim2Periodo'];?></td>
-
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['id3Periodo'];?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['Descrição3Periodo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicio3Periodo'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFim3Periodo'];?></td>
-
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['id1Pausa'];?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['Descrição1Pausa'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicio1Pausa'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFim1Pausa'];?></td>
-
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['id2Pausa'];?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['Descrição2Pausa'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicio2Pausa'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFim2Pausa'];?></td>
-
-            <td style="display:none;" class="tabelaDadosTexto" ><?php echo $dado['id3Pausa'];?></td>
-            <td class="tabelaDadosTexto" ><?php echo $dado['Descrição3Pausa'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataInicio3Pausa'];?></td>
-            <td class="tabelaDadosDatas"><?php echo $dado['dataFim3Pausa'];?></td>
-
-         </tr>
-         <?php
-         }
-         ?>
-      </tbody>
-   </table>
-      -->
-      
