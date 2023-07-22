@@ -31,7 +31,7 @@
    <table id="tblAnoLetivo" class="table table-striped table table-bordered table-striped mb-0 tableFixHead">
       <thead class="tabelaCabecalho ">
          <tr style="display:none;">
-            <th scope="col" style=" text-align: center; vertical-align: middle;" rowspan="2">Nº</th>
+            <th scope="col" style=" text-align: center; vertical-align: middle; " rowspan="2">Nº</th>
             <th scope="col" style=" text-align: center; vertical-align: middle;" colspan="4">Ano</th>
             <th scope="col" style=" text-align: center; vertical-align: middle;" colspan="4">Período</th>
             <th scope="col" style=" text-align: center; vertical-align: middle;" colspan="4">Pausa</th>

@@ -351,7 +351,8 @@ button:focus {
 }
 .tabelaEncolheY{
   height: 542px; 
-  width: fit-content;
+  /*width: fit-content;*/
+  width: max-content;
   margin-left: auto; 
   margin-right: auto;
   overflow-y: auto;
@@ -363,16 +364,22 @@ button:focus {
   position: sticky;
   top: 0;
   background-color: #2D82B7;
-  color: rgb(235, 235, 235); text-shadow: black 1px 0.1px 0.1px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: rgb(235, 235, 235); 
+  font-size: 14px;
+  font-weight: lighter;
 }
 .tabelaDadosTexto{
   text-align: left;
+  font-size: 14px;
 }
 .tabelaDadosDatas{
-  text-align: left;
+  text-align: center;
+  font-size: 14px;
 }
 .tabelaDadosNumeros{
   text-align: right;
+  font-size: 14px;
 }
 .tabelaDadosBotao{
   text-align: center;
@@ -385,7 +392,9 @@ button:focus {
 td { 
   cursor: pointer;
 }
-
+.table-bordered th {
+  border: 0px solid #dee2e6;
+}
 
 
 /*Botoes gravar editar eliminar*/

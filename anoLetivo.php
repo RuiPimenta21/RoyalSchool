@@ -101,7 +101,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="descritivo">Descrição</label>
-                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" title= "Descrição do Ano Letivo" placeholder="Ano Letivo 2000-2001" autocomplete="off" maxlength="50" required>
+                        <input type="text" id="descritivo" name="txtDescritivo" class="form-control" autocomplete="off" title= "Descrição do Ano Letivo" autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="dataInicio">Data de Início</label>
@@ -121,12 +121,12 @@
                         <input type="text" id="descritivo1Periodo" name="txtDescritivo1Periodo" class="form-control" autocomplete="off" title= "Descrição do 1º Período" value="1º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio1Perido">Data de Início</label>
-                        <input type="date" id="dataInicio1Perido" name="txtDataInicio1Perido" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required onchange="atribuidataInicio_editarAnoLetivo()">
+                        <label for="dataInicio1Periodo">Data de Início</label>
+                        <input type="date" id="dataInicio1Periodo" name="txtDataInicio1Periodo" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required onchange="atribuidataInicio_editarAnoLetivo()">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim1Perido">Data de Fim</label>
-                        <input type="date" id="dataFim1Perido" name="txtDataFim1Perido" class="form-control" autocomplete="off" title= "Data de Fim do 1º Período" autocomplete="off" required>
+                        <label for="dataFim1Periodo">Data de Fim</label>
+                        <input type="date" id="dataFim1Periodo" name="txtDataFim1Periodo" class="form-control" autocomplete="off" title= "Data de Fim do 1º Período" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -137,12 +137,12 @@
                         <input type="text" id="descritivo2Periodo" name="txtDescritivo2Periodo" class="form-control" autocomplete="off" title= "Descrição do 2º Período" value="2º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio2Perido">Data de Início</label>
-                        <input type="date" id="dataInicio2Perido" name="txtDataInicio2Perido" class="form-control" autocomplete="off" title= "Data de Início do 2º Período" autocomplete="off" required>
+                        <label for="dataInicio2Periodo">Data de Início</label>
+                        <input type="date" id="dataInicio2Periodo" name="txtDataInicio2Periodo" class="form-control" autocomplete="off" title= "Data de Início do 2º Período" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim2Perido">Data de Fim</label>
-                        <input type="date" id="dataFim2Perido" name="txtDataFim2Perido" class="form-control" autocomplete="off" title= "Data de Fim do 2º Período" autocomplete="off" required>
+                        <label for="dataFim2Periodo">Data de Fim</label>
+                        <input type="date" id="dataFim2Periodo" name="txtDataFim2Periodo" class="form-control" autocomplete="off" title= "Data de Fim do 2º Período" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -153,12 +153,12 @@
                         <input type="text" id="descritivo3Periodo" name="txtDescritivo3Periodo" class="form-control" autocomplete="off" title= "Descrição do 3º Período" value="3º Período" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio3Perido">Data de Início</label>
-                        <input type="date" id="dataInicio3Perido" name="txtDataInicio3Perido" class="form-control" autocomplete="off" title= "Data de Início do 3º Período" autocomplete="off" required>
+                        <label for="dataInicio3Periodo">Data de Início</label>
+                        <input type="date" id="dataInicio3Periodo" name="txtDataInicio3Periodo" class="form-control" autocomplete="off" title= "Data de Início do 3º Período" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim3Perido">Data de Fim</label>
-                        <input type="date" id="dataFim3Perido" name="txtDataFim3Perido" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required onchange="atribuidataFim_editarAnoLetivo()">
+                        <label for="dataFim3Periodo">Data de Fim</label>
+                        <input type="date" id="dataFim3Periodo" name="txtDataFim3Periodo" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required onchange="atribuidataFim_editarAnoLetivo()">
                     </div>
                 </div>
                 <hr/>
