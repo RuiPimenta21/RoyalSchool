@@ -93,7 +93,7 @@
             <h4>Criar registo</h4>
             <form name="formAnoLetivo" id="formAnoLetivo" method="post">
                 <div class="form-row">
-                    <div class="form-group col-md-12" style="display:none;">
+                    <div class="form-group col-md-12" style="display:true;">
                         <label for="id">Id</label>
                         <input type="text" id="id" name="txtId" class="form-control" readonly autocomplete="off" required>
                     </div>
@@ -115,6 +115,10 @@
                 <h5>Período Letivo</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="display:true;">
+                            <label for="id">Id</label>
+                            <input type="text" id="id1Periodo" name="txtId1Periodo" class="form-control" readonly autocomplete="off" required>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="descritivo1Periodo">Descrição</label>
@@ -131,6 +135,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="display:true;">
+                            <label for="id">Id</label>
+                            <input type="text" id="id2Periodo" name="txtId2Periodo" class="form-control" readonly autocomplete="off" required>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="descritivo2Periodo">Descrição</label>
@@ -147,6 +155,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="display:true;">
+                            <label for="id">Id</label>
+                            <input type="text" id="id3Periodo" name="txtId3Periodo" class="form-control" readonly autocomplete="off" required>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="descritivo3Periodo">Descrição</label>
@@ -165,50 +177,62 @@
                 <h5>Pausa Letiva</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="display:true;">
+                            <label for="id">Id</label>
+                            <input type="text" id="id1Pausa" name="txtId1Pausa" class="form-control" readonly autocomplete="off" required>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="descritivo1PausaLetiva">Descrição</label>
-                        <input type="text" id="descritivo1PausaLetiva" name="txtDescritivo1PausaLetiva" class="form-control" autocomplete="off" title= "Descrição da 1º Pausa Letiva" value="Natal" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo1Pausa">Descrição</label>
+                        <input type="text" id="descritivo1Pausa" name="txtDescritivo1Pausa" class="form-control" autocomplete="off" title= "Descrição da 1º Pausa Letiva" value="Natal" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio1PausaLetiva">Data de Início</label>
-                        <input type="date" id="dataInicio1PausaLetiva" name="txtDataInicio1PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 1º Pausa Letiva" autocomplete="off" required>
+                        <label for="dataInicio1Pausa">Data de Início</label>
+                        <input type="date" id="dataInicio1" name="txtDataInicio1" class="form-control" autocomplete="off" title= "Data de Início da 1º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim1PausaLetiva">Data de Fim</label>
-                        <input type="date" id="dataFim1PausaLetiva" name="txtDataFim1PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 1º Pausa Letiva" autocomplete="off" required>
+                        <label for="dataFim1Pausa">Data de Fim</label>
+                        <input type="date" id="dataFim1Pausa" name="txtDataFim1Pausa" class="form-control" autocomplete="off" title= "Data de Fim do 1º Pausa Letiva" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="display:true;">
+                            <label for="id">Id</label>
+                            <input type="text" id="id2Pausa" name="txtId2Pausa" class="form-control" readonly autocomplete="off" required>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="descritivo2PausaLetiva">Descrição</label>
-                        <input type="text" id="descritivo2PausaLetiva" name="txtDescritivo2PausaLetiva" class="form-control" autocomplete="off" title= "Descrição da 2º Pausa Letiva" value="Carnaval" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo2Pausa">Descrição</label>
+                        <input type="text" id="descritivo2Pausa" name="txtDescritivo2Pausa" class="form-control" autocomplete="off" title= "Descrição da 2º Pausa Letiva" value="Carnaval" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio2PausaLetiva">Data de Início</label>
-                        <input type="date" id="dataInicio2PausaLetiva" name="txtDataInicio2PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 2º Pausa Letiva" autocomplete="off" required>
+                        <label for="dataInicio2Pausa">Data de Início</label>
+                        <input type="date" id="dataInicio2Pausa" name="txtDataInicio2Pausa" class="form-control" autocomplete="off" title= "Data de Início da 2º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim2PausaLetiva">Data de Fim</label>
-                        <input type="date" id="dataFim2PausaLetiva" name="txtDataFim2PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 2º Pausa Letiva" autocomplete="off" required>
+                        <label for="dataFim2Pausa">Data de Fim</label>
+                        <input type="date" id="dataFim2Pausa" name="txtDataFim2Pausa" class="form-control" autocomplete="off" title= "Data de Fim do 2º Pausa Letiva" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="display:true;">
+                            <label for="id">Id</label>
+                            <input type="text" id="id3Pausa" name="txtId3Pausa" class="form-control" readonly autocomplete="off" required>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="descritivo3PausaLetiva">Descrição</label>
-                        <input type="text" id="descritivo3PausaLetiva" name="txtDescritivo3PausaLetiva" class="form-control" autocomplete="off" title= "Descrição da 3º Pausa Letiva" value="Páscoa" readonly autocomplete="off" maxlength="50" required>
+                        <label for="descritivo3Pausa">Descrição</label>
+                        <input type="text" id="descritivo3Pausa" name="txtDescritivo3Pausa" class="form-control" autocomplete="off" title= "Descrição da 3º Pausa Letiva" value="Páscoa" readonly autocomplete="off" maxlength="50" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataInicio3PausaLetiva">Data de Início</label>
-                        <input type="date" id="dataInicio3PausaLetiva" name="txtDataInicio3PausaLetiva" class="form-control" autocomplete="off" title= "Data de Início da 3º Pausa Letiva" autocomplete="off" required>
+                        <label for="dataInicio3Pausa">Data de Início</label>
+                        <input type="date" id="dataInicio3Pausa" name="txtDataInicio3Pausa" class="form-control" autocomplete="off" title= "Data de Início da 3º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="dataFim3PausaLetiva">Data de Fim</label>
-                        <input type="date" id="dataFim3PausaLetiva" name="txtDataFim3PausaLetiva" class="form-control" autocomplete="off" title= "Data de Fim do 3º Pausa Letiva" autocomplete="off" required>
+                        <label for="dataFim3Pausa">Data de Fim</label>
+                        <input type="date" id="dataFim3Pausa" name="txtDataFim3Pausa" class="form-control" autocomplete="off" title= "Data de Fim do 3º Pausa Letiva" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="row botoesTabela1">

@@ -103,6 +103,21 @@
             <td class="tabelaDadosTexto" ><?php echo $dado['descritivoAnoLetivo'];?></td>
             <td class="tabelaDadosDatas"><?php echo $dado['dataInicioAnoLetivo'];?></td>
             <td class="tabelaDadosDatas"><?php echo $dado['dataFimAnoLetivo'];?></td>
+            <td class="tabelaDadosDatas" style="padding: 0px; display: none;">
+               <table style="width: 100%;">
+                  <tbody>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha1;?>><?php echo $dado['id1Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha2;?>><?php echo $dado['id2Periodo'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha3;?>><?php echo $dado['id3Periodo'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
             <td class="tabelaDadosDatas" style="padding: 0px;">
                <table style="width: 100%;">
                   <tbody>
@@ -144,6 +159,21 @@
                      </tr>
                      <tr>
                         <td class="tabelaDadosDatas" style=<?php echo $corLinha3;?>><?php echo $dado['dataFim3Periodo'];?></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="tabelaDadosDatas" style="padding: 0px; display: none;">
+               <table style="width: 100%;">
+                  <tbody>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha1;?>><?php echo $dado['id1Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha2;?>><?php echo $dado['id2Pausa'];?></td>
+                     </tr>
+                     <tr>
+                        <td class="tabelaDadosTexto" style=<?php echo $corLinha3;?>><?php echo $dado['id3Pausa'];?></td>
                      </tr>
                   </tbody>
                </table>
