@@ -126,7 +126,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataInicio1Periodo">Data de Início</label>
-                        <input type="date" id="dataInicio1Periodo" name="txtDataInicio1Periodo" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required onchange="atribuidataInicio_editarAnoLetivo()">
+                        <input type="date" id="dataInicio1Periodo" name="txtDataInicio1Periodo" class="form-control" autocomplete="off" title= "Data de Início do 1º Período" autocomplete="off" required onchange="atribuidataInicio_geralAnoLetivo()">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataFim1Periodo">Data de Fim</label>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataFim3Periodo">Data de Fim</label>
-                        <input type="date" id="dataFim3Periodo" name="txtDataFim3Periodo" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required onchange="atribuidataFim_editarAnoLetivo()">
+                        <input type="date" id="dataFim3Periodo" name="txtDataFim3Periodo" class="form-control" autocomplete="off" title= "Data de Fim do 3º Período" autocomplete="off" required onchange="atribuidataFim_geralAnoLetivo()">
                     </div>
                 </div>
                 <hr/>
@@ -188,7 +188,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataInicio1Pausa">Data de Início</label>
-                        <input type="date" id="dataInicio1" name="txtDataInicio1" class="form-control" autocomplete="off" title= "Data de Início da 1º Pausa Letiva" autocomplete="off" required>
+                        <input type="date" id="dataInicio1Pausa" name="txtDataInicio1Pausa" class="form-control" autocomplete="off" title= "Data de Início da 1º Pausa Letiva" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="dataFim1Pausa">Data de Fim</label>
@@ -242,14 +242,14 @@
                     <div class="form-group col-lg-5 botoesTabelaDivisoria1">
                         <div class="row ">
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_1">
-                                <button type="button" id="eliminar" name="eliminar" class="btn btn-danger btn-block" title= "Eliminar" value="Eliminar">Eliminar <i class="fa fa-trash-o"></i></button>
+                                <button type="button" id="eliminar" name="eliminar" class="btn btn-danger btn-block" title= "Eliminar" value="Eliminar" onclick="validaFormulario_geralAnoLetivo(3)">Eliminar <i class="fa fa-trash-o"></i></button>
                             </div>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_2">
-                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar">Editar <i class="fa fa-edit"></i></button>
+                                <button type="button" id="editar" name="editar" class="btn btn-warning btn-block" title= "Editar" value="Editar" onclick="validaFormulario_geralAnoLetivo(2)">Editar <i class="fa fa-edit"></i></button>
                             </div>
                             </form>
                             <div class="form-group col-lg-4 botoesTabelaDivisoria2_3">
-                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_registarAnoLetivo()">Registar <i class="fa fa-save"></i></button>
+                                <button type="button" id="registar" name="registar" class="btn btn-primary btn-block" title= "Registar" value="Registar" onclick="validaFormulario_geralAnoLetivo(1)">Registar <i class="fa fa-save"></i></button>
                             </div>
                         </div>
                     </div>
@@ -327,6 +327,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--Por página-->
+    <script src="js/anoLetivo/geralAnoLetivo.js"></script>
     <script src="js/anoLetivo/mostrarAnoLetivo.js"></script>
     <script src="js/anoLetivo/registarAnoLetivo.js"></script>
     <script src="js/anoLetivo/editarAnoLetivo.js"></script>

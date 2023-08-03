@@ -1,4 +1,7 @@
 function registar_registarAnoLetivo(){ 
+
+    let valoresformAnoLetivo = getDados_geralAnoLetivo();
+
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 
@@ -18,7 +21,7 @@ function registar_registarAnoLetivo(){
             mostraTipoAlerta_Geral("formAnoLetivo", "registar", mensagem[0], mensagem[1]);
 
             //carrega a tabela novamente para se ver as alterações, com os ultimos filtros
-            //carregaTabela_mostrarAnoLetivo(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
+            carregaTabela_geralAnoLetivo(DefaultNumeroRegistos, DefaultOrdenacaoRegistos, DefaultPesquisaDescritivo);   
             //linhaPintada = false;
         }
         else{
@@ -29,50 +32,27 @@ function registar_registarAnoLetivo(){
         }
     };
     //Encoding
-    xhttp.open("POST", "php/anoLetivo/registarDados.php?descritivo="+encodeURIComponent(descritivo)+
-        "&descritivo1Periodo="+encodeURIComponent(descritivo1Periodo)+
-        "&dataInicio1Periodo="+encodeURIComponent(dataInicio1Periodo)+
-        "&dataFim1Periodo="+encodeURIComponent(dataFim1Periodo)+
-        "&descritivo2Periodo="+encodeURIComponent(descritivo2Periodo)+
-        "&dataInicio2Periodo="+encodeURIComponent(dataInicio2Periodo)+
-        "&dataFim2Periodo="+encodeURIComponent(dataFim2Periodo)+
-        "&descritivo3Periodo="+encodeURIComponent(descritivo3Periodo)+
-        "&dataInicio3Periodo="+encodeURIComponent(dataInicio3Periodo)+
-        "&dataFim3Periodo="+encodeURIComponent(dataFim3Periodo)+
-        "&descritivo1PausaLetiva="+encodeURIComponent(descritivo1PausaLetiva)+
-        "&dataInicio1PausaLetiva="+encodeURIComponent(dataInicio1PausaLetiva)+
-        "&dataFim1PausaLetiva="+encodeURIComponent(dataFim1PausaLetiva)+
-        "&descritivo2PausaLetiva="+encodeURIComponent(descritivo2PausaLetiva)+
-        "&dataInicio2PausaLetiva="+encodeURIComponent(dataInicio2PausaLetiva)+
-        "&dataFim2PausaLetiva="+encodeURIComponent(dataFim2PausaLetiva)+
-        "&descritivo3PausaLetiva="+encodeURIComponent(descritivo3PausaLetiva)+
-        "&dataInicio3PausaLetiva="+encodeURIComponent(dataInicio3PausaLetiva)+
-        "&dataFim3PausaLetiva="+encodeURIComponent(dataFim3PausaLetiva), 
+    xhttp.open("POST", "php/anoLetivo/registarDados.php?"+
+        "descritivo="+encodeURIComponent(valoresformAnoLetivo[1])+
+        "&descritivo1Periodo="+encodeURIComponent(valoresformAnoLetivo[5])+
+        "&dataInicio1Periodo="+encodeURIComponent(valoresformAnoLetivo[6])+
+        "&dataFim1Periodo="+encodeURIComponent(valoresformAnoLetivo[7])+
+        "&descritivo2Periodo="+encodeURIComponent(valoresformAnoLetivo[9])+
+        "&dataInicio2Periodo="+encodeURIComponent(valoresformAnoLetivo[10])+
+        "&dataFim2Periodo="+encodeURIComponent(valoresformAnoLetivo[11])+
+        "&descritivo3Periodo="+encodeURIComponent(valoresformAnoLetivo[13])+
+        "&dataInicio3Periodo="+encodeURIComponent(valoresformAnoLetivo[14])+
+        "&dataFim3Periodo="+encodeURIComponent(valoresformAnoLetivo[15])+
+        "&descritivo1PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[17])+
+        "&dataInicio1PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[18])+
+        "&dataFim1PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[19])+
+        "&descritivo2PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[21])+
+        "&dataInicio2PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[22])+
+        "&dataFim2PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[23])+
+        "&descritivo3PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[25])+
+        "&dataInicio3PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[26])+
+        "&dataFim3PausaLetiva="+encodeURIComponent(valoresformAnoLetivo[27]), 
     false);
     xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     xhttp.send();   
-}
-
-function mostraTipoAlerta_registarAnoLetivo(tipoAlerta){
-    if (tipoAlerta == true){
-        //gravado
-        Swal.fire(
-            'A Gravar!',
-            'O seu registo foi gravado com sucesso!',
-            'success'
-        )
-        limpaDados_registarAnoLetivo();    
-    }
-    else{
-        //nao gravado
-        Swal.fire(
-            'Erro!',
-            'Erro ao gravar registo!',
-            'error'
-        )
-    }
-}
-
-function limpaDados_registarAnoLetivo(){
-    document.getElementById("formAnoLetivo").reset();
 }

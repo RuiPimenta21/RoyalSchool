@@ -6,35 +6,35 @@ function getDados_geralAnoLetivo(){
 
     let id1Periodo = document.forms["formAnoLetivo"]["txtId1Periodo"].value;                                            //[04]
     let descritivo1Periodo = document.forms["formAnoLetivo"]["txtDescritivo1Periodo"].value;                            //[05]
-    let dataInicio1Periodo = document.forms["formAnoLetivo"]["txtDataInicio1Perido"].value;                             //[06]
-    let dataFim1Periodo = document.forms["formAnoLetivo"]["txtDataFim1Perido"].value;                                   //[07]
+    let dataInicio1Periodo = document.forms["formAnoLetivo"]["txtDataInicio1Periodo"].value;                            //[06]
+    let dataFim1Periodo = document.forms["formAnoLetivo"]["txtDataFim1Periodo"].value;                                  //[07]
 
     let id2Periodo = document.forms["formAnoLetivo"]["txtId2Periodo"].value;                                            //[08]
     let descritivo2Periodo = document.forms["formAnoLetivo"]["txtDescritivo2Periodo"].value;                            //[09]
-    let dataInicio2Periodo = document.forms["formAnoLetivo"]["txtDataInicio2Perido"].value;                             //[10]
-    let dataFim2Periodo = document.forms["formAnoLetivo"]["txtDataFim2Perido"].value;                                   //[11]
+    let dataInicio2Periodo = document.forms["formAnoLetivo"]["txtDataInicio2Periodo"].value;                             //[10]
+    let dataFim2Periodo = document.forms["formAnoLetivo"]["txtDataFim2Periodo"].value;                                  //[11]
 
     let id3Periodo = document.forms["formAnoLetivo"]["txtId3Periodo"].value;                                            //[12]
     let descritivo3Periodo = document.forms["formAnoLetivo"]["txtDescritivo3Periodo"].value;                            //[13]
-    let dataInicio3Periodo = document.forms["formAnoLetivo"]["txtDataInicio3Perido"].value;                             //[14]
-    let dataFim3Periodo = document.forms["formAnoLetivo"]["txtDataFim3Perido"].value;                                   //[15]
+    let dataInicio3Periodo = document.forms["formAnoLetivo"]["txtDataInicio3Periodo"].value;                            //[14]
+    let dataFim3Periodo = document.forms["formAnoLetivo"]["txtDataFim3Periodo"].value;                                  //[15]
 
     let id1Pausa = document.forms["formAnoLetivo"]["txtId1Pausa"].value;                                                //[16]
-    let descritivo1PausaLetiva = document.forms["formAnoLetivo"]["txtDescritivo1PausaLetiva"].value;                    //[17]
-    let dataInicio1PausaLetiva = document.forms["formAnoLetivo"]["txtDataInicio1PausaLetiva"].value;                    //[18]
-    let dataFim1PausaLetiva = document.forms["formAnoLetivo"]["txtDataFim1PausaLetiva"].value;                          //[19]
+    let descritivo1Pausa = document.forms["formAnoLetivo"]["txtDescritivo1Pausa"].value;                                //[17]
+    let dataInicio1Pausa = document.forms["formAnoLetivo"]["txtDataInicio1Pausa"].value;                                //[18]
+    let dataFim1Pausa = document.forms["formAnoLetivo"]["txtDataFim1Pausa"].value;                                      //[19]
 
     let id2Pausa = document.forms["formAnoLetivo"]["txtId2Pausa"].value;                                                //[20]
-    let descritivo2PausaLetiva = document.forms["formAnoLetivo"]["txtDescritivo2PausaLetiva"].value;                    //[21]
-    let dataInicio2PausaLetiva = document.forms["formAnoLetivo"]["txtDataInicio2PausaLetiva"].value;                    //[22]
-    let dataFim2PausaLetiva = document.forms["formAnoLetivo"]["txtDataFim2PausaLetiva"].value;                          //[23]
+    let descritivo2Pausa = document.forms["formAnoLetivo"]["txtDescritivo2Pausa"].value;                                //[21]
+    let dataInicio2Pausa = document.forms["formAnoLetivo"]["txtDataInicio2Pausa"].value;                                //[22]
+    let dataFim2Pausa = document.forms["formAnoLetivo"]["txtDataFim2Pausa"].value;                                      //[23]
 
     let id3Pausa = document.forms["formAnoLetivo"]["txtId3Pausa"].value;                                                //[24]
-    let descritivo3PausaLetiva = document.forms["formAnoLetivo"]["txtDescritivo3PausaLetiva"].value;                    //[25]
-    let dataInicio3PausaLetiva = document.forms["formAnoLetivo"]["txtDataInicio3PausaLetiva"].value;                    //[26]
-    let dataFim3PausaLetiva = document.forms["formAnoLetivo"]["txtDataFim3PausaLetiva"].value;                          //[27]
+    let descritivo3Pausa = document.forms["formAnoLetivo"]["txtDescritivo3Pausa"].value;                                //[25]
+    let dataInicio3Pausa = document.forms["formAnoLetivo"]["txtDataInicio3Pausa"].value;                                //[26]
+    let dataFim3Pausa = document.forms["formAnoLetivo"]["txtDataFim3Pausa"].value;                                      //[27]
 
-    let valoresformAnoLetivo = [id,descritivo,dataInicio,dataFim,id1Periodo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,id2Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,id3Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,id1Pausa,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,id2Pausa,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,id3Pausa,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva];
+    let valoresformAnoLetivo = [id,descritivo,dataInicio,dataFim,id1Periodo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,id2Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,id3Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,id1Pausa,descritivo1Pausa,dataInicio1Pausa,dataFim1Pausa,id2Pausa,descritivo2Pausa,dataInicio2Pausa,dataFim2Pausa,id3Pausa,descritivo3Pausa,dataInicio3Pausa,dataFim3Pausa];
 
     return valoresformAnoLetivo;
 }
@@ -95,47 +95,47 @@ function validaFormulario_geralAnoLetivo(opcaoSelecionada){
     }
     else if (valoresformAnoLetivo[17] == "") {
         faltaCampo_Geral("Descritivo do Natal");
-        document.forms["formAnoLetivo"]["txtDescritivo1PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDescritivo1Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[18] == "") {
         faltaCampo_Geral("Data de Início do Natal");
-        document.forms["formAnoLetivo"]["txtDataInicio1PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDataInicio1Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[19] == "") {
         faltaCampo_Geral("Data de Fim do Natal");
-        document.forms["formAnoLetivo"]["txtDataFim1PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDataFim1Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[21] == "") {
         faltaCampo_Geral("Descritivo do Carnaval");
-        document.forms["formAnoLetivo"]["txtDescritivo2PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDescritivo2Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[22] == "") {
         faltaCampo_Geral("Data de Início do Carnaval");
-        document.forms["formAnoLetivo"]["txtDataInicio2PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDataInicio2Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[23] == "") {
         faltaCampo_Geral("Data de Fim do Carnaval");
-        document.forms["formAnoLetivo"]["txtDataFim2PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDataFim2Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[25] == "") {
         faltaCampo_Geral("Descritivo da Páscoa");
-        document.forms["formAnoLetivo"]["txtDescritivo3PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDescritivo3Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[26] == "") {
         faltaCampo_Geral("Data de Início da Páscoa");
-        document.forms["formAnoLetivo"]["txtDataInicio3PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDataInicio3Pausa"].focus();
         return false;
     }
     else if (valoresformAnoLetivo[27] == "") {
         faltaCampo_Geral("Data de Fim da Páscoa");
-        document.forms["formAnoLetivo"]["txtDataFim3PausaLetiva"].focus();
+        document.forms["formAnoLetivo"]["txtDataFim3Pausa"].focus();
         return false;
     }
     else{
@@ -238,12 +238,11 @@ function confirmaDados_geralAnoLetivo(opcaoSelecionada){
                 registar_registarAnoLetivo()
             }
             else if(opcaoSelecionada == 2){
-
+                editar_editarAnoLetivo()
             }
             else if(opcaoSelecionada == 3){
-
+                eliminar_eliminarAnoLetivo()
             }
-            //editar_editarAnoLetivo(id,descritivo,descritivo1Periodo,dataInicio1Periodo,dataFim1Periodo,descritivo2Periodo,dataInicio2Periodo,dataFim2Periodo,descritivo3Periodo,dataInicio3Periodo,dataFim3Periodo,descritivo1PausaLetiva,dataInicio1PausaLetiva,dataFim1PausaLetiva,descritivo2PausaLetiva,dataInicio2PausaLetiva,dataFim2PausaLetiva,descritivo3PausaLetiva,dataInicio3PausaLetiva,dataFim3PausaLetiva);
         }
     })
 }
@@ -271,4 +270,14 @@ function dataInvalida_geralAnoLetivo(campo){
         title: 'Datas inválidas.',
         text: campo ,
     })
+}
+
+function atribuidataInicio_geralAnoLetivo(){
+    let dataInicio1Periodo = document.forms["formAnoLetivo"]["txtDataInicio1Periodo"].value;
+    $(document.forms["formAnoLetivo"]["txtDataInicio"]).val(dataInicio1Periodo);
+}
+
+function atribuidataFim_geralAnoLetivo(){
+    let dataFim3Periodo = document.forms["formAnoLetivo"]["txtDataFim3Periodo"].value;
+    $(document.forms["formAnoLetivo"]["txtDataFim"]).val(dataFim3Periodo);
 }
